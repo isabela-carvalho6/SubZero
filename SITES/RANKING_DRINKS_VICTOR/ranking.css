@@ -1,0 +1,134 @@
+/* Estilização geral do corpo da página */
+body {
+    background-color: #000; /* Fundo preto */
+    color: white; /* Texto branco */
+    font-family: Arial, sans-serif; /* Fonte padrão */
+    text-align: center; /* Centraliza textos por padrão */
+}
+
+/* Estilização da navegação principal */
+nav ul {
+    list-style: none; /* Remove os marcadores de lista */
+    padding: 0;
+    display: flex; /* Alinha itens em linha */
+    justify-content: center; /* Centraliza horizontalmente */
+    background: #111; /* Fundo levemente mais claro */
+    padding: 10px;
+}
+
+nav ul li {
+    margin: 0 15px; /* Espaço entre os itens */
+}
+
+nav ul li a {
+    color: white; /* Cor do texto */
+    text-decoration: none; /* Remove sublinhado */
+}
+
+/* Estilização da galeria de drinks usando grid */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+    gap: 20px; /* Espaçamento entre os itens */
+    justify-items: center; /* Centraliza os itens */
+    margin: 20px 0;
+}
+
+/* Cada drink (card) é uma célula do grid */
+.drink {
+    position: relative; /* Necessário para posicionar o nome */
+    overflow: hidden; /* Esconde excesso */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinhamento padrão */
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Imagem do drink */
+.drink img {
+    width: 250px; /* Ajuste o tamanho conforme necessário */
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+/* Nome do drink (oculto inicialmente) */
+.drink .name {
+    position: absolute; /* Sobre a imagem */
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
+    color: white;
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+    opacity: 0; /* Invisível por padrão */
+    transition: opacity 0.3s; /* Suaviza a aparição */
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Exibe o nome ao passar o mouse */
+.drink:hover .name {
+    opacity: 1;
+}
+
+.drink img:hover {
+    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+}
+
+/* Estilo da barra de navegação superior */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    background: #000;
+    padding: 20px 60px;
+}
+
+.topbar ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1; /* Ocupa todo o espaço disponível */
+}
+
+.topbar ul li {
+    padding: 0 15px;
+}
+
+/* Move este item para o final da barra */
+.topbar ul .right {
+    margin-left: auto;
+}
+
+/* Estilo dos links da topbar */
+.topbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.topbar ul li a:hover {
+    color: #ccc; /* Efeito hover suave */
+}
+
+/* Classes opcionais para alinhamentos personalizados dentro do grid */
+.align-start {
+    align-items: flex-start;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-end {
+    align-items: flex-end;
+}
