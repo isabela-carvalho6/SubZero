@@ -14,7 +14,7 @@ $request = $_SERVER['REQUEST_URI'];
 
 switch ($request) {
  
-    case '/dev_pub/public/adm/':
+    case 'subzero/dev_pub/public/adm/':
         $controller = new AdmController();
         $controller->showForm();
         break; 
@@ -42,7 +42,7 @@ switch ($request) {
 
 
 
-    case '/dev_pub/save-adm':
+    case 'subzero/dev_pub/save-adm':
         $controller = new AdmController();
         $controller->saveAdm();
         break;
@@ -70,7 +70,7 @@ switch ($request) {
 
 
 
-    case '/dev_pub/list-adm':
+    case 'subzero/dev_pub/list-adm':
         $controller = new AdmController();
         $controller->listAdm();
         break;
@@ -98,7 +98,7 @@ switch ($request) {
 
 
 
-    case '/dev_pub/delete-adm':
+    case 'subzero/dev_pub/delete-adm':
         require_once '../controllers/adm/AdmController.php';
         $controller = new AdmController();
         $controller->deleteAdmByNome();
@@ -131,7 +131,7 @@ switch ($request) {
 
 
         
-    case (preg_match('/\/dev_pub\/update-adm\/(\d+)/', $request, $matches) ? true : false):
+    case (preg_match('/subzero\/dev_pub\/update-adm\/(\d+)/', $request, $matches) ? true : false):
         $id = $matches[1]; 
         require_once '../controllers/adm/AdmController.php';
         $controller = new AdmController();
@@ -169,7 +169,7 @@ switch ($request) {
 
 
 
-    case '/dev_pub/update-adm':
+    case 'subzero/dev_pub/update-adm':
         require_once '../controllers/adm/AdmController.php';
         $controller = new AdmController();
         $controller->updateAdm();
