@@ -58,9 +58,9 @@ switch ($request) {
         break;
         
     case '/dev_pub/save-bebida':
-        $controller = new BebidaController();
-        $controller->saveBebida();
-        break; 
+    $controller = new BebidaController();
+    $controller->saveBebida();
+    break; 
         
     case '/dev_pub/save-feedback':
         $controller = new FeedbackController();
@@ -219,3 +219,4 @@ if ($rota === '/update-adm' && isset($_GET['id'])) {
     $controller = new AdmController();
     $controller->showUpdateForm($_GET['id']);
 }
+?>
