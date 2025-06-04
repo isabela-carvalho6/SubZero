@@ -19,27 +19,27 @@ $rota = $_SERVER['REQUEST_URI'];
 
 switch ($request) {
  
-    case '/dev_pub/public/adm/':
+    case '/SubZero/public/adm/':
         $controller = new AdmController();
         $controller->showForm();
         break; 
         
-    case '/dev_pub/public/bar/':
+    case '/SubZero/public/bar/':
         $controller = new BarController();
         $controller->showForm();
         break;
 
-    case '/dev_pub/public/bebida/':
+    case '/SubZero/public/bebida/':
         $controller = new BebidaController();
         $controller->showForm();
         break;
 
-    case '/dev_pub/public/feedback/':
+    case '/SubZero/public/feedback/':
         $controller = new FeedbackController();
         $controller->showForm();
         break;  
         
-    case '/dev_pub/public/usuario/':
+    case '/SubZero/public/usuario/':
         $controller = new UsuarioController();
         $controller->showForm();
         break;
