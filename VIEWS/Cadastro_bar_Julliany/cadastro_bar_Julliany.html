@@ -56,7 +56,7 @@
             flex-direction: column;
             gap: 20px;
         }
-        input[type="text"], input[type="email"], input[type="password"] {
+        input[type="text"], input[type="email"], input[type="password"],input[type="tel"] {
             width: 100%;
             padding: 15px 20px;
             border-radius: 25px;
@@ -167,17 +167,20 @@
 <body>
     <div class="container">
         <div class="logo">
-    <img src="img/3.jpg" alt="Logo do Bar">
+    <img src="img/4.jpg" alt="Logo do Bar">
 </div>
         <h1>Cadastro Do Bar</h1>
         <div class="info-label">informações sobre o local</div>
         <form>
-            <input type="text" placeholder="Nome do bar" required>
-            <input type="email" placeholder="E-mail" required>
-            <input type="text" placeholder="CEP" required>
-            <input type="text" placeholder="Tipo de bar" required>
-            <input type="password" placeholder="senha" required>
-            <button type="submit" class="btn-cadastrar">Cadastrar</button>
+            <form>
+    <input type="text" placeholder="Nome do bar" required>
+    <input type="email" placeholder="E-mail" required>
+    <input type="text" placeholder="CEP" required>
+    <input type="tel" placeholder="Telefone" required>
+    <input type="text" placeholder="Tipo de bar" required>
+    <input type="password" placeholder="senha" required>
+    <button type="submit" class="btn-cadastrar">Cadastrar</button>
+</form>
         </form>
     </div>
     <footer>
