@@ -10,7 +10,7 @@
 
     <h1>Atualizar Feedback</h1>
 
-    <form method="POST" action="/dev_pub/update-feedback">
+    <form method="POST" action="/SubZero/public/update-feedback">
         <input type="hidden" name="id_feedback" value="<?= $feedbackInfo['id_feedback'] ?>">
 
         <label for="titulo">Título:</label>
@@ -25,7 +25,7 @@
         <input type="submit" value="Atualizar Feedback">
     </form>
 
-    <a href="/dev_pub/list-feedback">Voltar para os feedbacks</a>
+    <a href="/SubZero/public/list-feedback">Voltar para os feedbacks</a>
 
 </body>
 </html>
