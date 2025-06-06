@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro do Bar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+            font-family: 'Inknut Antiqua', serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding-top: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .logo {
+            width: 140px;
+            height: 140px;
+            background: #ccc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #222;
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-family: 'Inknut Antiqua', serif;
+            font-size: 2.3rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .info-label {
+            width: 100%;
+            text-align: left;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            font-family: Arial, sans-serif;
+            font-weight: 400;
+            
+        }
+        form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        /* ...código existente... */
+        input[type="text"], input[type="email"], input[type="password"], input[type="tel"] {
+        width: 100%;
+        padding: 15px 20px;
+        border-radius: 25px;
+        border: none;
+        font-size: 1rem;
+        background: #fff;
+        color: #222;
+        font-family: Arial, sans-serif;
+        margin-bottom: 0;
+        box-sizing: border-box;
+    }
+    input[type="text"]::placeholder,
+    input[type="email"]::placeholder,
+    input[type="password"]::placeholder,
+    input[type="tel"]::placeholder {
+    color: #aaa;
+    }
+/* ...código existente... */
+        .btn-cadastrar {
+            width: 60%;
+            margin: 30px auto 0 auto;
+            padding: 12px 0;
+            border-radius: 25px;
+            border: none;
+            background: #23b7d9;
+            color: #fff;
+            font-size: 1rem;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: block;
+        }
+        .btn-cadastrar:hover {
+            background: #199ab3;
+        }
+        footer {
+            background: #181818;
+            color: #fff;
+            padding: 18px 0 8px 0;
+            font-size: 0.9rem;
+            margin-top: 60px;
+        }
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .footer-links {
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+        .footer-links a {
+            color: #fff;
+            text-decoration: underline;
+            margin: 0 10px;
+            font-size: 0.95rem;
+        }
+        .footer-links a:hover {
+            color: #23b7d9;
+        }
+        .logo {
+            width: 150px;
+            height: 150px;
+            background: #ccc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; /* Garante que a imagem fique dentro do círculo */
+            margin-bottom: 30px;
+        }
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Preenche todo o círculo sem distorcer */
+            border-radius: 50%;
+        display: block;
+        }
+        @media (max-width: 900px) {
+        .conteudo {
+            flex-direction: column;
+            align-items: center;
+        }
+        .coluna.imagem {
+            margin-bottom: 30px;
+        }
+    }
+    
+    @media (max-width: 600px) {
+        h1 {
+            font-size: 1.3rem;
+        }
+        .coluna h2 {
+            font-size: 1rem;
+        }
+        .coluna.imagem img {
+            width: 120px;
+        }
+        .container {
+            padding: 20px 5px 0 5px;
+        }
+        .ingredientes, .preparo, .descricao {
+            font-size: 0.8rem;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+    <img src="img/4.jpg" alt="Logo do Bar">
+</div>
+        <h1>Cadastro Do Bar</h1>
+        <div class="info-label">informações sobre o local</div>
+        <form>
+           
+<form>
+    <input type="text" placeholder="Nome do bar" required>
+    <input type="email" placeholder="E-mail" required>
+    <input type="tel" placeholder="Telefone" required pattern="^\(?\d{2}\)? ?\d{4,5}-?\d{4}$">
+    <input type="text" placeholder="CEP" required>
+    <input type="text" placeholder="Tipo de bar" required>
+    <input type="password" placeholder="senha" required>
+    <button type="submit" class="btn-cadastrar">Cadastrar</button>
+</form>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div style="font-size:0.85rem;">©2025 SubZero. Todos os direitos reservados<br>Beba com moderação.</div>
+            <div class="footer-links">
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Termos de Uso</a>
+                <a href="#">FAQ</a>
+                <a href="#">Contato</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

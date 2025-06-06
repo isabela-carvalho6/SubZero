@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estilo de Drink</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      font-family: 'Georgia', serif;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #121212;
+      padding: 60px 40px;
+      border-radius: 20px;
+      text-align: center;
+      width: 90%;
+      max-width: 900px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 50px;
+      color: #ccc;
+    }
+
+    .options {
+      display: flex;
+      justify-content: space-around;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .option {
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-radius: 15px;
+      padding: 10px;
+    }
+
+    .option:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0);
+    }
+
+    .option img {
+      width: 140px;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      border: 2px solid #ffffff00;
+    }
+
+    .label {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #f0f0f0;
+    
+    }
+    @media (max-width: 768px) {
+        .gallery {
+            grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas menores */
+        }
+    
+        .banner img {
+            max-height: 300px; /* Reduz a altura máxima em telas menores */
+        }
+    
+        .topbar {
+            flex-direction: column; /* Empilha os itens verticalmente */
+            align-items: center;
+        }
+    
+        .topbar ul {
+            flex-direction: column; /* Empilha os links verticalmente */
+            align-items: center;
+        }
+    
+        .topbar ul li {
+            padding: 10px 0; /* Adiciona espaçamento entre os itens */
+        }
+    
+        .topbar ul .right {
+            margin-left: 0; /* Remove o espaçamento automático */
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .gallery {
+            grid-template-columns: 1fr; /* 1 coluna em telas muito pequenas */
+        }
+    
+        .drink img {
+            max-width: 200px; /* Reduz o tamanho máximo das imagens */
+        }
+    
+        .banner img {
+            max-height: 200px; /* Reduz ainda mais a altura máxima em telas muito pequenas */
+        }
+    
+        .topbar ul li a {
+            font-size: 14px; /* Reduz o tamanho da fonte */
+        }
+    
+        .topbar {
+            padding: 5px 10px; /* Reduz o padding em telas muito pequenas */
+        }
+    }
+  </style>
+</head>
+<body>
+      
+  <div class="container">
+    <h1>Estilo de drink</h1>
+    <p>Escolha o estilo de drink melhor para você</p>
+    <div class="options">
+    <div class="option">
+    <img src="img/whisky.png" alt="Drink alcoólico">
+    <div class="label">Alcoólicos</div>
+     </div>
+     <a href="bebidas_não_alcoolicas.html" style="text-decoration:none; color:inherit;">
+        <div class="option">
+      <img src="img/vecteezy_reing-purple-cocktail-with-ice-lime-and-mint-leaves_57006399.png" alt="Drink não alcoólico">
+      <div class="label">Não alcoólicos</div>
+    </div>
+  </a>
+</div>
+  
+    
+</body>
+</html>
