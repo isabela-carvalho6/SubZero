@@ -147,19 +147,15 @@
     <div class="form-wrapper">
       <div class="form-box">
         <h1>CADASTRAR<br>NOVA BEBIDA/DRINK</h1>
-        <form action="/dev_pub/save-bebida" method="POST" enctype="multipart/form-data">
+        <form action="/SubZero/public/save-bebida" method="POST" enctype="multipart/form-data">
           <input type="text" name="nome" placeholder="NOME DA BEBIDA" required>
-          <input type="text" name="origem" placeholder="ORIGEM">
           <input type="text" name="descricao" placeholder="DESCRIÇÃO" required>
-
-          <label class="upload-btn">
-            <span>IMAGEM DRINK</span>
-            <input type="file" name="imagem" accept="image/*" style="display:none;">
-          </label>
-
+          <input type="text" name="ingredientes" placeholder="INGREDIENTES" required>
+          <input type="text" name="instrucoes" placeholder="INSTRUÇÕES" required>
+          <input type="hidden" name="usuario_id" value="1">
           <button type="submit">CADASTRAR</button>
         </form>
-        <a href="/SubZero/public/list-bebida"><h4>Ver todas as bebidas</h4></a>
+        <a href="/SubZero/public/list-bebida">Ver todas as bebidas</a>
       </div>
     </div>
   </div>
