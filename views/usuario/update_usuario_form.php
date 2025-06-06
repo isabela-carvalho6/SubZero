@@ -10,7 +10,7 @@
 
     <h1>Atualizar Usuário</h1>
 
-    <form action="/dev_pub/update-usuario" method="POST">
+    <form action="/SubZero/public/update-usuario" method="POST">
  
         <input type="hidden" name="id" value="<?php echo $usuarioInfo['id']; ?>">
 
@@ -29,7 +29,7 @@
         <input type="submit" value="Atualizar Usuário">
     </form>
 
-    <a href="/dev_pub/list-usuario">Voltar para a lista</a>
+    <a href="/SubZero/public/list-usuario">Voltar para a lista</a>
 
 
 </body>

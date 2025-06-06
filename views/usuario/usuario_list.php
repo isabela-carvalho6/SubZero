@@ -27,9 +27,9 @@
             
 
             <td>
-                <a href="/dev_pub/update-usuario/<?php echo $usuario['id']; ?>">Atualizar</a>
+                <a href="/SubZero/public/update-usuario/<?php echo $usuario['id']; ?>">Atualizar</a>
 
-                <form method="POST" action="/dev_pub/delete-usuario" style="display:inline;">
+                <form method="POST" action="/SubZero/public/delete-usuario" style="display:inline;">
                     <input type="hidden" name="id" value="<?= $usuario['id'] ?>">
                     <button type="submit">Excluir</button>
                 </form>
@@ -38,7 +38,7 @@
         <?php endforeach; ?>
     </table>
 
-    <a href="/dev_pub/public/usuario/">Cadastrar novo Usuário</a>
+    <a href="/SubZero/public/usuario/">Cadastrar novo Usuário</a>
 
 
 </body>
