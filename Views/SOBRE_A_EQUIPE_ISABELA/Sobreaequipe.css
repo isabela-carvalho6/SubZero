@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+  background-color: #000;
+  color: white;
+  font-family: 'Inknut Antiqua', serif;
+  text-align: center;
+}
+
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background: #000;
+  padding: 10px 20px;
+}
+
+.topbar ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.topbar ul li {
+  padding: 10px 15px;
+  text-align: center;
+}
+
+.topbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.topbar ul li a:hover {
+  color: #ccc;
+}
+
+.topbar ul .right {
+  margin-left: auto;
+}
+
+h1 {
+  font-weight: 100;
+  font-size: 2.5rem;
+}
+
+p {
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.sobre h2 {
+  font-size: 2em;
+  margin-bottom: 40px;
+}
+
+.integrantes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 20px;
+}
+
+.membro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 150px;
+  transition: transform 0.3s ease;
+}
+
+.membro:hover {
+  transform: translateY(-10px);
+}
+
+.foto {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 3px solid #fff;
+}
+
+.descricao {
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.texto-final {
+  max-width: 800px;
+  margin: 40px auto;
+  font-size: 1.1em;
+  line-height: 1.6;
+  padding: 0 20px;
+  font-weight: 300;
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .topbar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .topbar ul li {
+    padding: 10px 0;
+  }
+
+  .topbar ul .right {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .topbar ul li a {
+    font-size: 14px;
+  }
+
+  .topbar {
+    padding: 5px 10px;
+  }
+}
