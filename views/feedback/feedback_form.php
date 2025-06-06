@@ -17,9 +17,6 @@
             <label for="titulo">Título:</label>
             <input type="text" id="titulo" name="titulo" required><br><br>
 
-            <label for="descricao">Descrição:</label>
-            <input type="text" id="descricao" name="descricao" required><br><br>
-
             <label for="data_feedback">Data:</label>
             <input type="date" id="data_feedback" name="data_feedback" required><br><br>
 
