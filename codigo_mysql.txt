@@ -65,3 +65,8 @@ SELECT id, nome_completo FROM usuario;
 -- Adiciona a coluna data_feedback na tabela feedback
 Use dev_pub;
 ALTER TABLE feedback ADD COLUMN data_feedback DATE;
+
+-- Adiciona a coluna Latitude e longitude no bar
+Use dev_pub;
+ALTER TABLE bar ADD latitude VARCHAR(20);
+ALTER TABLE bar ADD longitude VARCHAR(20);

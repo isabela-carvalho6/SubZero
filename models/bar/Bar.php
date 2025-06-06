@@ -14,6 +14,8 @@ class Bar {
     public $cep;
     public $numero;
     public $tipo;
+    public $latitude;
+    public $longitude;
     public $senha;
     public $fk_usuario_id;
 
@@ -25,9 +27,10 @@ class Bar {
     }
 
     public function save() {
-        $query = "INSERT INTO " . $this->table_name . " (nome_completo, email, cep, numero, tipo, senha, fk_usuario_id) 
-                  VALUES (:nome_completo, :email, :cep, :numero, :tipo,  :senha, :fk_usuario_id)";
- 
+        $query = "INSERT INTO " . $this->table_name . " 
+        (nome_completo, email, cep, numero, tipo, latitude, longitude, senha, fk_usuario_id) 
+        VALUES (:nome_completo, :email, :cep, :numero, :tipo, :latitude, :longitude, :senha, :fk_usuario_id)";
+
         $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':nome_completo', $this->nome_completo);
@@ -35,10 +38,11 @@ class Bar {
         $stmt->bindParam(':cep', $this->cep);
         $stmt->bindParam(':numero', $this->numero);
         $stmt->bindParam(':tipo', $this->tipo);
+        $stmt->bindParam(':latitude', $this->latitude);
+        $stmt->bindParam(':longitude', $this->longitude);
         $stmt->bindParam(':senha', $this->senha);
         $stmt->bindParam(':fk_usuario_id', $this->fk_usuario_id);
 
-        
         return $stmt->execute();
     }
 

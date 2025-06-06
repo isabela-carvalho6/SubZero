@@ -16,13 +16,15 @@ class BarController {
             $bar->cep = $_POST['cep'];
             $bar->numero = $_POST['numero'];
             $bar->tipo = $_POST['tipo'];
+            $bar->latitude = $_POST['latitude'];      // <-- Adicionado
+            $bar->longitude = $_POST['longitude'];    // <-- Adicionado
             $bar->senha = $_POST['senha'];
 
             // Pega o id do usuário logado da sessão
             if (isset($_SESSION['usuario_id'])) {
                 $bar->fk_usuario_id = $_SESSION['usuario_id'];
             } else {
-                $bar->fk_usuario_id = 1; // fallback para um usuário padrão
+                $bar->fk_usuario_id = 3; // fallback para um usuário padrão
             }
 
             if ($bar->save()) {
