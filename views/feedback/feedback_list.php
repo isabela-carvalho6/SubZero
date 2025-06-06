@@ -13,7 +13,7 @@
     <table border="1">
         <tr>
             <th>Título</th>
-            <th>Descrição</th>
+            <th>Mensagem</th>
             <th>Data</th>
         </tr>
 
