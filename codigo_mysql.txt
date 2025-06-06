@@ -70,3 +70,8 @@ ALTER TABLE feedback ADD COLUMN data_feedback DATE;
 Use dev_pub;
 ALTER TABLE bar ADD latitude VARCHAR(20);
 ALTER TABLE bar ADD longitude VARCHAR(20);
+
+-- Adiciona a coluna cidade/estado
+ALTER TABLE bar ADD cidade VARCHAR(100) NOT NULL AFTER tipo;
+ALTER TABLE bar ADD estado VARCHAR(2) NOT NULL AFTER cidade;
+

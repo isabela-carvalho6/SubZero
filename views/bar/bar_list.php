@@ -17,9 +17,12 @@
             <th>CEP</th>
             <th>Número</th>
             <th>Tipo</th>
-            <th>Latitude</th>      <!-- Adicionado -->
-            <th>Longitude</th>     <!-- Adicionado -->
+            <th>Cidade</th>         <!-- Adicionado -->
+            <th>Estado</th> <!-- Adicionado -->
+            <th>Latitude</th>
+            <th>Longitude</th>
             <th>Senha</th>
+            <th>Endereço Completo</th> <!-- Adicionado -->
             <th>Ações</th>
         </tr>
 
@@ -30,9 +33,12 @@
             <td><?= htmlspecialchars($bar['cep'] ?? '') ?></td>
             <td><?= htmlspecialchars($bar['numero'] ?? '') ?></td>
             <td><?= htmlspecialchars($bar['tipo'] ?? '') ?></td>
+            <td><?= htmlspecialchars($bar['cidade'] ?? '') ?></td>      <!-- Adicionado -->
+            <td><?= htmlspecialchars($bar['estado'] ?? '') ?></td> <!-- Adicionado -->
             <td><?= htmlspecialchars($bar['latitude'] ?? '') ?></td>
             <td><?= htmlspecialchars($bar['longitude'] ?? '') ?></td>
             <td><?= htmlspecialchars($bar['senha'] ?? '') ?></td>
+            <td><?= htmlspecialchars($bar['endereco_completo'] ?? '') ?></td> <!-- Adicionado -->
             <td>
                 <a href="/SubZero/public/update-bar/<?= $bar['id_bar'] ?>">Atualizar</a>
                 <form method="POST" action="/SubZero/public/delete-bar" style="display:inline;">

@@ -35,6 +35,21 @@
         <label for="senha">Senha:</label>
         <input type="password" id="senha" name="senha" value="<?= htmlspecialchars($barInfo['senha']) ?>" required><br><br>
 
+        <label for="cidade">Cidade:</label>
+        <input type="text" id="cidade" name="cidade" value="<?= htmlspecialchars($barInfo['cidade'] ?? '') ?>" required><br><br>
+
+        <label for="estado">Estado:</label>
+        <select id="estado" name="estado" required>
+            <option value="">Selecione o estado</option>
+            <option value="AC" <?= ($barInfo['estado'] ?? '') == 'AC' ? 'selected' : '' ?>>Acre</option>
+            <option value="AL" <?= ($barInfo['estado'] ?? '') == 'AL' ? 'selected' : '' ?>>Alagoas</option>
+            <!-- ...demais estados... -->
+            <option value="SP" <?= ($barInfo['estado'] ?? '') == 'SP' ? 'selected' : '' ?>>São Paulo</option>
+            <!-- ... -->
+        </select><br><br>
+
+        <input type="hidden" id="endereco_completo" name="endereco_completo" value="<?= htmlspecialchars($barInfo['endereco_completo'] ?? '') ?>">
+
         <input type="submit" value="Atualizar Bar">
     </form>
 
@@ -42,17 +57,21 @@
 
     <script>
     document.querySelector('form').addEventListener('submit', function(e) {
-        const cep = document.getElementById('cep').value;
-        const numero = document.getElementById('numero').value;
-        const latitude = document.getElementById('latitude');
-        const longitude = document.getElementById('longitude');
-        const endereco = `${cep}, ${numero}, Brasil`;
+        const logradouro = document.getElementById('logradouro').value.trim();
+        const numero = document.getElementById('numero').value.trim();
+        const bairro = document.getElementById('bairro').value.trim();
+        const cidade = document.getElementById('cidade').value.trim();
+        const estado = document.getElementById('estado').value.trim();
+        const cep = document.getElementById('cep').value.trim();
+
+        const enderecoCompleto = `${logradouro}, ${numero} - ${bairro}, ${cidade} - ${estado}, ${cep}`;
+        document.getElementById('endereco_completo').value = enderecoCompleto;
 
         // Só busca novas coordenadas se o usuário alterou CEP ou número
         if (cep && numero && (latitude.value === '' || longitude.value === '')) {
             e.preventDefault();
 
-            fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(endereco)}`)
+            fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(enderecoCompleto)}`)
               .then(res => res.json())
               .then(data => {
                 if (data.length) {
@@ -60,7 +79,7 @@
                   longitude.value = data[0].lon;
                   this.submit();
                 } else {
-                  alert('Endereço não encontrado! Verifique o CEP e número.');
+                  alert('Endereço não encontrado! Verifique o CEP, número e outros detalhes.');
                 }
               })
               .catch(() => alert('Erro ao buscar coordenadas!'));

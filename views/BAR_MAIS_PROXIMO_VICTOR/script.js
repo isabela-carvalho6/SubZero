@@ -51,16 +51,22 @@ function buscarLocal() {
 
 // Adicione ao final do seu bar_form.php, antes do </body>
 document.querySelector('form').addEventListener('submit', function(e) {
-    const cep = document.getElementById('cep').value;
-    const numero = document.getElementById('numero').value;
-    const endereco = `${cep}, ${numero}, Brasil`;
+    const logradouro = document.getElementById('logradouro').value.trim();
+    const numero = document.getElementById('numero').value.trim();
+    const bairro = document.getElementById('bairro').value.trim();
+    const cidade = document.getElementById('cidade').value.trim();
+    const estado = document.getElementById('estado').value.trim();
+    const cep = document.getElementById('cep').value.trim();
 
-    e.preventDefault(); // Impede o envio imediato
+    // Monta o endereço completo no formato desejado
+    const enderecoCompleto = `${logradouro}, ${numero} - ${bairro}, ${cidade} - ${estado}, ${cep}`;
 
-    fetch(`https://nominatim.openstreetmap.org/search?format=json&countrycodes=BR&q=${encodeURIComponent(endereco)}`)
+    e.preventDefault();
+
+    fetch(`https://geocode.xyz/${encodeURIComponent(enderecoCompleto)}?json=1&region=BR`)
       .then(res => res.json())
       .then(data => {
-        if (data.length) {
+        if (data.latt && data.longt) {
           // Cria campos ocultos para latitude e longitude
           let latInput = document.getElementById('latitude');
           let lonInput = document.getElementById('longitude');
@@ -78,11 +84,23 @@ document.querySelector('form').addEventListener('submit', function(e) {
             lonInput.id = 'longitude';
             this.appendChild(lonInput);
           }
-          latInput.value = data[0].lat;
-          lonInput.value = data[0].lon;
-          this.submit(); // Agora envia o formulário
+          latInput.value = data.latt;
+          lonInput.value = data.longt;
+
+          // Também envie o endereço completo para o backend, se quiser salvar
+          let endCompletoInput = document.getElementById('endereco_completo');
+          if (!endCompletoInput) {
+            endCompletoInput = document.createElement('input');
+            endCompletoInput.type = 'hidden';
+            endCompletoInput.name = 'endereco_completo';
+            endCompletoInput.id = 'endereco_completo';
+            this.appendChild(endCompletoInput);
+          }
+          endCompletoInput.value = enderecoCompleto;
+
+          this.submit();
         } else {
-          alert('Endereço não encontrado! Verifique o CEP e número.');
+          alert('Endereço não encontrado! Verifique o endereço digitado.');
         }
       })
       .catch(() => alert('Erro ao buscar coordenadas!'));

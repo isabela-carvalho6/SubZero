@@ -13,18 +13,21 @@ class BarController {
             $bar = new Bar();
             $bar->nome_completo = $_POST['nome_completo'];
             $bar->email = $_POST['email'];
-            $bar->cep = $_POST['cep'];
-            $bar->numero = $_POST['numero'];
+            $bar->cep = $_POST['cep'];           // <-- ADICIONE ESTA LINHA
+            $bar->numero = $_POST['numero'];     // <-- ADICIONE ESTA LINHA
             $bar->tipo = $_POST['tipo'];
             $bar->latitude = $_POST['latitude'];      // <-- Adicionado
             $bar->longitude = $_POST['longitude'];    // <-- Adicionado
             $bar->senha = $_POST['senha'];
+            $bar->cidade = $_POST['cidade']; // Adicionado
+            $bar->estado = $_POST['estado']; // Adicionado
+            $bar->endereco_completo = $_POST['endereco_completo'];
 
             // Pega o id do usuário logado da sessão
             if (isset($_SESSION['usuario_id'])) {
                 $bar->fk_usuario_id = $_SESSION['usuario_id'];
             } else {
-                $bar->fk_usuario_id = 3; // fallback para um usuário padrão
+                $bar->fk_usuario_id = 1; // Use um ID que exista!
             }
 
             if ($bar->save()) {
@@ -58,12 +61,13 @@ class BarController {
             $bar->id_bar = $_POST['id_bar'];
             $bar->nome_completo = $_POST['nome_completo'];
             $bar->email = $_POST['email'];
-            $bar->cep = $_POST['cep'];
-            $bar->numero = $_POST['numero'];
             $bar->tipo = $_POST['tipo'];
             $bar->latitude = $_POST['latitude'];      // <-- Adicionado
             $bar->longitude = $_POST['longitude'];    // <-- Adicionado
             $bar->senha = $_POST['senha'];
+            $bar->cidade = $_POST['cidade']; // Adicionado
+            $bar->estado = $_POST['estado']; // Adicionado
+            $bar->endereco_completo = $_POST['endereco_completo'];
 
             if ($bar->update()) {
                 header('Location: /SubZero/public/list-bar');
