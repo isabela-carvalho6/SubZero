@@ -10,7 +10,7 @@
 
     <h1>Atualizar Bebida</h1>
 
-    <form action="/dev_pub/update-bebida" method="POST">
+    <form action="/SubZero/public/update-bebida" method="POST">
         <input type="hidden" name="id_bebida" value="<?= $bebidaInfo['id_bebida'] ?>">
 
         <label for="nome">Nome:</label>
@@ -28,7 +28,7 @@
         <button type="submit">Atualizar Bebida</button>
     </form>
 
-    <a href="/dev_pub/list-bebida">Voltar para a lista</a>
+    <a href="/SubZero/public/list-bebida">Voltar para a lista</a>
 
 
 </body>

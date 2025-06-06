@@ -1,0 +1,72 @@
+-- Criação do banco de dados
+CREATE DATABASE IF NOT EXISTS dev_pub;
+USE dev_pub;
+
+-- Criação da tabela de usuários
+CREATE TABLE IF NOT EXISTS usuario (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_completo VARCHAR(255) NOT NULL,
+    cpf VARCHAR(20) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    senha VARCHAR(255) NOT NULL
+);
+
+-- Criação da tabela de administradores
+CREATE TABLE IF NOT EXISTS adm (
+    id_adm INT AUTO_INCREMENT PRIMARY KEY,
+    nome_completo VARCHAR(255) NOT NULL,
+    senha VARCHAR(255) NOT NULL
+);
+
+-- Criação da tabela de bares
+CREATE TABLE IF NOT EXISTS bar (
+    id_bar INT AUTO_INCREMENT PRIMARY KEY,
+    nome_completo VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    cep VARCHAR(20) NOT NULL,
+    numero VARCHAR(10) NOT NULL,
+    tipo VARCHAR(50) NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    fk_usuario_id INT NOT NULL,
+    FOREIGN KEY (fk_usuario_id) REFERENCES usuario(id)
+);
+
+-- Criação atualizada da tabela de bebidas
+CREATE TABLE IF NOT EXISTS bebida (
+    id_bebida INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    origem VARCHAR(255),
+    descricao TEXT,
+    ingredientes TEXT,
+    instrucoes TEXT,
+    usuario_id INT,
+    imagem VARCHAR(255),
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id)
+);
+
+-- Criação da tabela de feedbacks
+CREATE TABLE IF NOT EXISTS feedback (
+    id_feedback INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(255) NOT NULL,
+    mensagem TEXT NOT NULL,
+    fk_usuario_id INT,
+    FOREIGN KEY (fk_usuario_id) REFERENCES usuario(id)
+);
+
+-- Inserção de dados iniciais
+INSERT INTO usuario (nome_completo, cpf, email, senha) 
+VALUES 
+    ('Admin', '11111111111', 'admin@email.com', 'senha123'),
+    ('Usuário Padrão', '00000000000', 'padrao@email.com', 'senha123');
+
+-- Visualizar usuários
+SELECT id, nome_completo FROM usuario;
+
+-- Adiciona a coluna data_feedback na tabela feedback
+Use dev_pub;
+ALTER TABLE feedback ADD COLUMN data_feedback DATE;
+
+-- Adiciona a coluna Latitude e longitude no bar
+Use dev_pub;
+ALTER TABLE bar ADD latitude VARCHAR(20);
+ALTER TABLE bar ADD longitude VARCHAR(20);

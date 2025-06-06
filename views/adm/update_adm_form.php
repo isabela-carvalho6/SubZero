@@ -9,7 +9,7 @@
 <body>
 
     <h2>Atualizar Administrador</h2>
-    <form method="POST" action="/dev_pub/update-adm">
+    <form method="POST" action="/SubZero/public/update-adm">
         <input type="hidden" name="id_adm" value="<?= $admInfo['id_adm'] ?>">
         <label for="nome_completo">Nome Completo:</label>
         <input type="text" name="nome_completo" value="<?= $admInfo['nome_completo'] ?>" required><br>
@@ -18,7 +18,7 @@
         <button type="submit">Salvar</button>
     </form>
 
-    <a href="/dev_pub/list-adm">Voltar para a lista</a>
+    <a href="/SubZero/public/list-adm">Voltar para a lista</a>
 
 
 </body>

@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f3f3f3;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0 10px;
+}
+
+.search-container {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#search {
+  padding: 8px;
+  width: 250px;
+}
+
+button {
+  padding: 8px 12px;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#map {
+  width: 90%;
+  height: 80vh;
+  margin: 0 auto 30px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}

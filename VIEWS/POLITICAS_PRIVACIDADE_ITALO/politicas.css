@@ -1,0 +1,117 @@
+/* Estilização geral do corpo da página */
+body {
+    background-color: #000; /* Fundo preto */
+    color: white; /* Texto branco */
+    font-family: Arial, sans-serif; /* Fonte padrão */
+    text-align: center; /* Centraliza textos por padrão */
+    margin: 0;
+}
+
+header {
+    margin-top: 24px;
+}
+
+/* Estilização da navegação principal - ATUALIZADA */
+.topbar {
+    background: #111;
+    width: 96%;
+    margin: 0 auto;
+    padding: 0;
+    border-radius: 2px;
+}
+
+.topbar ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 24px 48px;
+}
+
+.topbar li {
+    margin: 0 24px;
+}
+
+.topbar a {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Inknut Antiqua', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    transition: color 0.2s;
+}
+
+.topbar a:hover {
+    color: #cfcfcf;
+}
+
+/* Estilo do conteúdo principal */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: #1e1e1e;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: left; /* Alinhamento do texto dentro do conteúdo */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p, li {
+    line-height: 1.6;
+    list-style: none; /* Remove as bolinhas dos <li> */
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #111;
+    color: #aaa;
+    font-size: 14px;
+}
+
+footer a {
+    color: #aaa;
+    margin: 0 5px;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+/* Aplicando pesos diferentes da fonte */
+h1 {
+    font-family: 'Inknut Antiqua', serif;
+    font-weight: 100;
+    font-size: 1.5rem;
+}
+
+p {
+    font-family: 'Inknut Antiqua', serif;
+    font-weight: 100;
+    font-size: 0.9rem;
+}
+
+p strong {
+    font-family: 'Inknut Antiqua', serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+li {
+    font-family: 'Inknut Antiqua', serif;
+    font-weight: 100;
+    font-size: 0.9rem;
+}
+
+footer p {
+    font-family: 'Inknut Antiqua', serif;
+    font-weight: 100;
+    font-size: 0.8rem;
+}

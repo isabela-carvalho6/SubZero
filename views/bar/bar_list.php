@@ -15,8 +15,10 @@
             <th>Nome Completo</th>
             <th>E-mail</th>
             <th>CEP</th>
-            <th>Número</th> <!-- Adicione esta linha -->
+            <th>Número</th>
             <th>Tipo</th>
+            <th>Latitude</th>      <!-- Adicionado -->
+            <th>Longitude</th>     <!-- Adicionado -->
             <th>Senha</th>
             <th>Ações</th>
         </tr>
@@ -24,14 +26,16 @@
         <?php foreach ($bares as $bar): ?>
         <tr>
             <td><?= htmlspecialchars($bar['nome_completo']) ?></td>
-            <td><?php echo $bar['email']; ?></td>
-            <td><?php echo $bar['cep']; ?></td>
-            <td><?php echo $bar['numero']; ?></td>
-            <td><?php echo $bar['tipo']; ?></td>
-            <td><?php echo $bar['senha']; ?></td>
+            <td><?= htmlspecialchars($bar['email']) ?></td>
+            <td><?= htmlspecialchars($bar['cep']) ?></td>
+            <td><?= htmlspecialchars($bar['numero']) ?></td>
+            <td><?= htmlspecialchars($bar['tipo']) ?></td>
+            <td><?= htmlspecialchars($bar['latitude']) ?></td>    <!-- Adicionado -->
+            <td><?= htmlspecialchars($bar['longitude']) ?></td>   <!-- Adicionado -->
+            <td><?= htmlspecialchars($bar['senha']) ?></td>
             <td>
-                <a href="/dev_pub/update-bar/<?= $bar['id_bar'] ?>">Atualizar</a>
-                <form method="POST" action="/dev_pub/delete-bar" style="display:inline;">
+                <a href="/SubZero/public/update-bar/<?= $bar['id_bar'] ?>">Atualizar</a>
+                <form method="POST" action="/SubZero/public/delete-bar" style="display:inline;">
                     <input type="hidden" name="id_bar" value="<?= $bar['id_bar'] ?>">
                     <button type="submit">Excluir</button>
                 </form>
@@ -40,8 +44,7 @@
         <?php endforeach; ?>
     </table>
 
-    <a href="/dev_pub/public/bar/">Cadastrar novo bar</a>
-
+    <a href="/SubZero/public/bar/">Cadastrar novo bar</a>
 
 </body>
 </html>

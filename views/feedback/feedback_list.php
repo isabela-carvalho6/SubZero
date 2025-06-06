@@ -13,7 +13,7 @@
     <table border="1">
         <tr>
             <th>Título</th>
-            <th>Descrição</th>
+            <th>Mensagem</th>
             <th>Data</th>
         </tr>
 
@@ -23,8 +23,8 @@
             <td><?php echo $feedback['mensagem']; ?></td>
             <td><?php echo $feedback['data_feedback']; ?></td>
             <td>
-                <a href="/dev_pub/update-feedback/<?= $feedback['id_feedback'] ?>">Atualizar</a>
-                <form method="POST" action="/dev_pub/delete-feedback" style="display:inline;">
+                <a href="/SubZero/public/update-feedback/<?= $feedback['id_feedback'] ?>">Atualizar</a>
+                <form method="POST" action="/SubZero/public/delete-feedback" style="display:inline;">
                     <input type="hidden" name="id_feedback" value="<?= $feedback['id_feedback'] ?>">
                     <button type="submit">Excluir</button>
                 </form>
@@ -33,7 +33,7 @@
         <?php endforeach; ?>
     </table>
 
-    <a href="/dev_pub/public/feedback/">Postar Novo Feedback</a>
+    <a href="/SubZero/public/feedback/">Postar Novo Feedback</a>
 
 
 </body>

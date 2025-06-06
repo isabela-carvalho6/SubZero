@@ -44,169 +44,151 @@ switch ($request) {
         $controller->showForm();
         break;
 
-
-
-
-    case '/dev_pub/save-adm':
+    case '/SubZero/public/save-adm':
         $controller = new AdmController();
         $controller->saveAdm();
         break;
 
-    case '/dev_pub/save-bar':
+    case '/SubZero/public/save-bar':
         $controller = new BarController();
         $controller->saveBar();
         break;
         
-    case '/dev_pub/save-bebida':
-    $controller = new BebidaController();
-    $controller->saveBebida();
-    break; 
+    case '/SubZero/public/save-bebida':
+        $controller = new BebidaController();
+        $controller->saveBebida();
+        break; 
         
-    case '/dev_pub/save-feedback':
+    case '/SubZero/public/save-feedback':
         $controller = new FeedbackController();
         $controller->saveFeedback();
         break;
         
-    case '/dev_pub/save-usuario':
+    case '/SubZero/public/save-usuario':
         $controller = new UsuarioController();
         $controller->saveUsuario();
         break;    
 
-
-
-
-    case '/dev_pub/list-adm':
+    case '/SubZero/public/list-adm':
         $controller = new AdmController();
         $controller->listAdm();
         break;
 
-    case '/dev_pub/list-bar':
+    case '/SubZero/public/list-bar':
         $controller = new BarController();
         $controller->listBar();
         break;
 
-    case '/dev_pub/list-bebida':
+    case '/SubZero/public/list-bebida':
         $controller = new BebidaController();
         $controller->listBebida();
         break;
 
-    case '/dev_pub/list-feedback':
+    case '/SubZero/public/list-feedback':
         $controller = new FeedbackController();
         $controller->listFeedback();
         break;
 
-    case '/dev_pub/list-usuario':
+    case '/SubZero/public/list-usuario':
         $controller = new UsuarioController();
         $controller->listUsuario();
         break;
 
-
-
-
-    case '/dev_pub/delete-adm':
+    case '/SubZero/public/delete-adm':
         require_once '../controllers/adm/AdmController.php';
         $controller = new AdmController();
         $controller->deleteAdmByNome();
         break;
 
-    case '/dev_pub/delete-bar':
+    case '/SubZero/public/delete-bar':
         require_once '../controllers/bar/BarController.php';
         $controller = new BarController();
         $controller->deleteBarById(); // Troque para deleteBarById
         break;
         
-    case '/dev_pub/delete-bebida':
+    case '/SubZero/public/delete-bebida':
         require_once '../controllers/bebida/BebidaController.php';
         $controller = new BebidaController();
         $controller->deleteBebidaByNome();
         break;
         
-    case '/dev_pub/delete-feedback':
+    case '/SubZero/public/delete-feedback':
         require_once '../controllers/feedback/FeedbackController.php';
         $controller = new FeedbackController();
         $controller->deleteFeedbackById();
         break;
         
-    case '/dev_pub/delete-usuario':
+    case '/SubZero/public/delete-usuario':
         require_once '../controllers/usuario/UsuarioController.php';
         $controller = new UsuarioController();
         $controller->deleteUsuarioById();
         break;    
 
-
-
-        
-    case (preg_match('/\/dev_pub\/update-adm\/(\d+)/', $request, $matches) ? true : false):
+    case (preg_match('/\/SubZero\/public\/update-adm\/(\d+)/', $request, $matches) ? true : false):
         $id = $matches[1]; 
         require_once '../controllers/adm/AdmController.php';
         $controller = new AdmController();
         $controller->showUpdateForm($id); 
         break;
 
-    case (preg_match('/\/dev_pub\/update-bar\/(\d+)/', $request, $matches) ? true : false):
+    case (preg_match('/\/SubZero\/public\/update-bar\/(\d+)/', $request, $matches) ? true : false):
         $id = $matches[1]; 
         require_once '../controllers/bar/BarController.php';
         $controller = new BarController();
         $controller->showUpdateForm($id);
         break;
 
-    case (preg_match('/\/dev_pub\/update-bebida\/(\d+)/', $request, $matches) ? true : false):
+    case (preg_match('/\/SubZero\/public\/update-bebida\/(\d+)/', $request, $matches) ? true : false):
         $id = $matches[1]; 
         require_once '../controllers/bebida/BebidaController.php';
         $controller = new BebidaController();
         $controller->showUpdateForm($id);
         break;
 
-    case (preg_match('/\/dev_pub\/update-feedback\/(\d+)/', $request, $matches) ? true : false):
+    case (preg_match('/\/SubZero\/public\/update-feedback\/(\d+)/', $request, $matches) ? true : false):
         $id = $matches[1]; 
         require_once '../controllers/feedback/FeedbackController.php';
         $controller = new FeedbackController();
         $controller->showUpdateForm($id);
         break;
 
-    case (preg_match('/\/dev_pub\/update-usuario\/(\d+)/', $request, $matches) ? true : false):
+    case (preg_match('/\/SubZero\/public\/update-usuario\/(\d+)/', $request, $matches) ? true : false):
         $id = $matches[1]; 
         require_once '../controllers/usuario/UsuarioController.php';
         $controller = new UsuarioController();
         $controller->showUpdateForm($id);
         break;
 
-
-
-
-    case '/dev_pub/update-adm':
+    case '/SubZero/public/update-adm':
         require_once '../controllers/adm/AdmController.php';
         $controller = new AdmController();
         $controller->updateAdm();
         break;
 
-    case '/dev_pub/update-bar':
+    case '/SubZero/public/update-bar':
         require_once '../controllers/bar/BarController.php';
         $controller = new BarController();
         $controller->updateBar();
         break;
 
-    case '/dev_pub/update-bebida':
+    case '/SubZero/public/update-bebida':
         require_once '../controllers/bebida/BebidaController.php';
         $controller = new BebidaController();
         $controller->updateBebida();
         break;
     
-    case '/dev_pub/update-feedback':
+    case '/SubZero/public/update-feedback':
         require_once '../controllers/feedback/FeedbackController.php';
         $controller = new FeedbackController();
         $controller->updateFeedback();
         break;
 
-    case '/dev_pub/update-usuario':
+    case '/SubZero/public/update-usuario':
         require_once '../controllers/usuario/UsuarioController.php';
         $controller = new UsuarioController();
         $controller->updateUsuario();
         break;
 
-
-
-        
     default:
         http_response_code(404);
         echo $request;
