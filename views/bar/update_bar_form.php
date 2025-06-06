@@ -10,7 +10,7 @@
 
     <h1>Atualizar Bar</h1>
 
-    <form action="/dev_pub/update-bar" method="POST">
+    <form action="/SubZero/public/update-bar" method="POST">
  
         <input type="hidden" name="id_bar" value="<?= $barInfo['id_bar'] ?>">
 
@@ -35,7 +35,7 @@
         <input type="submit" value="Atualizar Bar">
     </form>
 
-    <a href="/dev_pub/list-bar">Voltar para a lista</a>
+    <a href="/SubZero/public/list-bar">Voltar para a lista</a>
 
 
 </body>

@@ -12,7 +12,7 @@
 
         <h1>Cadastro de Administrador</h1>
         
-        <form action="/dev_pub/save-adm" method="POST">
+        <form action="/SubZero/public/save-adm" method="POST">
         
             <label for="nome_completo">Nome Completo:</label>
             <input type="text" id="nome_completo" name="nome_completo" required><br><br>
@@ -24,9 +24,9 @@
         </form>
 
 
-        <a href="/dev_pub/list-adm"><h4>Ver todos os administradores</h4>   </a>
+        <a href="/SubZero/public/list-adm"><h4>Ver todos os administradores</h4></a>
 
-        <a href="http://localhost/dev_pub/public/adm/"> Cadastrar administrador</a>
+        <a href="/SubZero/public/adm/"> Cadastrar administrador</a>
   
 
 </body>

@@ -18,7 +18,7 @@ class AdmController {
             
 
             if ($adm->save()) {
-                header('Location: /dev_pub/list-adm');
+                header('Location: /SubZero/public/list-adm');
             } else {
                 echo "Erro ao cadastrar o ADM.";
             }
@@ -46,7 +46,7 @@ class AdmController {
             $adm->nome_completo = $_POST['nome_completo'];
             $adm->senha = $_POST['senha'];
             if ($adm->update()) {
-                header('Location: /dev_pub/list-adm');
+                header('Location: /SubZero/public/list-adm');
             } else {
                 echo "Erro ao atualizar o administrador.";
             }
@@ -60,7 +60,7 @@ class AdmController {
             $adm->nome_completo = $_POST['nome_completo'];
 
             if ($adm->deleteByNome()) {
-                header('Location: /dev_pub/list-adm');
+                header('Location: /SubZero/public/list-adm');
             } else {
                 echo "Erro ao excluir o ADM.";
             }
