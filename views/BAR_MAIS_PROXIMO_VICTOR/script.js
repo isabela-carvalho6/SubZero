@@ -38,7 +38,7 @@ function buscarLocal() {
   }
 
   // Se não achou bar, busca endereço pelo Nominatim
-  fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(termo)}`)
+  fetch(`https://nominatim.openstreetmap.org/search?format=json&countrycodes=BR&q=${encodeURIComponent(termo)}`)
     .then(res => res.json())
     .then(data => {
       if (!data.length) return alert("Local não encontrado.");
@@ -48,3 +48,42 @@ function buscarLocal() {
     })
     .catch(() => alert("Erro ao buscar o local."));
 }
+
+// Adicione ao final do seu bar_form.php, antes do </body>
+document.querySelector('form').addEventListener('submit', function(e) {
+    const cep = document.getElementById('cep').value;
+    const numero = document.getElementById('numero').value;
+    const endereco = `${cep}, ${numero}, Brasil`;
+
+    e.preventDefault(); // Impede o envio imediato
+
+    fetch(`https://nominatim.openstreetmap.org/search?format=json&countrycodes=BR&q=${encodeURIComponent(endereco)}`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.length) {
+          // Cria campos ocultos para latitude e longitude
+          let latInput = document.getElementById('latitude');
+          let lonInput = document.getElementById('longitude');
+          if (!latInput) {
+            latInput = document.createElement('input');
+            latInput.type = 'hidden';
+            latInput.name = 'latitude';
+            latInput.id = 'latitude';
+            this.appendChild(latInput);
+          }
+          if (!lonInput) {
+            lonInput = document.createElement('input');
+            lonInput.type = 'hidden';
+            lonInput.name = 'longitude';
+            lonInput.id = 'longitude';
+            this.appendChild(lonInput);
+          }
+          latInput.value = data[0].lat;
+          lonInput.value = data[0].lon;
+          this.submit(); // Agora envia o formulário
+        } else {
+          alert('Endereço não encontrado! Verifique o CEP e número.');
+        }
+      })
+      .catch(() => alert('Erro ao buscar coordenadas!'));
+});

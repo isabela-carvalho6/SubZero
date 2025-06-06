@@ -61,6 +61,8 @@ class BarController {
             $bar->cep = $_POST['cep'];
             $bar->numero = $_POST['numero'];
             $bar->tipo = $_POST['tipo'];
+            $bar->latitude = $_POST['latitude'];      // <-- Adicionado
+            $bar->longitude = $_POST['longitude'];    // <-- Adicionado
             $bar->senha = $_POST['senha'];
 
             if ($bar->update()) {

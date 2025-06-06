@@ -25,14 +25,14 @@
 
         <?php foreach ($bares as $bar): ?>
         <tr>
-            <td><?= htmlspecialchars($bar['nome_completo']) ?></td>
-            <td><?= htmlspecialchars($bar['email']) ?></td>
-            <td><?= htmlspecialchars($bar['cep']) ?></td>
-            <td><?= htmlspecialchars($bar['numero']) ?></td>
-            <td><?= htmlspecialchars($bar['tipo']) ?></td>
-            <td><?= htmlspecialchars($bar['latitude']) ?></td>    <!-- Adicionado -->
-            <td><?= htmlspecialchars($bar['longitude']) ?></td>   <!-- Adicionado -->
-            <td><?= htmlspecialchars($bar['senha']) ?></td>
+            <td><?= htmlspecialchars($bar['nome_completo'] ?? '') ?></td>
+            <td><?= htmlspecialchars($bar['email'] ?? '') ?></td>
+            <td><?= htmlspecialchars($bar['cep'] ?? '') ?></td>
+            <td><?= htmlspecialchars($bar['numero'] ?? '') ?></td>
+            <td><?= htmlspecialchars($bar['tipo'] ?? '') ?></td>
+            <td><?= htmlspecialchars($bar['latitude'] ?? '') ?></td>
+            <td><?= htmlspecialchars($bar['longitude'] ?? '') ?></td>
+            <td><?= htmlspecialchars($bar['senha'] ?? '') ?></td>
             <td>
                 <a href="/SubZero/public/update-bar/<?= $bar['id_bar'] ?>">Atualizar</a>
                 <form method="POST" action="/SubZero/public/delete-bar" style="display:inline;">

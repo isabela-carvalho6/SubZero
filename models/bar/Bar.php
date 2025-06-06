@@ -70,7 +70,7 @@ class Bar {
     public function update() {
         
         $query = "UPDATE " . $this->table_name . " 
-                  SET nome_completo = :nome_completo, email = :email, cep = :cep, numero = :numero, tipo = :tipo, senha = :senha
+                  SET nome_completo = :nome_completo, email = :email, cep = :cep, numero = :numero, tipo = :tipo, latitude = :latitude, longitude = :longitude, senha = :senha
                   WHERE id_bar = :id_bar";
 
         $stmt = $this->conn->prepare($query);
@@ -80,6 +80,8 @@ class Bar {
         $stmt->bindParam(':cep', $this->cep);
         $stmt->bindParam(':numero', $this->numero);
         $stmt->bindParam(':tipo', $this->tipo);
+        $stmt->bindParam(':latitude', $this->latitude);
+        $stmt->bindParam(':longitude', $this->longitude);
         $stmt->bindParam(':senha', $this->senha);
         $stmt->bindParam(':id_bar', $this->id_bar);
 
