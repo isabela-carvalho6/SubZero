@@ -97,7 +97,7 @@ switch ($request) {
     case '/SubZero/public/delete-adm':
         require_once '../controllers/adm/AdmController.php';
         $controller = new AdmController();
-        $controller->deleteAdmByNome();
+        $controller->deleteAdm(); // <-- CORRETO!
         break;
 
     case '/SubZero/public/delete-bar':
@@ -201,4 +201,3 @@ if ($rota === '/update-adm' && isset($_GET['id'])) {
     $controller = new AdmController();
     $controller->showUpdateForm($_GET['id']);
 }
-?>

@@ -9,16 +9,13 @@ class AdmController {
     }
 
     public function saveAdm() {
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $adm = new Adm();
-            
             $adm->nome_completo = $_POST['nome_completo'];
             $adm->senha = $_POST['senha'];
-            
-
             if ($adm->save()) {
-                header('Location: /dev_pub/list-adm');
+                header('Location: /SubZero/list-adm');
+                exit;
             } else {
                 echo "Erro ao cadastrar o ADM.";
             }
@@ -26,10 +23,8 @@ class AdmController {
     }
 
     public function listAdm() {
-
         $adm = new Adm();
         $adms = $adm->getAll();
-        
         include '../views/adm/adm_list.php';
     }
 
@@ -46,21 +41,21 @@ class AdmController {
             $adm->nome_completo = $_POST['nome_completo'];
             $adm->senha = $_POST['senha'];
             if ($adm->update()) {
-                header('Location: /dev_pub/list-adm');
+                header('Location: /SubZero/list-adm');
+                exit;
             } else {
                 echo "Erro ao atualizar o administrador.";
             }
         }
     }
 
-    public function deleteAdmByNome() {
+    public function deleteAdm() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $adm = new Adm();
-            
-            $adm->nome_completo = $_POST['nome_completo'];
-
-            if ($adm->deleteByNome()) {
-                header('Location: /dev_pub/list-adm');
+            $adm->id_adm = $_POST['id_adm'];
+            if ($adm->delete()) {
+                header('Location: /SubZero/public/list-adm');
+                exit;
             } else {
                 echo "Erro ao excluir o ADM.";
             }

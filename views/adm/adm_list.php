@@ -23,7 +23,7 @@
             <td>
                 <a href="/SubZero/public/update-adm/<?php echo $adm['id_adm']; ?>">Atualizar</a>
                 <form action="/SubZero/public/delete-adm" method="POST" style="display:inline;">
-                    <input type="hidden" name="nome_completo" value="<?php echo $adm['nome_completo']; ?>">
+                    <input type="hidden" name="id_adm" value="<?php echo $adm['id_adm']; ?>">
                     <button type="submit">Excluir</button>
                 </form>
             </td>

@@ -56,4 +56,13 @@ class Adm {
         $stmt->bindParam(':nome_completo', $this->nome_completo);
         return $stmt->execute();
     }
+
+    public function delete() {
+        if (!isset($this->id_adm)) {
+            return false;
+        }
+        $stmt = $this->conn->prepare("DELETE FROM adm WHERE id_adm = :id_adm");
+        $stmt->bindParam(':id_adm', $this->id_adm, PDO::PARAM_INT);
+        return $stmt->execute();
+    }
 }
