@@ -1,6 +1,6 @@
 -- Criação do banco de dados
-CREATE DATABASE IF NOT EXISTS sistema_bares;
-USE sistema_bares;
+CREATE DATABASE IF NOT EXISTS dev_pub;
+USE dev_pub;
 
 -- Criação da tabela de usuários
 CREATE TABLE IF NOT EXISTS usuario (
