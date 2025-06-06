@@ -12,7 +12,7 @@
 
         <h1>Cadastro de Bar</h1>
         
-        <form action="/dev_pub/save-bar" method="POST">
+        <form action="/SubZero/public/save-bar" method="POST">
         
             <label for="nome_completo">Nome:</label>
             <input type="text" id="nome_completo" name="nome_completo" required><br><br>
@@ -35,8 +35,10 @@
             <input type="submit" value="Cadastrar Bar">
         </form>
 
-        <a href="/dev_pub/list-bar"><h4>Ver todos os bares</h4></a>
-        <a href="http://localhost/dev_pub/public/bar/"> Cadastrar bar</a>
-        <form method="POST" action="/dev_pub/delete-bar">
+        <a href="/SubZero/public/list-bar"><h4>Ver todos os bares</h4></a>
+        <a href="/SubZero/public/bar/">Cadastrar bar</a>
+        <form method="POST" action="/SubZero/public/delete-bar">
             <input type="hidden" name="id_bar" value="<?= $bar['id_bar'] ?>">
         </form>
+</body>
+</html>
