@@ -1,0 +1,97 @@
+body {
+  font-family: 'Inknut Antiqua', serif;
+  background-color: #000;
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-weight: 100;
+  font-size: 2.5rem;
+  margin-top: 40px;
+}
+
+p {
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.form-container {
+  background-color: #111;
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  text-align: left;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  font-family: 'Inknut Antiqua', serif;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #fff;
+}
+
+button.submit-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: 'Inknut Antiqua', serif;
+}
+
+button.submit-btn:hover {
+  background-color: #ccc;
+}
+
+.message {
+  margin-top: 20px;
+  font-size: 0.95rem;
+}
+
+.error {
+  color: #ff4c4c;
+}
+
+.success {
+  color: #4caf50;
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .form-container {
+    margin: 30px 20px;
+    padding: 20px;
+  }
+
+  label, input, button {
+    font-size: 0.95rem;
+  }
+}
