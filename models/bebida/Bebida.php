@@ -13,7 +13,7 @@ class Bebida {
     public $descricao;
     public $ingredientes;
     public $instrucoes;
-    public $fk_usuario_id;
+    public $usuario_id; // em vez de fk_usuario_id
 
     public function __construct() {
         $database = new Database();
@@ -21,8 +21,8 @@ class Bebida {
     }
 
     public function save() {
-        $query = "INSERT INTO " . $this->table_name . " (nome, descricao, ingredientes, instrucoes, fk_usuario_id) 
-                  VALUES (:nome, :descricao, :ingredientes, :instrucoes, :fk_usuario_id)";
+        $query = "INSERT INTO " . $this->table_name . " (nome, descricao, ingredientes, instrucoes, usuario_id) 
+                  VALUES (:nome, :descricao, :ingredientes, :instrucoes, :usuario_id)";
  
         $stmt = $this->conn->prepare($query);
 
@@ -30,7 +30,7 @@ class Bebida {
         $stmt->bindParam(':descricao', $this->descricao);
         $stmt->bindParam(':ingredientes', $this->ingredientes);
         $stmt->bindParam(':instrucoes', $this->instrucoes);
-        $stmt->bindParam(':fk_usuario_id', $this->fk_usuario_id);
+        $stmt->bindParam(':usuario_id', $this->usuario_id);
 
         return $stmt->execute();
     }
@@ -85,3 +85,4 @@ class Bebida {
         return $stmt->execute();
     }
 }
+

@@ -1,4 +1,5 @@
 <?php
+session_start(); // Adicione isso no topo do arquivo
 
 require_once '../models/bebida/Bebida.php';
 
@@ -15,7 +16,7 @@ class BebidaController {
             $bebida->descricao = $_POST['descricao'];
             $bebida->ingredientes = $_POST['ingredientes'];
             $bebida->instrucoes = $_POST['instrucoes'];
-            $bebida->fk_usuario_id = $_SESSION['usuario_id'];
+            $bebida->usuario_id = $_SESSION['usuario_id'];
 
             if ($bebida->save()) {
                 header('Location: /SubZero/public/list-bebida');

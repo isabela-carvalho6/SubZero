@@ -84,3 +84,7 @@ WHERE id_bar = 1; -- ou o id do bar antigo
 Use dev_pub;
 ALTER TABLE bar DROP COLUMN latitude;
 ALTER TABLE bar DROP COLUMN longitude;
+
+
+use dev_pub;
+ALTER TABLE bebida CHANGE usuario_id fk_usuario_id INT;
