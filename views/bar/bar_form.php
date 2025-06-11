@@ -77,6 +77,7 @@
     <a href="/SubZero/public/bar/">Cadastrar bar</a>
 
     <script>
+    // filepath: c:\xampp\htdocs\SubZero\views\bar\bar_form.php
     document.querySelector('form').addEventListener('submit', function(e) {
         const logradouro = document.getElementById('logradouro').value.trim();
         const numero = document.getElementById('numero').value.trim();
@@ -90,38 +91,7 @@
 
         // Preenche o campo oculto
         document.getElementById('endereco_completo').value = enderecoCompleto;
-
-        e.preventDefault();
-
-        fetch(`https://geocode.xyz/${encodeURIComponent(enderecoCompleto)}?json=1&region=BR`)
-          .then(res => res.json())
-          .then(data => {
-            if (data.latt && data.longt) {
-              // Cria campos ocultos para latitude e longitude
-              let latInput = document.getElementById('latitude');
-              let lonInput = document.getElementById('longitude');
-              if (!latInput) {
-                latInput = document.createElement('input');
-                latInput.type = 'hidden';
-                latInput.name = 'latitude';
-                latInput.id = 'latitude';
-                this.appendChild(latInput);
-              }
-              if (!lonInput) {
-                lonInput = document.createElement('input');
-                lonInput.type = 'hidden';
-                lonInput.name = 'longitude';
-                lonInput.id = 'longitude';
-                this.appendChild(lonInput);
-              }
-              latInput.value = data.latt;
-              lonInput.value = data.longt;
-              this.submit();
-            } else {
-              alert('Endereço não encontrado! Verifique o endereço digitado.');
-            }
-          })
-          .catch(() => alert('Erro ao buscar coordenadas!'));
+        // Agora deixa o submit seguir normalmente
     });
     </script>
 </body>

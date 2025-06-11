@@ -7,14 +7,33 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
+// Função para normalizar o endereço
+function normalizarEndereco(endereco) {
+  return endereco
+    .replace(/\bR\.\b/gi, 'Rua')
+    .replace(/\bAv\.\b/gi, 'Avenida')
+    .replace(/\bRod\.\b/gi, 'Rodovia')
+    .replace(/\bDr\.\b/gi, 'Doutor')
+    .replace(/\bProf\.\b/gi, 'Professor');
+}
+
 // Carrega bares do banco
 fetch("get_bares.php")
   .then(res => res.json())
   .then(data => {
     bares = data; // salva bares globalmente
     bares.forEach(bar => {
-      const marker = L.marker([bar.latitude, bar.longitude]).addTo(map);
-      marker.bindPopup(`<strong>${bar.nome}</strong><br>${bar.endereco}<br>Tipo: ${bar.tipo}`);
+      const enderecoBusca = extrairEnderecoParaBusca(bar.endereco);
+      fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(enderecoBusca)}&countrycodes=BR`)
+        .then(res => res.json())
+        .then(geoData => {
+          if (geoData.length > 0) {
+            const lat = parseFloat(geoData[0].lat);
+            const lon = parseFloat(geoData[0].lon);
+            const marker = L.marker([lat, lon]).addTo(map);
+            marker.bindPopup(`<strong>${bar.nome}</strong><br>${bar.endereco}<br>Tipo: ${bar.tipo}`);
+          }
+        });
     });
   })
   .catch(error => {
@@ -29,11 +48,23 @@ function buscarLocal() {
   // Busca por nome de bar cadastrado
   const barEncontrado = bares.find(bar => bar.nome.toLowerCase().includes(termo));
   if (barEncontrado) {
-    map.setView([barEncontrado.latitude, barEncontrado.longitude], 17);
-    L.popup()
-      .setLatLng([barEncontrado.latitude, barEncontrado.longitude])
-      .setContent(`<strong>${barEncontrado.nome}</strong><br>${barEncontrado.endereco}<br>Tipo: ${barEncontrado.tipo}`)
-      .openOn(map);
+    const enderecoBusca = extrairEnderecoParaBusca(barEncontrado.endereco);
+    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(enderecoBusca)}&countrycodes=BR`)
+      .then(res => res.json())
+      .then(geoData => {
+        if (geoData.length > 0) {
+          const lat = parseFloat(geoData[0].lat);
+          const lon = parseFloat(geoData[0].lon);
+          map.setView([lat, lon], 17);
+          L.popup()
+            .setLatLng([lat, lon])
+            .setContent(`<strong>${barEncontrado.nome}</strong><br>${barEncontrado.endereco}<br>Tipo: ${barEncontrado.tipo}`)
+            .openOn(map);
+        } else {
+          alert("Endereço do bar não encontrado no mapa.");
+        }
+      })
+      .catch(() => alert("Erro ao buscar o endereço do bar."));
     return;
   }
 
@@ -105,3 +136,27 @@ document.querySelector('form').addEventListener('submit', function(e) {
       })
       .catch(() => alert('Erro ao buscar coordenadas!'));
 });
+
+function extrairEnderecoParaBusca(endereco) {
+  // Exemplo de entrada: "R. Rui Barbosa, 1043 - Vila Teixeira, Salto - SP, 13328300"
+  // Saída desejada: "Rua Rui Barbosa, 1043, Salto, SP"
+  endereco = normalizarEndereco(endereco);
+
+  // Remove CEP (tudo após a última vírgula)
+  endereco = endereco.replace(/,\s*\d{5}-?\d{3}$/, '');
+
+  // Extrai rua e número (antes do primeiro hífen ou vírgula após número)
+  let ruaNumero = endereco.split('-')[0].trim();
+
+  // Extrai cidade e estado (após o último hífen)
+  let cidadeEstadoMatch = endereco.match(/,\s*([^,]+)-\s*([A-Z]{2})/);
+  let cidade = '';
+  let estado = '';
+  if (cidadeEstadoMatch) {
+    cidade = cidadeEstadoMatch[1].trim();
+    estado = cidadeEstadoMatch[2].trim();
+  }
+
+  // Monta endereço para busca
+  return `${ruaNumero}, ${cidade}, ${estado}`;
+}

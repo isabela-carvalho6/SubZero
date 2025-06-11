@@ -13,14 +13,12 @@ class BarController {
             $bar = new Bar();
             $bar->nome_completo = $_POST['nome_completo'];
             $bar->email = $_POST['email'];
-            $bar->cep = $_POST['cep'];           // <-- ADICIONE ESTA LINHA
-            $bar->numero = $_POST['numero'];     // <-- ADICIONE ESTA LINHA
+            $bar->cep = $_POST['cep'];
+            $bar->numero = $_POST['numero'];
             $bar->tipo = $_POST['tipo'];
-            $bar->latitude = $_POST['latitude'];      // <-- Adicionado
-            $bar->longitude = $_POST['longitude'];    // <-- Adicionado
             $bar->senha = $_POST['senha'];
-            $bar->cidade = $_POST['cidade']; // Adicionado
-            $bar->estado = $_POST['estado']; // Adicionado
+            $bar->cidade = $_POST['cidade'];
+            $bar->estado = $_POST['estado'];
             $bar->endereco_completo = $_POST['endereco_completo'];
 
             // Pega o id do usuário logado da sessão
@@ -62,11 +60,9 @@ class BarController {
             $bar->nome_completo = $_POST['nome_completo'];
             $bar->email = $_POST['email'];
             $bar->tipo = $_POST['tipo'];
-            $bar->latitude = $_POST['latitude'];      // <-- Adicionado
-            $bar->longitude = $_POST['longitude'];    // <-- Adicionado
             $bar->senha = $_POST['senha'];
-            $bar->cidade = $_POST['cidade']; // Adicionado
-            $bar->estado = $_POST['estado']; // Adicionado
+            $bar->cidade = $_POST['cidade'];
+            $bar->estado = $_POST['estado'];
             $bar->endereco_completo = $_POST['endereco_completo'];
 
             if ($bar->update()) {

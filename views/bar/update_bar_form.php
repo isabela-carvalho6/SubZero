@@ -26,12 +26,6 @@
         <label for="tipo">Tipo:</label>
         <input type="text" id="tipo" name="tipo" value="<?= htmlspecialchars($barInfo['tipo']) ?>" required><br><br>
 
-        <label for="latitude">Latitude:</label>
-        <input type="text" id="latitude" name="latitude" value="<?= htmlspecialchars($barInfo['latitude'] ?? '') ?>" required><br><br>
-
-        <label for="longitude">Longitude:</label>
-        <input type="text" id="longitude" name="longitude" value="<?= htmlspecialchars($barInfo['longitude'] ?? '') ?>" required><br><br>
-
         <label for="senha">Senha:</label>
         <input type="password" id="senha" name="senha" value="<?= htmlspecialchars($barInfo['senha']) ?>" required><br><br>
 
@@ -57,33 +51,16 @@
 
     <script>
     document.querySelector('form').addEventListener('submit', function(e) {
-        const logradouro = document.getElementById('logradouro').value.trim();
+        const logradouro = document.getElementById('logradouro') ? document.getElementById('logradouro').value.trim() : '';
         const numero = document.getElementById('numero').value.trim();
-        const bairro = document.getElementById('bairro').value.trim();
+        const bairro = document.getElementById('bairro') ? document.getElementById('bairro').value.trim() : '';
         const cidade = document.getElementById('cidade').value.trim();
         const estado = document.getElementById('estado').value.trim();
         const cep = document.getElementById('cep').value.trim();
 
         const enderecoCompleto = `${logradouro}, ${numero} - ${bairro}, ${cidade} - ${estado}, ${cep}`;
         document.getElementById('endereco_completo').value = enderecoCompleto;
-
-        // Só busca novas coordenadas se o usuário alterou CEP ou número
-        if (cep && numero && (latitude.value === '' || longitude.value === '')) {
-            e.preventDefault();
-
-            fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(enderecoCompleto)}`)
-              .then(res => res.json())
-              .then(data => {
-                if (data.length) {
-                  latitude.value = data[0].lat;
-                  longitude.value = data[0].lon;
-                  this.submit();
-                } else {
-                  alert('Endereço não encontrado! Verifique o CEP, número e outros detalhes.');
-                }
-              })
-              .catch(() => alert('Erro ao buscar coordenadas!'));
-        }
+        // Deixe o submit seguir normalmente
     });
     </script>
 
