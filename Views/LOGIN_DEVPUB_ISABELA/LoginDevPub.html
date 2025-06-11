@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login DevPub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@100;300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="LoginDevPub.css" />
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+  <div class="intro-box">
+    Bem-vindo à <strong>DevPub</strong>! Que bom que você decidiu fazer o login. Assim, você poderá explorar drinks incríveis, descobrir receitas e encontrar os melhores bares próximos de você. Sua experiência começa agora!
+  </div>
+
+  <div class="login-box">
+    <div id="g_id_onload"
+         data-client_id="SEU_CLIENT_ID_AQUI"
+         data-context="signin"
+         data-ux_mode="popup"
+         data-callback="handleCredentialResponse"
+         data-auto_prompt="false">
+    </div>
+
+    <div class="g_id_signin"
+         data-type="standard"
+         data-shape="pill"
+         data-theme="outline"
+         data-text="signin_with"
+         data-size="large"
+         data-logo_alignment="left">
+    </div>
+
+    <div class="separator">ou</div>
+
+    <button class="btn-login" onclick="loginComEmail()">Iniciar sessão com e-mail</button>
+  </div>
+
+  <script>
+    function abrirPerfil(event) {
+      event.preventDefault();
+      window.location.href = '../PERFIL_ISABELA/Perfil.html';
+    }
+
+    function loginComEmail() {
+      window.location.href = '../LOGIN_COM_EMAIL_ISABELA/Logincomemail.html';
+    }
+  </script>
+</body>
+</html>
