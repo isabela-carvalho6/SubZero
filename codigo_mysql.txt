@@ -66,13 +66,21 @@ SELECT id, nome_completo FROM usuario;
 Use dev_pub;
 ALTER TABLE feedback ADD COLUMN data_feedback DATE;
 
+-- Adiciona a coluna Latitude e longitude no bar
+Use dev_pub;
+ALTER TABLE bar ADD latitude VARCHAR(20);
+ALTER TABLE bar ADD longitude VARCHAR(20);
+
 -- Adiciona a coluna cidade/estado
 ALTER TABLE bar ADD cidade VARCHAR(100) NOT NULL AFTER tipo;
 ALTER TABLE bar ADD estado VARCHAR(2) NOT NULL AFTER cidade;
-
 
 ALTER TABLE bar ADD endereco_completo VARCHAR(255) AFTER email;
 
 UPDATE bar
 SET cep = '13320240', numero = '755', cidade = 'Salto', estado = 'SP'
 WHERE id_bar = 1; -- ou o id do bar antigo
+
+Use dev_pub;
+ALTER TABLE bar DROP COLUMN latitude;
+ALTER TABLE bar DROP COLUMN longitude;
