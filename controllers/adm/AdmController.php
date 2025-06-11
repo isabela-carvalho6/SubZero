@@ -14,7 +14,7 @@ class AdmController {
             $adm->nome_completo = $_POST['nome_completo'];
             $adm->senha = $_POST['senha'];
             if ($adm->save()) {
-                header('Location: /SubZero/list-adm');
+                header('Location: /SubZero/public/list-adm');
                 exit;
             } else {
                 echo "Erro ao cadastrar o ADM.";
@@ -41,7 +41,7 @@ class AdmController {
             $adm->nome_completo = $_POST['nome_completo'];
             $adm->senha = $_POST['senha'];
             if ($adm->update()) {
-                header('Location: /SubZero/list-adm');
+                header('Location: /SubZero/public/list-adm');
                 exit;
             } else {
                 echo "Erro ao atualizar o administrador.";
