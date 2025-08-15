@@ -1,0 +1,144 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: white;
+}
+
+.topbar {
+    background: #111;
+    width: 96%;
+    margin: 0 auto;
+    padding: 0;
+    border-radius: 2px;
+}
+
+.topbar ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 24px 48px;
+}
+
+.topbar li {
+    margin: 0 24px;
+}
+
+.topbar a {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Inknut Antiqua', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    transition: color 0.2s;
+}
+
+.topbar a:hover {
+    color: #cfcfcf;
+}
+
+/* Main content */
+.container {
+    position: relative;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.background-image {
+    background-size: 300px auto; 
+    opacity: 20%;
+    position: absolute;
+    top: -50px;
+    left: 400px;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.help-content h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-family: 'Inknut Antiqua', serif;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f0f7;
+    border-radius: 12px;
+    padding: 5px 10px;
+    width: 300px;
+    margin: 0 auto 40px;
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 8px;
+    color: black;
+}
+
+.search-box button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+.help-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.help-links a {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 15px;
+    background-color: #000;
+    border: 3px solid #222;
+    border-radius: 10px;
+    text-decoration: underline;
+    color: white;
+    font-size: 16px;
+}
+
+.help-links a:hover {
+    background-color: #111;
+}
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #111;
+    color: #aaa;
+    font-size: 14px;
+}
+
+footer a {
+    color: #aaa;
+    margin: 0 5px;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+footer p,a {
+    font-family: 'Inknut Antiqua', serif;
+    font-weight: 100;
+    font-size: 0.8rem;
+}
