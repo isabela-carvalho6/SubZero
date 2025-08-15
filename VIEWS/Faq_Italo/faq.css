@@ -63,7 +63,7 @@ body {
     font-family: 'Inknut Antiqua', serif;
 }
 
-.search-box {
+.caixa-de-texto {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,7 +74,7 @@ body {
     margin: 0 auto 40px;
 }
 
-.search-box input {
+.caixa-de-texto input {
     flex: 1;
     border: none;
     outline: none;
@@ -83,7 +83,7 @@ body {
     color: black;
 }
 
-.search-box button {
+.caixa-de-texto button {
     background: none;
     border: none;
     font-size: 16px;
