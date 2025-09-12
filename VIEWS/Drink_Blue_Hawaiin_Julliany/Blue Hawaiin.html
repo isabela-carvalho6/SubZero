@@ -19,7 +19,7 @@
         padding: 40px 20px 0 20px;
     }
     h1 {
-        font-size: 2rem; /* Reduzido */
+        font-size: 2rem;
         font-weight: 700;
         text-align: center;
         margin-bottom: 10px;
@@ -27,8 +27,8 @@
         letter-spacing: 2px;
     }
     .descricao {
-        text-align: center;
-        font-size: 0.9rem; /* Reduzido */
+        text-align: justify; /* alinhamento justificado */
+        font-size: 0.9rem;
         font-weight: 400;
         margin-bottom: 40px;
         color: #ddd;
@@ -50,19 +50,21 @@
         justify-content: center;
     }
     .coluna.imagem img {
-        width: 200px;
+        width: -63px; 
+        height: 265px;     /* Aumenta a largura da imagem */
         border-radius: 16px;
         margin-top: 20px;
     }
     .coluna h2 {
-        font-size: 1.2rem; /* Reduzido */
+        font-size: 1.2rem;
         font-weight: 700;
         margin-bottom: 20px;
         margin-top: 0;
+        text-align: left; /* alinhamento à esquerda */
     }
     .ingredientes {
-        text-align: left;
-        font-size: 0.95rem; /* Reduzido */
+        text-align: left; /* alinhamento à esquerda */
+        font-size: 0.95rem;
         margin-bottom: 0;
     }
     .ingredientes ul {
@@ -71,10 +73,17 @@
     }
     .ingredientes li {
         margin-bottom: 10px;
+        text-align: left; /* alinhamento à esquerda */
+    }
+    .ingredientes h3 {
+        text-align: left; /* alinhamento à esquerda */
+        margin-bottom: 5px;
+        margin-top: 15px;
+        font-size: 1rem;
     }
     .preparo {
-        text-align: left;
-        font-size: 0.95rem; /* Reduzido */
+        text-align: center; /* alinhamento à esquerda */
+        font-size: 0.85rem;
     }
     .preparo ol {
         padding-left: 20px;
@@ -82,6 +91,7 @@
     }
     .preparo li {
         margin-bottom: 18px;
+        text-align: left; /* alinhamento à esquerda */
     }
     @media (max-width: 900px) {
         .conteudo {
@@ -92,12 +102,13 @@
             margin-bottom: 30px;
         }
     }
+    
     @media (max-width: 600px) {
         h1 {
-            font-size: 1.3rem; /* Reduzido */
+            font-size: 1.3rem;
         }
         .coluna h2 {
-            font-size: 1rem; /* Reduzido */
+            font-size: 1rem;
         }
         .coluna.imagem img {
             width: 120px;
@@ -106,7 +117,7 @@
             padding: 20px 5px 0 5px;
         }
         .ingredientes, .preparo, .descricao {
-            font-size: 0.8rem; /* Reduzido */
+            font-size: 0.8rem;
         }
     }
     .voltar {
