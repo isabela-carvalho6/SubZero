@@ -9,7 +9,7 @@
         body {
             background: #000;
             color: #fff;
-            font-family: 'Inknut Antiqua', serif;
+            font-family: 'Arial, sans-serif;', serif;
             margin: 0;
             padding: 0;
         }
@@ -60,6 +60,12 @@
         }
         .banner img {
             width: 1024%;
+        height: 320px; /* Altura ajustada para desktop */
+        object-fit: cover; /* Preenche o espaço mantendo a proporção e cortando o excesso */
+        display: block;
+        -webkit-mask-image: linear-gradient(to top, transparent 0%, rgb(0, 0, 0) 100%);
+	    background-image: url('/Imagens/Bebidas_não_alcoólicas/banner2.jpg');
+        width: 1024%;
         height: 320px; /* Altura ajustada para desktop */
         object-fit: cover; /* Preenche o espaço mantendo a proporção e cortando o excesso */
         display: block;
