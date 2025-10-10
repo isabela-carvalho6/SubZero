@@ -185,6 +185,10 @@
         background: #000;
         }
         .banner img {
+            width: 1024%;
+        height: 320px; /* Altura ajustada para desktop */
+        object-fit: cover; /* Preenche o espaço mantendo a proporção e cortando o excesso */
+        display: block;
         -webkit-mask-image: linear-gradient(to top, transparent 0%, rgb(0, 0, 0) 100%);
 	    background-image: url('/Imagens/Bebidas_não_alcoólicas/banner2.jpg');
         width: 1024%;
@@ -276,8 +280,8 @@
         <nav class="topbar">
             <ul>
                 <li><a href="#">Bares</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Receitas</a></li>
+                <li><a href="../Curiosidades_Drink_julliany/Curiosidades_drinks.html">Blog</a></li>
+                <li><a href="../Bebidas_não_alcoólicas_Julliany/Bebidas_não_alcoólicas.html">Receitas</a></li>
                 <li class="right"><a href="#">Drinks Principais</a></li>
                 <li class="login"><a href="#">Login</a></li>
             </ul>
