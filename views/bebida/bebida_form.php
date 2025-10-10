@@ -142,7 +142,7 @@
 <body>
   <div class="container">
     <div class="image-side">
-      <img src="/SubZero/IMAGES/pag_cadastro.jpg" alt="MOJITO">
+      <img src="/SubZero/Imagens/Ranking_Drinks_Victor/pag_cadastro.jpg" alt="MOJITO">
     </div>
     <div class="form-wrapper">
       <div class="form-box">

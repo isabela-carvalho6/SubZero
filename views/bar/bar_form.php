@@ -8,7 +8,7 @@
 <body>
 
     <h1>Cadastro de Bar</h1>
-    
+    <!-- #region -->
     <form action="/SubZero/public/save-bar" method="POST">
         <label for="nome_completo">Nome:</label>
         <input type="text" id="nome_completo" name="nome_completo" required><br><br>
@@ -69,8 +69,12 @@
         <label for="tipo">Tipo:</label>
         <input type="text" id="tipo" name="tipo" required><br><br>
 
-        <input type="hidden" id="endereco_completo" name="endereco_completo">
-        <input type="submit" value="Cadastrar Bar">
+    <input type="hidden" id="endereco_completo" name="endereco_completo">
+    <label for="latitude">Latitude:</label>
+    <input type="text" id="latitude" name="latitude" required><br><br>
+    <label for="longitude">Longitude:</label>
+    <input type="text" id="longitude" name="longitude" required><br><br>
+    <input type="submit" value="Cadastrar Bar">
     </form>
 
     <a href="/SubZero/public/list-bar"><h4>Ver todos os bares</h4></a>
