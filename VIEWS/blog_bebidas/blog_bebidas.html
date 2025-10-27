@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -6,173 +6,217 @@
   <title>Mojito Refrescante | Blog de Drinks</title>
   <style>
     /* ======= Estilo Base ======= */
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap');
+
     body {
-      font-family: Arial, sans-serif;
-      background-color: #0b0b0b;
-      color: #f5f5f5;
       margin: 0;
-      padding: 0;
-      line-height: 1.6;
+      background: radial-gradient(circle at center, #141414, #0b0b0b 70%);
+      color: #f4f4f4;
+      font-family: 'Poppins', sans-serif;
+      background-attachment: fixed;
     }
 
+    /* ======= Cabeçalho ======= */
     header {
+      position: relative;
       text-align: center;
-      padding: 40px 20px;
-      background: linear-gradient(90deg, #0f0f0f, #111);
-      border-bottom: 1px solid #000000;
+      height: 45vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      background: 
+        linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.2)),
+        url('https://i.pinimg.com/736x/1e/f9/2e/1ef92ea99f2f95cccfedd892be07009c.jpg') center/cover no-repeat;
+      background-attachment: fixed;
     }
 
     header h1 {
-      color: #e9f2f0;
-      font-size: 2.2em;
-      margin-bottom: 5px;
+      font-family: 'Playfair Display', serif;
+      font-size: 3em;
+      color: #fff;
+      letter-spacing: 1px;
+      text-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+      margin: 0;
     }
 
     header p {
-      color: #aaa;
-      font-size: 1em;
+      color: #e0e0e0;
+      font-size: 1.2em;
+      margin-top: 10px;
+      font-style: italic;
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
     }
 
+    /* ======= Container Principal ======= */
     main {
-      max-width: 850px;
-      margin: 50px auto;
-      background: #121212;
-      padding: 40px;
-      border-radius: 14px;
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+      max-width: 1000px;
+      margin: 0 auto 100px;
+      background: rgba(20, 20, 20, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+      padding: 50px;
+      backdrop-filter: blur(12px);
     }
 
-    /* ======= Layout dos ingredientes e imagem ======= */
+    /* ======= Seção de Ingredientes ======= */
     .drink-section {
       display: flex;
       flex-wrap: wrap;
-      align-items: flex-start;
-      gap: 30px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
     }
 
     .ingredients {
       flex: 1;
-      min-width: 250px;
-    }
-
-    .drink-img {
-      flex: 1;
-      max-width: 300px;
-      border-radius: 12px;
-      border: 1px solid #222;
-      transition: transform 0.3s ease;
-    }
-
-    .drink-img:hover {
-      transform: scale(1.03);
+      min-width: 260px;
     }
 
     h2 {
-      color: #ffffff;
-      margin-top: 30px;
-      margin-bottom: 10px;
-      border-left: 4px solid #04b58a;
+      font-family: 'Playfair Display', serif;
+      color: #d3b673;
+      font-size: 1.6em;
+      margin-bottom: 15px;
+      border-left: 4px solid #d3b673;
       padding-left: 10px;
-      font-size: 1.3em;
     }
 
     ul {
       list-style: none;
       padding: 0;
+      margin: 0;
     }
 
     li {
-      background-color: #1a1a1a;
-      margin: 6px 0;
-      padding: 10px 12px;
-      border-radius: 6px;
-      color: #ddd;
-      border: 1px solid #222;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 12px 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: all 0.3s ease;
     }
 
-    /* ======= Estrelas ======= */
+    li:hover {
+      background: rgba(255, 255, 255, 0.07);
+      transform: translateX(4px);
+    }
+
+    /* ======= Imagem ======= */
+    .drink-img {
+      flex: 1;
+      max-width: 320px;
+      border-radius: 15px;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .drink-img:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 40px rgba(211, 182, 115, 0.3);
+    }
+
+    /* ======= Avaliação ======= */
     .stars {
       display: flex;
-      gap: 8px;
+      gap: 10px;
       font-size: 1.8em;
       cursor: pointer;
-      margin: 15px 0 25px;
-      color: #444;
+      margin: 20px 0 35px;
+      color: #555;
+      transition: color 0.3s ease;
     }
 
-    .stars span {
-      transition: color 0.2s ease, transform 0.2s ease;
-    }
-
-    .stars span:hover {
-      transform: scale(1.1);
-      color: #ffffff;
-    }
-
+    .stars span:hover,
     .stars .active {
-      color: #f1c40f;
+      color: #d3b673;
+      transform: scale(1.15);
     }
 
     /* ======= Feedback ======= */
     textarea {
       width: 100%;
-      height: 90px;
+      height: 120px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 10px;
-      border: 1px solid #333;
-      background-color: #1a1a1a;
       color: #fff;
-      padding: 12px;
-      resize: none;
+      font-size: 1em;
+      padding: 15px;
       margin-top: 10px;
-      font-size: 0.95em;
+      resize: none;
+      font-family: 'Poppins', sans-serif;
+      transition: border 0.3s ease;
+    }
+
+    textarea:focus {
+      border-color: #d3b673;
+      outline: none;
     }
 
     button {
-      background-color: #ffffff;
-      color: #000;
+      background-color: #d3b673;
+      color: #111;
       border: none;
       padding: 12px 25px;
       border-radius: 8px;
       cursor: pointer;
-      margin-top: 10px;
-      font-weight: bold;
+      font-weight: 600;
       font-size: 1em;
-      transition: background-color 0.3s ease;
+      margin-top: 15px;
+      transition: background 0.3s ease, transform 0.2s ease;
     }
 
     button:hover {
-      background-color: #000000;
+      background-color: #e1c78a;
+      transform: translateY(-2px);
     }
 
+    /* ======= Comentários ======= */
     .feedbacks {
-      margin-top: 35px;
-      padding-top: 20px;
-      border-top: 1px solid #222;
+      margin-top: 45px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 25px;
     }
 
     .feedback {
-      background: #1a1a1a;
-      padding: 12px 15px;
-      border-radius: 8px;
-      margin-bottom: 12px;
-      border: 1px solid #222;
+      background: rgba(255, 255, 255, 0.04);
+      border-left: 3px solid #d3b673;
+      padding: 15px 20px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      color: #ddd;
+      font-size: 0.95em;
     }
 
     .feedback small {
       display: block;
-      color: #777;
+      color: #aaa;
       font-size: 0.85em;
-      margin-top: 5px;
+      margin-top: 6px;
     }
 
     /* ======= Responsividade ======= */
-    @media (max-width: 700px) {
+    @media (max-width: 800px) {
+      main {
+        padding: 30px;
+      }
+
       .drink-section {
         flex-direction: column;
         align-items: center;
       }
+
       .drink-img {
+        width: 100%;
         max-width: 100%;
+      }
+
+      header h1 {
+        font-size: 2.3em;
       }
     }
   </style>
@@ -181,7 +225,7 @@
 
   <header>
     <h1>Mojito Refrescante</h1>
-    <p>Um clássico cubano reinventado para o seu paladar</p>
+    <p>Um clássico cubano reinventado com sofisticação</p>
   </header>
 
   <main>
@@ -198,8 +242,7 @@
         </ul>
       </div>
 
-      <img src="../../Imagens/Bebidas_não_alcoólicas/Mojito.png"
-           alt="Mojito Refrescante" class="drink-img">
+      <img src="../../Imagens/Bebidas_não_alcoólicas/Mojito.png" alt="Mojito Refrescante" class="drink-img">
     </div>
 
     <h2>Avaliação</h2>
@@ -216,7 +259,7 @@
     <button onclick="addFeedback()">Enviar</button>
 
     <div class="feedbacks" id="feedbackList">
-      <h3>Comentários de usuários:</h3>
+      <h3 style="font-family: 'Playfair Display', serif; color:#d3b673;">Comentários de usuários:</h3>
     </div>
   </main>
 
@@ -227,9 +270,7 @@
       star.addEventListener('click', () => {
         const value = star.getAttribute('data-value');
         stars.forEach(s => s.classList.remove('active'));
-        for (let i = 0; i < value; i++) {
-          stars[i].classList.add('active');
-        }
+        for (let i = 0; i < value; i++) stars[i].classList.add('active');
       });
     });
 
