@@ -1,0 +1,297 @@
+<!DOCTYPE html> 
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mojito Refrescante | Blog de Drinks</title>
+  <style>
+    /* ======= Estilo Base ======= */
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap');
+
+    body {
+      margin: 0;
+      background: radial-gradient(circle at center, #141414, #0b0b0b 70%);
+      color: #f4f4f4;
+      font-family: 'Poppins', sans-serif;
+      background-attachment: fixed;
+    }
+
+    /* ======= Cabeçalho (Banner) ======= */
+    header {
+      text-align: center;
+      height: 45vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      background:
+        linear-gradient(to top,
+          rgba(0, 0, 0, 0.9) 0%,
+          rgba(0, 0, 0, 0.6) 40%,
+          rgba(0, 0, 0, 0.3) 80%,
+          rgba(0, 0, 0, 0.1) 100%
+        ),
+        url('../../Imagens/Bebidas_não_alcoólicas/bannermojito.jpg');
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3em;
+      color: #fff;
+      letter-spacing: 1px;
+      text-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+      margin: 0;
+    }
+
+    header p {
+      color: #e0e0e0;
+      font-size: 1.2em;
+      margin-top: 10px;
+      font-style: italic;
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    }
+
+    /* ======= Container Principal ======= */
+    main {
+      max-width: 1000px;
+      margin: 0 auto 100px;
+      background: rgba(20, 20, 20, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+      padding: 50px;
+      backdrop-filter: blur(12px);
+    }
+
+    /* ======= Seção de Ingredientes ======= */
+    .drink-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .ingredients {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      color: #d3b673;
+      font-size: 1.6em;
+      margin-bottom: 15px;
+      border-left: 4px solid #d3b673;
+      padding-left: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 12px 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: all 0.3s ease;
+    }
+
+    li:hover {
+      background: rgba(255, 255, 255, 0.07);
+      transform: translateX(4px);
+    }
+
+    /* ======= Imagem do Drink ======= */
+    .drink-img {
+      flex: 1;
+      max-width: 320px;
+      border-radius: 15px;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .drink-img:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 40px rgba(211, 182, 115, 0.3);
+    }
+
+    /* ======= Avaliação ======= */
+    .stars {
+      display: flex;
+      gap: 10px;
+      font-size: 1.8em;
+      cursor: pointer;
+      margin: 20px 0 35px;
+      color: #555;
+      transition: color 0.3s ease;
+    }
+
+    .stars span:hover,
+    .stars .active {
+      color: #d3b673;
+      transform: scale(1.15);
+    }
+
+    /* ======= Feedback ======= */
+    textarea {
+      width: 100%;
+      height: 120px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      color: #fff;
+      font-size: 1em;
+      padding: 15px;
+      margin-top: 10px;
+      resize: none;
+      font-family: 'Poppins', sans-serif;
+      transition: border 0.3s ease;
+    }
+
+    textarea:focus {
+      border-color: #d3b673;
+      outline: none;
+    }
+
+    button {
+      background-color: #d3b673;
+      color: #111;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1em;
+      margin-top: 15px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #e1c78a;
+      transform: translateY(-2px);
+    }
+
+    /* ======= Comentários ======= */
+    .feedbacks {
+      margin-top: 45px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 25px;
+    }
+
+    .feedback {
+      background: rgba(255, 255, 255, 0.04);
+      border-left: 3px solid #d3b673;
+      padding: 15px 20px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      color: #ddd;
+      font-size: 0.95em;
+    }
+
+    .feedback small {
+      display: block;
+      color: #aaa;
+      font-size: 0.85em;
+      margin-top: 6px;
+    }
+
+    /* ======= Responsividade ======= */
+    @media (max-width: 800px) {
+      main {
+        padding: 30px;
+      }
+
+      .drink-section {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .drink-img {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      header h1 {
+        font-size: 2.3em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mojito Refrescante</h1>
+    <p>Um clássico cubano reinventado com sofisticação</p>
+  </header>
+
+  <main>
+    <div class="drink-section">
+      <div class="ingredients">
+        <h2>Ingredientes</h2>
+        <ul>
+          <li>10 folhas de hortelã fresca</li>
+          <li>1 limão em rodelas</li>
+          <li>2 colheres de chá de açúcar</li>
+          <li>50 ml de rum branco</li>
+          <li>Água com gás para completar</li>
+          <li>Gelo a gosto</li>
+        </ul>
+      </div>
+
+      <img src="../../Imagens/Bebidas_não_alcoólicas/Mojito.png" alt="Mojito Refrescante" class="drink-img">
+    </div>
+
+    <h2>Avaliação</h2>
+    <div class="stars" id="starRating">
+      <span data-value="1">★</span>
+      <span data-value="2">★</span>
+      <span data-value="3">★</span>
+      <span data-value="4">★</span>
+      <span data-value="5">★</span>
+    </div>
+
+    <h2>Deixe seu feedback</h2>
+    <textarea id="feedbackText" placeholder="Conte o que achou do drink..."></textarea>
+    <button onclick="addFeedback()">Enviar</button>
+
+    <div class="feedbacks" id="feedbackList">
+      <h3 style="font-family: 'Playfair Display', serif; color:#d3b673;">Comentários de usuários:</h3>
+    </div>
+  </main>
+
+  <script>
+    // Avaliação por estrelas
+    const stars = document.querySelectorAll('.stars span');
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        const value = star.getAttribute('data-value');
+        stars.forEach(s => s.classList.remove('active'));
+        for (let i = 0; i < value; i++) stars[i].classList.add('active');
+      });
+    });
+
+    // Feedback dos usuários
+    function addFeedback() {
+      const text = document.getElementById('feedbackText').value.trim();
+      if (text === '') return alert('Por favor, escreva um feedback!');
+      const div = document.createElement('div');
+      div.classList.add('feedback');
+      div.innerHTML = `<p>${text}</p><small>Enviado agora</small>`;
+      document.getElementById('feedbackList').appendChild(div);
+      document.getElementById('feedbackText').value = '';
+    }
+  </script>
+
+</body>
+</html>
