@@ -1,4 +1,5 @@
 let bares = []; // variável global para guardar os bares
+let marcadores = []; // para controlar os marcadores no mapa
 
 // Inicializa o mapa
 const map = L.map('map').setView([-23.55052, -46.633308], 13); // Ponto inicial (São Paulo)
@@ -22,18 +23,17 @@ fetch("get_bares.php")
   .then(res => res.json())
   .then(data => {
     bares = data; // salva bares globalmente
+    // Limpa marcadores antigos
+    marcadores.forEach(m => map.removeLayer(m));
+    marcadores = [];
     bares.forEach(bar => {
-      const enderecoBusca = extrairEnderecoParaBusca(bar.endereco);
-      fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(enderecoBusca)}&countrycodes=BR`)
-        .then(res => res.json())
-        .then(geoData => {
-          if (geoData.length > 0) {
-            const lat = parseFloat(geoData[0].lat);
-            const lon = parseFloat(geoData[0].lon);
-            const marker = L.marker([lat, lon]).addTo(map);
-            marker.bindPopup(`<strong>${bar.nome}</strong><br>${bar.endereco}<br>Tipo: ${bar.tipo}`);
-          }
-        });
+      if (bar.latitude && bar.longitude) {
+        const lat = parseFloat(bar.latitude);
+        const lon = parseFloat(bar.longitude);
+        const marker = L.marker([lat, lon]).addTo(map);
+        marker.bindPopup(`<strong>${bar.nome}</strong><br>Email: ${bar.email}<br>Cidade: ${bar.cidade}<br>Estado: ${bar.estado}`);
+        marcadores.push(marker);
+      }
     });
   })
   .catch(error => {
@@ -48,23 +48,20 @@ function buscarLocal() {
   // Busca por nome de bar cadastrado
   const barEncontrado = bares.find(bar => bar.nome.toLowerCase().includes(termo));
   if (barEncontrado) {
-    const enderecoBusca = extrairEnderecoParaBusca(barEncontrado.endereco);
-    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(enderecoBusca)}&countrycodes=BR`)
-      .then(res => res.json())
-      .then(geoData => {
-        if (geoData.length > 0) {
-          const lat = parseFloat(geoData[0].lat);
-          const lon = parseFloat(geoData[0].lon);
-          map.setView([lat, lon], 17);
-          L.popup()
-            .setLatLng([lat, lon])
-            .setContent(`<strong>${barEncontrado.nome}</strong><br>${barEncontrado.endereco}<br>Tipo: ${barEncontrado.tipo}`)
-            .openOn(map);
-        } else {
-          alert("Endereço do bar não encontrado no mapa.");
-        }
-      })
-      .catch(() => alert("Erro ao buscar o endereço do bar."));
+    // Limpa marcadores antigos
+    marcadores.forEach(m => map.removeLayer(m));
+    marcadores = [];
+    if (barEncontrado.latitude && barEncontrado.longitude) {
+      const lat = parseFloat(barEncontrado.latitude);
+      const lon = parseFloat(barEncontrado.longitude);
+      map.setView([lat, lon], 17);
+      const marker = L.marker([lat, lon]).addTo(map);
+      marcadores.push(marker);
+      let popupMsg = `<strong>${barEncontrado.nome}</strong><br>Email: ${barEncontrado.email}<br>Cidade: ${barEncontrado.cidade}<br>Estado: ${barEncontrado.estado}`;
+      marker.bindPopup(popupMsg).openPopup();
+    } else {
+      alert("Bar encontrado, mas latitude/longitude não cadastradas.");
+    }
     return;
   }
 
@@ -137,26 +134,64 @@ document.querySelector('form').addEventListener('submit', function(e) {
       .catch(() => alert('Erro ao buscar coordenadas!'));
 });
 
-function extrairEnderecoParaBusca(endereco) {
-  // Exemplo de entrada: "R. Rui Barbosa, 1043 - Vila Teixeira, Salto - SP, 13328300"
-  // Saída desejada: "Rua Rui Barbosa, 1043, Salto, SP"
+function extrairEnderecoParaBusca(endereco, retornarCidade) {
+  // Exemplo de entrada: "Av. Dom Pedro II, 975 - Centro, Salto - SP, 13320241"
+  // Saída desejada: "Avenida Dom Pedro II, 975, Salto, SP, Brasil"
+  if (!endereco) return retornarCidade ? { enderecoBusca: '', cidadeForcada: '' } : '';
   endereco = normalizarEndereco(endereco);
-
-  // Remove CEP (tudo após a última vírgula)
-  endereco = endereco.replace(/,\s*\d{5}-?\d{3}$/, '');
-
-  // Extrai rua e número (antes do primeiro hífen ou vírgula após número)
-  let ruaNumero = endereco.split('-')[0].trim();
-
-  // Extrai cidade e estado (após o último hífen)
-  let cidadeEstadoMatch = endereco.match(/,\s*([^,]+)-\s*([A-Z]{2})/);
+  // Remove CEP (números no final, com ou sem hífen)
+  endereco = endereco.replace(/,?\s*\d{5}-?\d{3}$/g, '');
+  // Remove bairro (padrão: " - Bairro,")
+  endereco = endereco.replace(/ - [^,]+,/, ',');
+  // Remove bairro se estiver entre vírgulas (ex: ", Centro,")
+  endereco = endereco.replace(/,\s*[^,]+,/, ',');
+  // Normaliza separador de estado (" - SP" para ", SP")
+  endereco = endereco.replace(/ - ([A-Z]{2})/, ', $1');
+  // Remove vírgulas duplicadas e espaços extras
+  endereco = endereco.replace(/\s+,/g, ',').replace(/,\s+/g, ', ').replace(/,+/g, ',').replace(/\s{2,}/g, ' ');
+  // Remove vírgula no final
+  endereco = endereco.replace(/,$/, '');
+  // Divide por vírgula e pega os elementos
+  let partes = endereco.split(',').map(e => e.trim()).filter(Boolean);
+  // Garante que tenha pelo menos rua, número, cidade, estado
+  let rua = partes[0] || '';
+  let numero = partes[1] || '';
   let cidade = '';
   let estado = '';
-  if (cidadeEstadoMatch) {
-    cidade = cidadeEstadoMatch[1].trim();
-    estado = cidadeEstadoMatch[2].trim();
+  // Procura cidade e estado nas últimas partes
+  for (let i = partes.length - 1; i >= 0; i--) {
+    let match = partes[i].match(/^([A-Za-zÀ-ÿ\s]+)\s*([A-Z]{2})$/);
+    if (match) {
+      cidade = match[1].trim();
+      estado = match[2].trim();
+      break;
+    }
+    // Alternativa: "Cidade - SP"
+    match = partes[i].match(/^([A-Za-zÀ-ÿ\s]+)-\s*([A-Z]{2})$/);
+    if (match) {
+      cidade = match[1].trim();
+      estado = match[2].trim();
+      break;
+    }
   }
-
-  // Monta endereço para busca
-  return `${ruaNumero}, ${cidade}, ${estado}`;
+  // Se não encontrou, tenta pegar das últimas partes
+  if (!cidade && partes.length > 2) cidade = partes[partes.length - 2];
+  if (!estado && partes.length > 1) {
+    let est = partes[partes.length - 1].match(/[A-Z]{2}/);
+    if (est) estado = est[0];
+  }
+  // Força cidade para Salto, Itu ou Indaiatuba se aparecer no endereço
+  let cidadesPermitidas = ['Salto', 'Itu', 'Indaiatuba'];
+  let cidadeForcada = cidadesPermitidas.find(c => endereco.toLowerCase().includes(c.toLowerCase()));
+  if (cidadeForcada) {
+    cidade = cidadeForcada;
+  }
+  // Monta endereço final para busca
+  let enderecoBusca = `${rua}, ${numero}, ${cidade}, ${estado}, Brasil`;
+  enderecoBusca = enderecoBusca.replace(/\s+/g, ' ').replace(/ ,/g, ',').trim();
+  if (retornarCidade) {
+    return { enderecoBusca, cidadeForcada };
+  } else {
+    return enderecoBusca;
+  }
 }
