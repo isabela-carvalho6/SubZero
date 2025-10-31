@@ -10,15 +10,16 @@
 <body>
   <header class="topbar">
     <ul>
-      <li><a href="#">BARES</a></li>
-      <li><a href="#">BLOG</a></li>
-      <li><a href="#">RECEITAS</a></li>
+      <li><a href="#" onclick="abrirBares(event)">BARES</a></li>
+      <li><a href="#" onclick="abrirBlog(event)">BLOG</a></li>
+      <li><a href="#" onclick="abrirReceitas(event)">RECEITAS</a></li>
     </ul>
     <div class="logo">
       <img src="https://i.pinimg.com/736x/df/bc/5e/dfbc5e035616cc0b9fe31ad325745467.jpg" alt="Logo da Empresa" style="height: 90px;" />
     </div>
     <ul class="right">
-      <li><a href="#">DRINKS PRINCIPAIS</a></li>
+      <li><a href="#" onclick="abrirDrinks(event)">DRINKS</a></li>
+      <li><a href="#" onclick="abrirColaboradores(event)">COLABORADORES</a></li>
       <li><a href="#" onclick="abrirPerfil(event)">PERFIL</a></li>
     </ul>
   </header>
@@ -56,6 +57,31 @@
     function abrirPerfil(event) {
       event.preventDefault();
       window.location.href = '../Perfil_Isabela/Perfil.html';
+    }
+
+    function abrirColaboradores(event) {
+      event.preventDefault();
+      window.location.href = '../Colaboradores_Isabela/Colaboradores.html';
+    }
+
+    function abrirBlog(event) {
+      event.preventDefault();
+      window.location.href = '../Blog_Julliany/Blog.html';
+    }
+
+    function abrirBares(event) {
+      event.preventDefault();
+      window.location.href = '../BAR_MAIS_PROXIMO_VICTOR/index.html';
+    }
+
+    function abrirDrinks(event) {
+      event.preventDefault();
+      window.location.href = '../RANKING_DRINKS_VICTOR/ranking.html';
+    }
+
+    function abrirReceitas(event) {
+      event.preventDefault();
+      window.location.href = '../Escolha_de_bebidas_Julliany/escolhas_de_bebidas.html';
     }
   </script>
 </body>
