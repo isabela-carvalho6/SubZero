@@ -13,7 +13,7 @@
     <ul>
       <li><a href="#">Início</a></li>
       <li><a href="#">Projetos</a></li>
-      <li><a href="#">Contato</a></li>
+      <li><a href="#" onclick="Contato(event)">Contato</a></li>
       <li><a href="#" onclick="Sair(event)">Sair</a></li>
     </ul>
   </div>
@@ -63,6 +63,11 @@
     function Sair(event) {
       event.preventDefault();
       window.location.href = '../Bem_vindo_de_volta_Isabela/Bemvindodevolta.html';
+    }
+
+    function Contato(event) {
+      event.preventDefault();
+      window.location.href = '../SUPORTE_CONTATO_ITALO/suporte_contato.html';
     }
   </script>
 </body>
