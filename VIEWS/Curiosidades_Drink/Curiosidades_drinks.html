@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Drinks Não Alcoólicos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+            font-family: 'Inknut Antiqua', serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+      background-color: #111;
+      color: white;
+      padding: 20px;
+      text-align: center;
+        }
+        nav {
+            width: 100%;
+            background: #111;
+            padding: 0;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0 0 0 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        nav ul li {
+            margin: 0 30px;
+        }
+        nav ul li a {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+        }
+        nav ul li a:hover {
+            color: #fff;
+        }
+        nav ul li.right {
+            margin-left: auto;
+        }
+        .banner {
+            width: 1000%;
+        max-width: 100vw;
+        overflow: hidden;
+        height: auto px; /* Altura ajustada para desktop */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #000;
+        }
+        .banner img {
+            width: 1024%;
+        height: 320px; /* Altura ajustada para desktop */
+        object-fit: cover; /* Preenche o espaço mantendo a proporção e cortando o excesso */
+        display: block;
+        }
+        .drinks-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 10px 60px 10px;
+        }
+        .drink-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+            margin-bottom: 50px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 30px;
+        }
+        .drink-row:last-child {
+            border-bottom: none;
+        }
+        .drink-img {
+            width: 130px;
+            height: 180px;
+            object-fit: contain;
+            background: transparent;
+            margin-top: -40px;
+        }
+        .drink-info {
+            flex: 1;
+            text-align: left;
+        }
+        .drink-info h2 {
+            font-size: 2rem;
+            font-weight: 400;
+            margin: 0 0 18px 0;
+            font-family: 'Inknut Antiqua', serif;
+        }
+        .drink-info p {
+            font-size: 1rem;
+            font-family: 'Inknut Antiqua', serif;
+            font-weight: 400;
+            margin: 0 0 10px 0;
+            color: #ccc;
+        }
+        @media (max-width: 800px) {
+            .drinks-section {
+                max-width: 98vw;
+                padding: 20px 2vw 40px 2vw;
+            }
+            .drink-row {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                padding-bottom: 20px;
+            }
+            .drink-img {
+                margin-top: 0;
+                margin-bottom: 10px;
+            }
+            .drink-info {
+                text-align: center;
+            }
+            .drink-info h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">BARES</a></li>
+            <li><a href="#">BLOG</a></li>
+            <li><a href="#">RECEITAS</a></li>
+            <li class="right"><a href="#">DRINKS PRINCIPAIS</a></li>
+            <li><a href="#">LOGIN</a></li>
+        </ul>
+    </nav>
+    <div class="banner">
+        <img src="img/banner.jpg" alt="Banner de Drinks">
+    </div>
+    <h1 style="text-align:center; font-family:'Inknut Antiqua',serif; font-size:2.2rem; font-weight:400; margin:40px 0 30px 0;">
+    Curiosidades dos 12 Drinks mais clássicos do mundo
+</h1>
+    <div class="drinks-section">
+        <div class="drink-row">
+            <img class="drink-img" src="https://theperfectcocktail.com/cdn/shop/files/OldFashioned_750x.jpg?v=1729265042" alt="Blue Hawaiian">
+            <div class="drink-info">
+                <h2>Old Fashioned</h2>
+                <p>O Old Fashioned é considerado um dos primeiros coquetéis documentados na história da mixologia. Criado no início do século XIX, sua receita simples — whisky, açúcar, Angostura e um toque de água — reflete a essência dos primeiros drinks da era moderna. Ele se popularizou no Pendennis Club, em Louisville, Kentucky, e se tornou um símbolo da sofisticação clássica. </p>
+            </div>
+        </div>
+        <div class="drink-row">
+            <img class="drink-img" src="https://cocktailbart.de/wp-content/uploads/2024/06/Martini-Cocktail.jpg" alt="Pink Lemonade">
+            <div class="drink-info">
+                <h2>Martini</h2>
+                <p> Origem: Provável influência italiana e americana, final do século XIX 
+                    O Martini é sinônimo de elegância e foi imortalizado por figuras como James Bond. Acredita-se que tenha evoluído do Martinez, um coquetel feito com gin, vermute doce e bitters. No entanto, a versão moderna com gin e vermute seco se consolidou na década de 1920, tornando-se um ícone de bares sofisticados.</p>
+            </div>
+        </div>
+        <div class="drink-row">
+            <img class="drink-img" src="https://img.freepik.com/fotos-premium/margarita-com-uma-rodela-de-limao-em-um-fundo-preto_556258-3371.jpg" alt="Moscow Mule">
+            <div class="drink-info">
+                <h2>Margarita</h2>
+                <p>Origem: México, década de 1930 ou 1940 
+                    A história da Margarita tem várias versões, mas a mais aceita é que ela foi criada para uma socialite chamada Margarita Sames, que misturou tequila, Cointreau e suco de limão durante uma festa no México. Outra teoria é que o drink surgiu como uma adaptação da "Daisy", um coquetel popular da época.</p>
+            </div>
+        </div>
+        <div class="drink-row">
+            <img class="drink-img" src="img/MOJITO.png" alt="Moscow Mule">
+            <div class="drink-info">
+                <h2>Mojito</h2>
+                <p> Origem: Cuba, século XVI 
+                    O Mojito tem raízes históricas que remontam ao pirata inglês Francis Drake, que teria misturado rum com limão e hortelã como remédio. No século XX, o Mojito se tornou um dos drinks favoritos de Ernest Hemingway, que ajudou a popularizá-lo no icônico bar La Bodeguita del Medio, em Havana.</p>
+            </div>        
+    </div>
+    <div class="drink-row">
+            <img class="drink-img" src="img/negroni.jpg" alt="Moscow Mule">
+            <div class="drink-info">
+                <h2>Negroni</h2>
+                <p> Origem: Itália, 1919 
+                    Criado em Florença, o Negroni nasceu quando o Conde Camillo Negroni pediu ao bartender Fosco Scarselli para reforçar seu habitual Americano (Campari, vermute tinto e água com gás) substituindo a água com gás por gin. O resultado foi um drink amargo, forte e sofisticado, que virou um clássico.</p>
+  </div>
+    </div>
+    <div class="drink-row">
+            <img class="drink-img" src="https://assets.malibudrinks.com/wp-content/uploads/2024/02/Malibu-Daiquiri-600x1200-1.webp?tr=q-80,w-600" alt="Moscow Mule">
+            <div class="drink-info">
+                <h2>Daiquiri</h2>
+                <p> Origem: Itália, 1919 
+                    Origem: Cuba, final do século XIX 
+                    O Daiquiri foi criado pelo engenheiro americano Jennings Cox, que trabalhava em uma mina de ferro em Daiquirí, Cuba. Ele misturou rum, limão e açúcar para criar uma bebida refrescante. Mais tarde, o drink se tornou um dos preferidos de Hemingway, que pediu uma versão sem açúcar chamada "Papa Doble".</p>
+</div>
+    </div>
+    <div class="drink-row">
+            <img class="drink-img" src="img/manha.jpg" alt="Moscow Mule">
+            <div class="drink-info">
+                <h2>Manhattan</h2>
+                <p>  Origem: Nova York, década de 1870 
+                    Diz a lenda que o Manhattan foi criado no Manhattan Club, em Nova York, a pedido de Jennie Jerome (mãe de Winston Churchill). A mistura de whisky, vermute doce e Angostura se tornou um clássico dos coquetéis americanos e um símbolo de sofisticação nos bares da cidade.</p>
+                    </div>
+    </div>
+    <div class="drink-row">
+            <img class="drink-img" src="https://cdn.diffordsguide.com/cocktail/rVQbYA/square/0/512x512.webp" alt="Moscow Mule">
+            <div class="drink-info">
+                <h2>Whiskey Sour</h2>
+                <p>  Origem: Nova York, década de 1870 
+                    Origem: Estados Unidos, meados do século XIX 
+                    O Whiskey Sour foi oficialmente registrado em 1862 no livro de Jerry Thomas, um dos primeiros bartenders famosos. A mistura de whisky, suco de limão e açúcar remonta às bebidas que marinheiros consumiam para prevenir escorbuto, tornando-se uma das combinações mais simples e equilibradas da coquetelaria.</p>
+</div>
+    </div>
+    <div class="drink-row">
+            <img class="drink-img" src="img/cosmo.png" alt="Moscow Mule">
+            <div class="drink-info">
+                <h2>Cosmopolitan</h2>
+                <p> Origem: Estados Unidos, década de 1970 
+                    Popularizado na década de 1990 pela série Sex and the City, o Cosmopolitan já existia há alguns anos. A versão moderna, feita com vodka, Cointreau, suco de cranberry e limão, foi criada por Toby Cecchini em Nova York, inspirada em uma receita anterior vinda da Flórida.</p>
+                    </div>
+    </div>
+    <div class="drink-row">
+            <img class="drink-img" src="img/vecteezy_freshly-made-pineapple-pina-colada-drink-glass-against_57095771.png" alt="Moscow Mule">
+            <div class="drink-info">
+                <h2>Piña Colada</h2>
+                <p> Origem: Porto Rico, 1954 
+                    A Piña Colada foi criada no Caribe Hilton Hotel, em San Juan, pelo bartender Ramón "Monchito" Marrero. Combinando rum, leite de coco e suco de abacaxi, o drink logo se tornou a bebida oficial de Porto Rico. Sua popularidade explodiu na década de 1970, simbolizando o paraíso tropical.</p>
+                    </div>
+    </div>
+    <div class="drink-row">
+            <img class="drink-img" src="https://s2-vogue.glbimg.com/WczBQBSU3GC7vbMQvM2DiT8Sitw=/0x0:1500x1875/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_5dfbcf92c1a84b20a5da5024d398ff2f/internal_photos/bs/2022/s/e/pA6e55SWWUK4ixidaLpw/gettyimages-1246697541.gif" alt="Moscow Mule">
+            <div class="drink-info">
+                <h2>Caipirinha</h2>
+                <p> Origem: Brasil, século XX 
+                    A Caipirinha tem origens controversas, mas acredita-se que tenha sido criada no interior de São Paulo como um remédio para gripes, combinando cachaça, limão, açúcar e gelo. Com o tempo, virou o coquetel mais emblemático do Brasil, conquistando paladares ao redor do mundo.</p>
+                     </div>
+    </div>
+    <div class="drink-row">
+            <img class="drink-img" src="img/blood.png" alt="Moscow Mule">
+            <div class="drink-info">
+                <h2>Bloody Mary</h2>
+                <p> Origem: França/EUA, década de 1920 
+                    Criado no Harry’s New York Bar, em Paris, o Bloody Mary combina vodka, suco de tomate, molho inglês, tabasco e temperos. Seu nome é associado à rainha Maria I da Inglaterra, famosa por sua brutalidade. O drink se tornou um clássico dos brunches, sendo conhecido por suas propriedades “curativas” para ressacas. </p>
+</body>
+</html>
+</body>
+</html>
