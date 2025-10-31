@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -6,31 +6,125 @@
   <title>Selecione seu Drink | Blog de Drinks</title>
   <style>
     body {
+      background-color: #000; 
+      color: white; 
       font-family: Arial, sans-serif;
-      background-color: #0b0b0b;
-      color: #f5f5f5;
+      text-align: center; 
+      background-image: linear-gradient(5deg, rgba(0, 0, 0, 0.618) 0%, rgb(0, 0, 0) 100%);
       margin: 0;
       padding: 0;
     }
 
+    /* ======== NOVO CABEÇALHO ======== */
+    nav {
+      background-color: black;
+      padding: 22px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .nav-left,
+    .nav-right {
+      display: flex;
+      gap: 80px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-family: 'Inknut Antiqua', serif;
+      font-weight: 400;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #e5c07b;
+    }
+
+    /* ======== CABEÇALHO COM BANNER ======== */
     header {
+      position: relative;
+      height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
       text-align: center;
-      padding: 40px 20px 20px;
-      background: linear-gradient(90deg, #0f0f0f, #111);
+      overflow: hidden;
       border-bottom: 1px solid #1f1f1f;
     }
 
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('../../Imagens/Bebidas_não_alcoólicas/banner_blog.jpg') center/cover no-repeat;
+      filter: brightness(0.45);
+      z-index: 1;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 60%);
+      z-index: 2;
+    }
     header h1 {
-      color: #ffffff;
-      font-size: 2.2em;
-      margin-bottom: 8px;
+      font-family: Arial, sans-serif; /* ✅ Fonte alterada */
+      font-size: 2.8em;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    }
+
+
+    header h1, 
+    header p {
+      position: relative;
+      z-index: 3;
+    }
+
+    header h1 {
+      font-family: Arial, sans-serif; /* ✅ Fonte alterada para Arial */
+      font-size: 2.8em;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
     }
 
     header p {
-      color: #aaa;
-      font-size: 1em;
+      font-size: 1.1em;
+      color: #ddd;
+      text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
     }
 
+    /* ======== CAIXA DE PESQUISA ======== */
+    .search-box {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    input[type="text"] {
+      background: #111;
+      color: #fff;
+      border: 1px solid #333;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-size: 1em;
+      width: 250px;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+      border-color: #00e6a8;
+    }
+
+    /* ======== SEÇÃO DE DRINKS ======== */
     main {
       max-width: 1000px;
       margin: 50px auto;
@@ -65,6 +159,7 @@
 
     .drink-info {
       padding: 20px;
+      text-align: left;
     }
 
     .drink-info h2 {
@@ -79,6 +174,7 @@
       margin-top: 8px;
     }
 
+    /* ======== RODAPÉ ======== */
     footer {
       text-align: center;
       padding: 30px;
@@ -87,39 +183,43 @@
       border-top: 1px solid #1f1f1f;
       margin-top: 50px;
     }
-
-    .search-box {
-      text-align: center;
-      margin: 20px 0;
-    }
-
-    input[type="text"] {
-      background: #111;
-      color: #fff;
-      border: 1px solid #333;
-      padding: 10px 15px;
-      border-radius: 8px;
-      font-size: 1em;
-      width: 250px;
-      transition: border-color 0.3s;
-    }
-
-    input[type="text"]:focus {
-      outline: none;
-      border-color: #00e6a8;
-    }
   </style>
 </head>
 <body>
 
+  <!-- ======== MENU SUPERIOR ======== -->
+  <nav>
+    <div class="nav-left">
+      <a href="#">Bares</a>
+      <a href="../telainicialblog_julliany/telainicialblog.html">Blog</a>
+      <a href="../Escolha_de_bebidas_Julliany/escolhas_de_bebidas.html">Receitas</a>
+    </div>
+    <div class="nav-right">
+      <a href="../RANKING_DRINKS_VICTOR/ranking.html">Drinks Principais</a>
+      <a href="../PERFIL_ISABELA/Perfil.html">Perfil</a>
+    </div>
+  </nav>
+
+  <!-- ======== CABEÇALHO COM BANNER DE FUNDO ======== -->
   <header>
-    <h1>Blog de Drinks</h1>
-    <p>Escolha uma bebida para descobrir os detalhes</p>
-  </header>
+  <h1>Blog de Drinks</h1>
+  <p></p>
+</header>
+
+<style>
+  header h1 {
+    font-family: Arial, sans-serif; /* ✅ Fonte alterada */
+    font-size: 2.8em;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  }
+</style>
+
 
   <div class="search-box">
     <input type="text" id="search" placeholder="Pesquisar bebida..." onkeyup="filtrarDrinks()">
   </div>
+
 
   <main id="drinkList">
     <a href="../blog_bebidas/blog_mojito.html" class="drink-card">
