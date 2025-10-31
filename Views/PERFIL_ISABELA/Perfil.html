@@ -11,15 +11,14 @@
 
   <div class="topbar">
     <ul>
-      <li><a href="#">Início</a></li>
-      <li><a href="#">Projetos</a></li>
+      <li><a href="#" onclick="Inicio(event)">Início</a></li>
+      <li><a href="#" onclick="Colaboradores(event)">Colaboradores</a></li>
       <li><a href="#" onclick="Contato(event)">Contato</a></li>
       <li><a href="#" onclick="Sair(event)">Sair</a></li>
     </ul>
   </div>
 
   <h1>Perfil Profissional</h1>
-
   <label for="profile-upload" class="drink" title="Clique para alterar a foto">
     <img src="foto-usuario.jpg" alt="Foto de perfil" />
     <span class="name">Alterar Foto</span>
@@ -68,6 +67,16 @@
     function Contato(event) {
       event.preventDefault();
       window.location.href = '../SUPORTE_CONTATO_ITALO/suporte_contato.html';
+    }
+
+     function Inicio(event) {
+      event.preventDefault();
+      window.location.href = '../Home_Italo/home.html';
+    }
+
+    function Colaboradores(event) {
+      event.preventDefault();
+      window.location.href = '../Colaboradores_Isabela/Colaboradores.html';
     }
   </script>
 </body>
