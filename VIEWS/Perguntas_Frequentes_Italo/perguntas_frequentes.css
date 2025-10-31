@@ -1,9 +1,8 @@
-/* Estilização geral do corpo da página */
 body {
-    background-color: #000; /* Fundo preto */
-    color: white; /* Texto branco */
-    font-family: Arial, sans-serif; /* Fonte padrão */
-    text-align: center; /* Centraliza textos por padrão */
+    background-color: #000;
+    color: white; 
+    font-family: Arial, sans-serif; 
+    text-align: center; 
     margin: 0;
 }
 
@@ -11,7 +10,7 @@ header {
     margin-top: 24px;
 }
 
-/* Estilização da navegação principal - ATUALIZADA */
+
 .topbar {
     background: #111;
     width: 96%;
@@ -46,14 +45,14 @@ header {
     color: #cfcfcf;
 }
 
-/* Estilo do conteúdo principal */
+
 .container {
     max-width: 800px;
     margin: 40px auto;
     background-color: #1e1e1e;
     padding: 30px;
     border-radius: 10px;
-    text-align: left; /* Alinhamento do texto dentro do conteúdo */
+    text-align: left; 
 }
 
 h1 {
@@ -63,7 +62,7 @@ h1 {
 
 p {
     line-height: 1.6;
-    list-style: none; /* Remove as bolinhas dos <li> */
+    list-style: none;
 }
 
 /* Rodapé */
@@ -85,7 +84,7 @@ footer a:hover {
     color: #fff;
 }
 
-/* Aplicando pesos diferentes da fonte */
+
 h1 {
     font-family: 'Inknut Antiqua', serif;
     font-weight: 100;
