@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Verificação de Idade</title>
-  <link rel="stylesheet" href="entrada.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Idade - DevPub</title>
+    <link rel="stylesheet" href="entrada.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
 </head>
 <body>
-  <main class="container">
-    <div class="overlay">
-      <h1>Nos diga sua data de nascimento, só pra<br> garantir que você já pode curtir com a gente!</h1>
+    <main class="container">
+        <div class="overlay">
+            <h1>Nos diga sua data de nascimento, só pra<br> garantir que você já pode curtir com a gente!</h1>
 
-      <div class="inputs">
+            <div class="inputs">
+                <input type="text" id="dia" maxlength="2" placeholder="DD">
+                <input type="text" id="mes" maxlength="2" placeholder="MM">
+                <input type="text" id="ano" maxlength="4" placeholder="AAAA">
+            </div>
 
-        <input type="text" id="dia" maxlength="2" placeholder="DD">
-        <input type="text" id="mes" maxlength="2" placeholder="MM">
-        <input type="text" id="ano" maxlength="4" placeholder="AAAA">
-      </div>
+            <button id="btnEntrar" class="btn" type="button">ENTRE
+              <a href=""></a>
+            </button>
 
- 
-      <button id="btnEntrar" class="btn" type="button">ENTRE</button>
+            <p class="moderacao">BEBA COM MODERAÇÃO.</p>
+        </div>
+    </main>
 
-      <p class="moderacao">BEBA COM MODERAÇÃO.</p>
-    </div>
-  </main>
-
-  <footer>
+    <footer>
         <div class="footer-left">
-            <p>&copy;2025 SubZero. Todos os direitos reservados<br>Beba com moderação.</p>
+            <p>&copy;2025 SueZan. Todos os direitos reservados<br>Beba com moderação.</p>
         </div>
         <div class="footer-right">
             <a href="#">Política de Privacidade</a>
@@ -38,7 +39,8 @@
         </div>
     </footer>
 
-  
-  <script src="entrada.js"></script>
+    <script src="entrada.js"></script>
+
+    
 </body>
 </html>
