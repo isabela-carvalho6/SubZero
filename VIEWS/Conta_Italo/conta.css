@@ -45,21 +45,6 @@ header {
     color: #cfcfcf;
 }
 
-.topbar img {
-    max-height: 72px; 
-    height: auto;
-    width: auto;
-    display: block;
-    object-fit: contain;
-}
-
-
-.topbar li a img {
-    max-height: 72px;
-    width: auto;
-    display: block;
-}
-
 
 .container {
     max-width: 800px;

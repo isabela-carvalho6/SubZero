@@ -154,6 +154,60 @@ footer a:hover {
 }
 
 
+
+#aviso {
+  position: fixed;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #dc3545;
+  color: #fff;
+  padding: 16px 30px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  opacity: 0;
+  transition: all 0.6s ease;
+  animation: none;
+  z-index: 9999;
+}
+
+#aviso.mostrar {
+  top: 40px;
+  opacity: 1;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+
+#aviso.sucesso {
+  background: #28a745;
+}
+
+#aviso.erro {
+  background: #dc3545;
+}
+
+#aviso.aviso {
+  background: #ffc107;
+  color: #000;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translate(-50%, -20px);
+    opacity: 0;
+    filter: blur(6px);
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+
 @media (max-width: 768px) {
   .overlay {
     padding: 30px 20px;
