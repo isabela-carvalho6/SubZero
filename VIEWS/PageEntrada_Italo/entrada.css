@@ -13,7 +13,11 @@ body, html {
 
 
 body {
-  background: url("https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1920&q=80") no-repeat center center fixed;
+  background: 
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), /* camada de escurecimento */
+    url("https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1920&q=80") no-repeat center center fixed;
+  background-size: cover;
+  background-blend-mode: darken; /* mistura as camadas */
   background-size: cover;
   display: flex;
   flex-direction: column;
