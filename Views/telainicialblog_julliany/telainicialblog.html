@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Selecione seu Drink | Blog de Drinks</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       background-color: #000; 
       color: white; 
@@ -24,6 +30,19 @@
       align-items: center;
       position: relative;
       z-index: 10;
+      opacity: 0;
+      animation: fadeInDown 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .nav-left,
@@ -66,6 +85,18 @@
       background: url('../../Imagens/Bebidas_não_alcoólicas/banner_blog.jpg') center/cover no-repeat;
       filter: brightness(0.45);
       z-index: 1;
+      animation: zoomIn 1.2s ease-out forwards;
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(1.1);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
 
     header::after {
@@ -75,22 +106,28 @@
       background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 60%);
       z-index: 2;
     }
-    header h1 {
-      font-family: Arial, sans-serif; /* ✅ Fonte alterada */
-      font-size: 2.8em;
-      margin-bottom: 10px;
-      text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-    }
-
 
     header h1, 
     header p {
       position: relative;
       z-index: 3;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 0.3s forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     header h1 {
-      font-family: Arial, sans-serif; /* ✅ Fonte alterada para Arial */
+      font-family: Arial, sans-serif;
       font-size: 2.8em;
       margin-bottom: 10px;
       text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
@@ -106,6 +143,17 @@
     .search-box {
       text-align: center;
       margin: 30px 0;
+      opacity: 0;
+      animation: fadeIn 0.8s ease-out 0.5s forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
 
     input[type="text"] {
@@ -140,10 +188,17 @@
       overflow: hidden;
       box-shadow: 0 0 20px rgba(0, 255, 153, 0.1);
       border: 1px solid #1f1f1f;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease;
       cursor: pointer;
       text-decoration: none;
       color: inherit;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .drink-card.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .drink-card:hover {
@@ -155,6 +210,11 @@
       width: 100%;
       height: 200px;
       object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .drink-card:hover img {
+      transform: scale(1.05);
     }
 
     .drink-info {
@@ -182,6 +242,26 @@
       font-size: 0.9em;
       border-top: 1px solid #1f1f1f;
       margin-top: 50px;
+      opacity: 0;
+      animation: fadeIn 0.8s ease-out 1s forwards;
+    }
+
+    /* ======== RESPONSIVIDADE ======== */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .nav-left,
+      .nav-right {
+        gap: 30px;
+      }
+
+      header h1 {
+        font-size: 2em;
+      }
     }
   </style>
 </head>
@@ -202,24 +282,13 @@
 
   <!-- ======== CABEÇALHO COM BANNER DE FUNDO ======== -->
   <header>
-  <h1>Blog de Drinks</h1>
-  <p></p>
-</header>
-
-<style>
-  header h1 {
-    font-family: Arial, sans-serif; /* ✅ Fonte alterada */
-    font-size: 2.8em;
-    margin-bottom: 10px;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-  }
-</style>
-
+    <h1>Blog de Drinks</h1>
+    <p></p>
+  </header>
 
   <div class="search-box">
     <input type="text" id="search" placeholder="Pesquisar bebida..." onkeyup="filtrarDrinks()">
   </div>
-
 
   <main id="drinkList">
     <a href="../blog_bebidas/blog_mojito.html" class="drink-card">
@@ -254,7 +323,7 @@
       </div>
     </a>
 
-     <a href="../blog_bebidas/blog_cucumber_fesh_mint.html" class="drink-card">
+    <a href="../blog_bebidas/blog_cucumber_fesh_mint.html" class="drink-card">
       <img src="https://i.pinimg.com/1200x/28/4a/77/284a77374a0f98c7500d7cac2cb77336.jpg" alt="cucumber_fesh_mint">
       <div class="drink-info">
         <h2>cucumber fesh mint</h2>
@@ -270,7 +339,7 @@
       </div>
     </a>
 
-        <a href="../blog_bebidas/blog_moscowmule.html" class="drink-card">
+    <a href="../blog_bebidas/blog_moscowmule.html" class="drink-card">
       <img src="../../Imagens/Bebidas_não_alcoólicas/banner2_moscow_mule.png" alt="Moscow_Mule">
       <div class="drink-info">
         <h2>Moscow Mule</h2>
@@ -302,7 +371,7 @@
       </div>
     </a>
 
-<a href="../blog_bebidas/blog_margarita.html" class="drink-card">
+    <a href="../blog_bebidas/blog_margarita.html" class="drink-card">
       <img src="https://filodeagave.com/wp-content/uploads/2024/05/Classic-Margarita-Recipe-with-Tequila-Filo-de-Agave-Blanco-v002.jpg" alt="Margarita">
       <div class="drink-info">
         <h2>Margarita</h2>
@@ -349,8 +418,6 @@
         <p>Equilibrado entre doce e ácido, combina uísque, suco de limão e xarope de açúcar..</p>
       </div>
     </a>
-
-
   </main>
 
   <footer>
@@ -367,6 +434,29 @@
         card.style.display = nome.includes(filtro) ? 'block' : 'none';
       });
     }
+
+    // Intersection Observer para animação dos cards
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, index * 100);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observar todos os cards
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.drink-card');
+      cards.forEach(card => observer.observe(card));
+    });
   </script>
 
 </body>

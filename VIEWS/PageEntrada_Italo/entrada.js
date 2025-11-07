@@ -65,7 +65,7 @@ function verificarIdade() {
     if (idade >= 18) {
         mostrarAviso("Acesso liberado! Aproveite com moderação", "sucesso");
         setTimeout(() => {
-            window.location.href = "index.html";
+            window.location.href = "../Home_Italo/home.html";
         }, 2000);
     } else {
         mostrarAviso("Desculpe, você precisa ter pelo menos 18 anos para acessar", "erro");
