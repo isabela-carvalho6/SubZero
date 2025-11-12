@@ -80,11 +80,12 @@ document.addEventListener('DOMContentLoaded', () => {
         helpLinksObserver.observe(helpLinksContainer);
     }
 
+
     const footer = document.querySelector('footer');
     if (footer) {
         footer.style.opacity = '0';
-        footer.style.transform = 'translateY(20px)';
-        footer.style.transition = 'all 0.8s ease-out';
+        footer.style.transform = 'translateY(30px)';
+        footer.style.transition = 'all 0.9s ease-out';
         fadeInObserver.observe(footer);
     }
 
