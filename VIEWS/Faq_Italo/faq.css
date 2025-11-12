@@ -1,8 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #000;
     color: white;
+    overflow-x: hidden;
+}
+
+header {
+    margin-top: 24px;
 }
 
 .topbar {
@@ -32,7 +43,7 @@ body {
     font-family: 'Inknut Antiqua', serif;
     font-size: 1.4rem;
     font-weight: 400;
-    transition: color 0.2s;
+    transition: color 0.3s ease;
 }
 
 .topbar a:hover {
@@ -43,24 +54,41 @@ body {
 .container {
     position: relative;
     text-align: center;
-    padding: 50px 20px;
+    padding: 80px 20px 50px;
+    min-height: 70vh;
 }
 
 .background-image {
-    background-size: 300px auto; 
-    opacity: 20%;
     position: absolute;
     top: -50px;
-    left: 400px;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+    pointer-events: none;
+    transition: transform 0.1s ease-out;
+}
+
+.background-image img {
+    width: 300px;
+    height: auto;
+    opacity: 0.2;
+}
+
+.help-content {
+    position: relative;
+    z-index: 1;
 }
 
 .help-content h1 {
-    font-size: 20px;
-    margin-bottom: 20px;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 40px;
     font-family: 'Inknut Antiqua', serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 1.4;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .caixa-de-texto {
@@ -70,8 +98,14 @@ body {
     background-color: #f5f0f7;
     border-radius: 12px;
     padding: 5px 10px;
-    width: 300px;
-    margin: 0 auto 40px;
+    max-width: 400px;
+    width: 90%;
+    margin: 0 auto 60px;
+    transition: all 0.3s ease;
+}
+
+.caixa-de-texto:hover {
+    background-color: #fff;
 }
 
 .caixa-de-texto input {
@@ -79,66 +113,222 @@ body {
     border: none;
     outline: none;
     background: transparent;
-    padding: 8px;
-    color: black;
+    padding: 12px;
+    color: #000;
+    font-family: 'Inknut Antiqua', serif;
+    font-size: 0.95rem;
+}
+
+.caixa-de-texto input::placeholder {
+    color: #666;
+    font-family: 'Inknut Antiqua', serif;
 }
 
 .caixa-de-texto button {
     background: none;
     border: none;
-    font-size: 16px;
+    font-size: 18px;
     cursor: pointer;
+    padding: 8px 12px;
+    color: #000;
+    font-family: 'Inknut Antiqua', serif;
+    font-weight: 600;
+    transition: all 0.2s ease;
 }
 
+.caixa-de-texto button:hover {
+    transform: scale(1.1);
+    color: #333;
+}
 
 .help-links {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
-    max-width: 500px;
+    gap: 12px;
+    max-width: 550px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 .help-links a {
     display: block;
     width: 100%;
     text-align: left;
-    padding: 15px;
+    padding: 18px 20px;
     background-color: #000;
-    border: 3px solid #222;
-    border-radius: 10px;
-    text-decoration: underline;
+    border: 2px solid #222;
+    border-radius: 8px;
+    text-decoration: none;
     color: white;
-    font-size: 16px;
+    font-size: 1rem;
+    font-family: 'Inknut Antiqua', serif;
+    font-weight: 300;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.help-links a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: #fff;
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
 }
 
 .help-links a:hover {
     background-color: #111;
+    border-color: #444;
+    padding-left: 28px;
 }
 
+.help-links a:hover::before {
+    transform: scaleY(1);
+}
 
 /* Footer */
 footer {
-    text-align: center;
-    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 50px;
     background-color: #111;
     color: #aaa;
     font-size: 14px;
+    margin-top: 80px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-left p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.footer-right {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 footer a {
     color: #aaa;
-    margin: 0 5px;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 footer a:hover {
     color: #fff;
 }
 
-footer p,a {
+footer p, footer a {
     font-family: 'Inknut Antiqua', serif;
-    font-weight: 100;
-    font-size: 0.8rem;
+    font-weight: 300;
+    font-size: 0.85rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .topbar ul {
+        flex-direction: column;
+        padding: 20px;
+        gap: 10px;
+    }
+
+    .topbar li {
+        margin: 8px 0;
+    }
+
+    .topbar a {
+        font-size: 1.2rem;
+    }
+
+    .container {
+        padding: 60px 15px 40px;
+    }
+
+    .help-content h1 {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+
+    .caixa-de-texto {
+        max-width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .help-links {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .help-links a {
+        font-size: 0.95rem;
+        padding: 16px 18px;
+    }
+
+    .background-image {
+        top: 50px;
+    }
+
+    .background-image img {
+        width: 200px;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px 20px;
+        gap: 15px;
+    }
+
+    .footer-right {
+        justify-content: center;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .topbar {
+        width: 94%;
+    }
+
+    .help-content h1 {
+        font-size: 1.3rem;
+    }
+
+    .help-links a {
+        font-size: 0.9rem;
+        padding: 14px 16px;
+    }
+
+    .background-image img {
+        width: 150px;
+    }
+}
+
+/* Animações keyframes adicionais */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
