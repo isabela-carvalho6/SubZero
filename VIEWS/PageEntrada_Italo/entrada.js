@@ -5,12 +5,10 @@ const inputs = [
 ];
 const btn = document.getElementById("btnEntrar");
 
-// Criar elemento de aviso (uma única vez)
 const aviso = document.createElement("div");
 aviso.id = "aviso";
 document.body.appendChild(aviso);
 
-// Função para mostrar aviso
 function mostrarAviso(mensagem, tipo = "erro") {
     aviso.textContent = mensagem;
     aviso.className = `mostrar ${tipo}`;
@@ -19,7 +17,6 @@ function mostrarAviso(mensagem, tipo = "erro") {
     }, 4000);
 }
 
-// Enter para navegar
 inputs.forEach((input, index) => {
     input.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {

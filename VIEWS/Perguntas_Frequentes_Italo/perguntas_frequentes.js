@@ -1,10 +1,8 @@
-// Configuração do Intersection Observer para animações de entrada
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
 };
 
-// Observer para fade in dos elementos
 const fadeInObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -14,7 +12,6 @@ const fadeInObserver = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observer para animação sequencial das perguntas
 const sequentialObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -23,16 +20,14 @@ const sequentialObserver = new IntersectionObserver((entries) => {
                 setTimeout(() => {
                     question.style.opacity = '1';
                     question.style.transform = 'translateX(0)';
-                }, index * 150); // Delay de 150ms entre cada pergunta
+                }, index * 150); 
             });
         }
     });
 }, observerOptions);
 
-// Inicialização das animações
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Animação do header
     const header = document.querySelector('header');
     if (header) {
         header.style.opacity = '0';
@@ -45,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 100);
     }
 
-    // Animação do container principal
     const container = document.querySelector('.container');
     if (container) {
         container.style.opacity = '0';
@@ -58,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
     }
 
-    // Animação do título
     const title = document.querySelector('.container h1');
     if (title) {
         title.style.opacity = '0';
@@ -71,7 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 600);
     }
 
-    // Agrupar perguntas e respostas em blocos
     const containerContent = document.querySelector('.container');
     if (containerContent) {
         const allParagraphs = Array.from(containerContent.querySelectorAll('p, br'));
@@ -93,7 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
             questions.push(currentBlock);
         }
 
-        // Criar wrapper para cada bloco de pergunta
         questions.forEach((block, index) => {
             const wrapper = document.createElement('div');
             wrapper.className = 'question-block';
@@ -101,14 +92,12 @@ document.addEventListener('DOMContentLoaded', () => {
             wrapper.style.transform = 'translateX(-30px)';
             wrapper.style.transition = 'all 0.6s ease-out';
             
-            // Mover elementos para o wrapper
             block.forEach(el => {
                 if (el.parentNode === containerContent) {
                     wrapper.appendChild(el);
                 }
             });
             
-            // Inserir wrapper no container
             if (index === 0) {
                 const firstParagraph = containerContent.querySelector('p');
                 if (firstParagraph && firstParagraph.parentNode === containerContent) {
@@ -121,11 +110,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Observar o container para animar as perguntas
         sequentialObserver.observe(containerContent);
     }
 
-    // Efeito hover nos blocos de perguntas
     setTimeout(() => {
         const questionBlocks = document.querySelectorAll('.question-block');
         questionBlocks.forEach(block => {
@@ -141,7 +128,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, 2000);
 
-    // Animação do footer
     const footer = document.querySelector('footer');
     if (footer) {
         footer.style.opacity = '0';
@@ -150,7 +136,6 @@ document.addEventListener('DOMContentLoaded', () => {
         fadeInObserver.observe(footer);
     }
 
-    // Efeito de destaque ao passar o mouse nas perguntas (strong)
     const questions = document.querySelectorAll('p strong');
     questions.forEach(question => {
         const paragraph = question.parentElement;
@@ -166,7 +151,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Adicionar indicador visual de leitura
     const allParagraphs = document.querySelectorAll('.container p');
     allParagraphs.forEach(p => {
         if (!p.querySelector('strong')) {
@@ -183,7 +167,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Scroll suave para âncoras
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -197,7 +180,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Adicionar efeito de scroll reveal
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const container = document.querySelector('.container');
@@ -209,7 +191,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Adicionar loading state suave
 window.addEventListener('load', () => {
     document.body.style.opacity = '0';
     document.body.style.transition = 'opacity 0.5s ease-out';
