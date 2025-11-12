@@ -145,7 +145,7 @@ li {
 
 footer {
     text-align: center;
-    padding: 30px 20px;
+    padding: 35px 20px;
     background-color: #111;
     color: #aaa;
     font-size: 14px;
@@ -166,13 +166,13 @@ footer a {
     margin: 0 8px;
     text-decoration: none;
     font-family: 'Inknut Antiqua', serif;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
     display: inline-block;
 }
 
 footer a:hover {
     color: #fff;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 }
 
 /* Animações keyframes */
