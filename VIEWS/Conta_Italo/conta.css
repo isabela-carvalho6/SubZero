@@ -79,7 +79,7 @@ h1 {
     font-weight: 400;
     font-size: clamp(2rem, 4vw, 2.5rem);
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     letter-spacing: 3px;
     color: #fff;
     text-transform: uppercase;
@@ -96,15 +96,15 @@ h1::after {
 }
 
 .question-block {
-    margin-bottom: 35px;
-    padding: 20px;
+    margin: 0 0 22px;
+    padding: 12px 14px;
     border-radius: 8px;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
     position: relative;
 }
 
 .question-block:hover {
-    background-color: rgba(255, 255, 255, 0.03);
+    background-color: rgba(255, 255, 255, 0.02);
 }
 
 p {
@@ -112,7 +112,7 @@ p {
     font-weight: 300;
     font-size: 1rem;
     line-height: 1.8;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     color: #cfcfcf;
     transition: all 0.3s ease;
 }
@@ -227,7 +227,7 @@ footer a:hover {
 
     h1 {
         font-size: 1.8rem;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
     }
 
     .question-block {
@@ -270,7 +270,7 @@ footer a:hover {
 
     h1 {
         font-size: 1.6rem;
-        margin-bottom: 35px;
+        margin-bottom: 28px;
         letter-spacing: 2px;
     }
 
@@ -322,7 +322,7 @@ footer a:hover {
 
     h1 {
         font-size: 1.4rem;
-        margin-bottom: 30px;
+        margin-bottom: 28px;
     }
 
     .question-block {
@@ -353,7 +353,6 @@ footer a:hover {
     }
 }
 
-/* Scrollbar personalizada */
 ::-webkit-scrollbar {
     width: 10px;
 }

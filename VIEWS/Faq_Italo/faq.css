@@ -50,7 +50,6 @@ header {
     color: #cfcfcf;
 }
 
-/* Main content */
 .container {
     position: relative;
     text-align: center;
@@ -191,7 +190,7 @@ header {
     transform: scaleY(1);
 }
 
-/* Footer */
+
 footer {
     display: flex;
     justify-content: space-between;
@@ -312,7 +311,7 @@ footer p, footer a {
     }
 }
 
-/* Animações keyframes adicionais */
+
 @keyframes fadeIn {
     from {
         opacity: 0;

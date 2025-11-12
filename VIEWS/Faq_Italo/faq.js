@@ -1,10 +1,8 @@
-// Configuração do Intersection Observer para animações de entrada
 const observerOptions = {
     threshold: 0.15,
     rootMargin: '0px 0px -50px 0px'
 };
 
-// Observer principal para elementos
 const fadeInObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -14,7 +12,6 @@ const fadeInObserver = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Animação sequencial para os links de ajuda
 const helpLinksObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -29,7 +26,6 @@ const helpLinksObserver = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Inicialização das animações quando o DOM carregar
 document.addEventListener('DOMContentLoaded', () => {
     
     // Animação do header
@@ -45,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 100);
     }
 
-    // Animação do título principal
     const mainTitle = document.querySelector('.help-content h1');
     if (mainTitle) {
         mainTitle.style.opacity = '0';
@@ -54,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
         fadeInObserver.observe(mainTitle);
     }
 
-    // Animação da caixa de texto
     const searchBox = document.querySelector('.caixa-de-texto');
     if (searchBox) {
         searchBox.style.opacity = '0';
@@ -63,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
         fadeInObserver.observe(searchBox);
     }
 
-    // Animação da imagem de fundo com efeito de fade suave
     const bgImage = document.querySelector('.background-image img');
     if (bgImage) {
         bgImage.style.opacity = '0';
@@ -74,7 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 800);
     }
 
-    // Preparar links para animação sequencial
     const helpLinksContainer = document.querySelector('.help-links');
     if (helpLinksContainer) {
         const links = helpLinksContainer.querySelectorAll('a');
@@ -88,7 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
         helpLinksObserver.observe(helpLinksContainer);
     }
 
-    // Animação do footer
     const footer = document.querySelector('footer');
     if (footer) {
         footer.style.opacity = '0';
@@ -97,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
         fadeInObserver.observe(footer);
     }
 
-    // Efeito hover melhorado para os links
     const helpLinks = document.querySelectorAll('.help-links a');
     helpLinks.forEach(link => {
         link.addEventListener('mouseenter', function() {
@@ -111,22 +101,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Animação do botão de envio
     const submitButton = document.querySelector('.caixa-de-texto button');
     if (submitButton) {
         submitButton.addEventListener('click', function(e) {
             e.preventDefault();
             
-            // Animação de clique
             this.style.transform = 'scale(0.95)';
             setTimeout(() => {
                 this.style.transform = 'scale(1)';
             }, 150);
 
-            // Feedback visual
             const input = document.querySelector('.caixa-de-texto input');
             if (input && input.value.trim() !== '') {
-                // Simular envio
                 const originalText = this.textContent;
                 this.textContent = '✓';
                 this.style.color = '#4CAF50';
@@ -140,7 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Efeito de foco na caixa de texto
     const searchInput = document.querySelector('.caixa-de-texto input');
     if (searchInput) {
         searchInput.addEventListener('focus', function() {
@@ -155,7 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Scroll suave para âncoras
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -169,7 +153,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Adicionar efeito parallax sutil na imagem de fundo
 window.addEventListener('scroll', () => {
     const bgImage = document.querySelector('.background-image');
     if (bgImage) {
