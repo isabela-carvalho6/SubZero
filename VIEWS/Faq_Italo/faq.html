@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Central de Ajuda</title>
+    <meta name="description" content="Central de Ajuda DevPub - Tire suas dúvidas sobre nossos serviços">
+    <title>Central de Ajuda - DevPub</title>
     <link rel="stylesheet" href="faq.css">
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
@@ -11,7 +12,7 @@
     <header>
         <nav class="topbar">
             <ul>
-                <li><a href="#">Bares</a></li>
+                <li><a href="../HOME_ISABELA/home.html">Bares</a></li>
                 <li><a href="../telainicialblog_julliany/telainicialblog.html">Blog</a></li>
                 <li><a href="../Escolha_de_bebidas_Julliany/escolhas_de_bebidas.html">Receitas</a></li>
                 <li><a href="../RANKING_DRINKS_VICTOR/ranking.html">Drinks Principais</a></li>
@@ -22,21 +23,21 @@
 
     <main class="container">
         <div class="background-image">
-            <img src="interrogacoes.png" alt="Imagem de fundo de interrogações">
+            <img src="interrogacoes.png" alt="Ícone de interrogações decorativo">
         </div>
         <div class="help-content">
             <h1>Tem alguma dúvida? Estamos aqui para te ajudar!</h1>
             <div class="caixa-de-texto">
-                <input type="text" placeholder="Descreva o problema">
-                <button type="submit">Enviar</button>
+                <input type="text" placeholder="Descreva o problema" aria-label="Campo de busca para descrever problema">
+                <button type="submit" aria-label="Enviar pergunta">Enviar</button>
             </div>
-            <div class="help-links">
+            <nav class="help-links" aria-label="Links de ajuda">
                 <a href="../Perguntas_Frequentes_Italo/perguntas_frequentes.html">Perguntas frequentes</a>
                 <a href="../Suporte_Contato_Italo/suporte_contato.html">Suporte e contato</a>
                 <a href="../Segurança_Privacidade_Italo/segurança_privacidade.html">Segurança e privacidade</a>
                 <a href="../Recuperação_Senha_Italo/recuperacao_senha.html">Recuperação de senha</a>
                 <a href="../Conta_Italo/conta.html">Conta</a>
-            </div>
+            </nav>
         </div>
     </main>
 
@@ -51,5 +52,7 @@
             <a href="../Suporte_Contato_Italo/suporte_contato.html">Contato</a>
         </div>
     </footer>
+
+    <script src="faq.js"></script>
 </body>
 </html>
