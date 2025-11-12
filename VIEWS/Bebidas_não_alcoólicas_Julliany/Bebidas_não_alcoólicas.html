@@ -1,0 +1,300 @@
+<!DOCTYPE html> 
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drinks Populares</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inknut Antiqua', serif;
+      background-color: #000;
+      color: white;
+      text-align: center;
+      background-image: linear-gradient(5deg, rgba(0, 0, 0, 0.618) 0%, rgb(0, 0, 0) 100%);
+      overflow-x: hidden;
+    }
+
+    /* ======== NAVBAR ======== */
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #000;
+      padding: 15px 40px;
+      opacity: 0;
+      animation: fadeInDown 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .nav-left,
+    .nav-right {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-left a,
+    .nav-right a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .nav-left a:hover,
+    .nav-right a:hover {
+      color: #e5c07b;
+    }
+
+    /* ======== BANNER ======== */
+    .banner {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      overflow: hidden;
+    }
+
+    .banner img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      filter: brightness(0.6);
+      animation: zoomIn 1.2s ease-out forwards;
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(1.1);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    h1 {
+      font-weight: 500;
+      font-size: 2.5rem;
+      margin: 30px 0;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 0.3s forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ======== GALERIA ======== */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      justify-items: center;
+      margin: 40px auto;
+      max-width: 1000px;
+      padding: 0 20px;
+    }
+
+    .drink {
+      position: relative;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 14px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease;
+    }
+
+    .drink.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .drink:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 25px rgba(0, 255, 153, 0.2);
+    }
+
+    .drink img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px 10px 0 0;
+      transition: transform 0.3s ease;
+    }
+
+    .drink:hover img {
+      transform: scale(1.05);
+    }
+
+    .name {
+      display: block;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .drink:hover .name {
+      opacity: 1;
+    }
+
+    /* ======== RODAPÉ ======== */
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #777;
+      font-size: 0.9rem;
+      border-top: 1px solid #1f1f1f;
+      margin-top: 50px;
+      opacity: 0;
+      animation: fadeIn 1s ease-out 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* ======== RESPONSIVIDADE ======== */
+    @media (max-width: 768px) {
+      .topbar {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .nav-left,
+      .nav-right {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="topbar">
+      <ul class="nav-left">
+        <li><a href="#">Bares</a></li>
+        <li><a href="../telainicialblog_julliany/telainicialblog.html">Blog</a></li>
+        <li><a href="../Bebidas_não_alcoólicas_Julliany/Bebidas_não_alcoólicas.html">Receitas</a></li>
+      </ul>
+
+      <ul class="nav-right">
+                <li><a href="../RANKING_DRINKS_VICTOR/ranking.html">Drinks Principais</a></li>
+                <li><a href="../Cadastro_de_usuario_Isabela/Cadastrodeusuario.html">Perfil</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="drinks">
+    <div class="banner">
+      <img src="../../Imagens/Bebidas_não_alcoólicas/banner2.jpg" alt="Banner de Drinks">
+    </div>
+
+    <h1>DRINKS NÃO ALCOÓLICOS</h1>
+
+    <div class="gallery">
+      <a href="../Drink_Blue_Hawaiin_Julliany/Blue Hawaiin.html" class="drink">
+        <img src="../../Imagens/Bebidas_não_alcoólicas/Blue_Hawaii.webp" alt="Blue Hawaiin">
+        <span class="name">Blue Hawaiin</span>
+      </a>
+      <a href="../Drink_Pink_Lemonade_Julliany/Pink_lemonade.html" class="drink">
+        <img src="../../Imagens/Bebidas_não_alcoólicas/Pink_lemonade.png" alt="Pink lemonade">
+        <span class="name">Pink lemonade</span>
+      </a>
+      <a href="../Drink_Moscow_Mule_Julliany/Moscow_Mule.html" class="drink">
+        <img src="../../Imagens/Bebidas_não_alcoólicas/Moscow_Mule.png" alt="Moscow Mule">
+        <span class="name">Moscow Mule</span>
+      </a>
+      <a href="../Drink_Pina_Colada_Julliany/Pina_colada.html" class="drink">
+        <img src="../../Imagens/Bebidas_não_alcoólicas/Pina_Colada.png" alt="Pina Colada">
+        <span class="name">Pina Colada</span>
+      </a>
+      <a href="../Drink_Sangria_Julliany/Sangria.html" class="drink">
+        <img src="../../Imagens/Bebidas_não_alcoólicas/Sangria.png" alt="Sangria">
+        <span class="name">Sangria</span>
+      </a>
+      <a href="../Drink Cucumber_fesh_Mint_Julliany/cucumber_fesh_mint.html" class="drink">
+        <img src="../../Imagens/Bebidas_não_alcoólicas/Cucumber.png" alt="Cucumber Fresh Mint">
+        <span class="name">Cucumber Fresh Mint</span>
+      </a>
+      <a href="../Drink_Mojito_Julliany/Mojito.html" class="drink">
+        <img src="../../Imagens/Bebidas_não_alcoólicas/Mojito.png" alt="Mojito virgin">
+        <span class="name">Mojito virgin</span>
+      </a>
+      <a href="../Drink_Virgin_Gimlet_julliany/Virgin _Gimlet.html" class="drink">
+        <img src="../../Imagens/Bebidas_não_alcoólicas/virgin gimlet.png" alt="Virgin Gimlet">
+        <span class="name">Virgin Gimlet</span>
+      </a>
+      <a href="../Drink_limonada_de_lavanda_Julliany/limonada.html" class="drink">
+        <img src="../../Imagens/Bebidas_não_alcoólicas/Limonada_de_Lavanda.png" alt="Limonada de lavanda">
+        <span class="name">Limonada de lavanda</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 SubZero. Todos os direitos reservados.<br> Beba com moderação.</p>
+  </footer>
+
+  <script>
+    // Animação de aparição dos cards (Intersection Observer)
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, index * 100);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const drinks = document.querySelectorAll('.drink');
+      drinks.forEach(drink => observer.observe(drink));
+    });
+  </script>
+</body>
+</html>
