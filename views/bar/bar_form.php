@@ -8,7 +8,7 @@
 <body>
 
     <h1>Cadastro de Bar</h1>
-    <!-- #region -->
+    <!-- #region -->    
     <form action="/SubZero/public/save-bar" method="POST">
         <label for="nome_completo">Nome:</label>
         <input type="text" id="nome_completo" name="nome_completo" required><br><br>
