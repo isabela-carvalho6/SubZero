@@ -19,7 +19,7 @@ class FeedbackController {
             
 
             if ($feedback->save()) {
-                header('Location: /dev_pub/list-feedback');
+                header('Location: /SubZero/public/list-feedback');
             } else {
                 echo "Erro ao postar feedback.";
             }
@@ -48,7 +48,7 @@ class FeedbackController {
             $feedback->mensagem = $_POST['mensagem'];
             $feedback->data_feedback = date('Y-m-d');
             if ($feedback->update()) {
-                header('Location: /dev_pub/list-feedback');
+                header('Location: /SubZero/public/list-feedback');
             } else {
                 echo "Erro ao atualizar o feedback.";
             }
@@ -61,8 +61,8 @@ class FeedbackController {
             
             $feedback->titulo = $_POST['titulo'];
 
-            if ($feedback->deleteByNome()) {
-                header('Location: /dev_pub/list-feedback');
+            if ($feedback->deleteByNome($_POST['titulo'])) {
+                header('Location: /SubZero/public/list-feedback');
             } else {
                 echo "Erro ao excluir o feedback.";
             }
@@ -74,7 +74,7 @@ class FeedbackController {
             $feedback = new Feedback();
             $id_feedback = $_POST['id_feedback'];
             if ($feedback->deleteById($id_feedback)) {
-                header('Location: /dev_pub/list-feedback');
+                header('Location: /SubZero/public/list-feedback');
             } else {
                 echo "Erro ao excluir o feedback.";
             }

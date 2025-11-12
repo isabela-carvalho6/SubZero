@@ -18,7 +18,7 @@ class UsuarioController {
             $usuario->senha = $_POST['senha'];
 
             if ($usuario->save()) {
-                header('Location: /dev_pub/list-usuario');
+                header('Location: /SubZero/public/list-usuario');
             } else {
                 echo "Erro ao cadastrar usuário.";
             }
@@ -52,7 +52,7 @@ class UsuarioController {
             $usuario->senha = $_POST['senha'];
 
             if ($usuario->update()) {
-                header('Location: /dev_pub/list-usuario');
+                header('Location: /SubZero/public/list-usuario');
             } else {
                 echo "Erro ao atualizar o usuário.";
             }
@@ -66,7 +66,7 @@ class UsuarioController {
             $usuario->nome = $_POST['nome_completo'];
 
             if ($usuario->deleteByNome()) {
-                header('Location: /dev_pub/list-usuario');
+                header('Location: /SubZero/public/list-usuario');
             } else {
                 echo "Erro ao excluir o usuário.";
             }
@@ -77,7 +77,7 @@ class UsuarioController {
             $usuario = new Usuario();
             $id = $_POST['id'];
             if ($usuario->deleteById($id)) {
-                header('Location: /dev_pub/list-usuario');
+                header('Location: /SubZero/public/list-usuario');
             } else {
                 echo "Erro ao excluir o usuário.";
             }

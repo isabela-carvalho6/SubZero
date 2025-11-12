@@ -17,12 +17,19 @@ class BarController {
             $bar->numero = $_POST['numero'];
             $bar->tipo = $_POST['tipo'];
             $bar->senha = $_POST['senha'];
+            $bar->cidade = $_POST['cidade'];
+            $bar->estado = $_POST['estado'];
+            $bar->endereco_completo = $_POST['endereco_completo'];
 
-            // Defina aqui o ID de um usuário que exista na tabela usuario
-            $bar->fk_usuario_id = 12; // Use o id do usuário cadastrado
+            // Pega o id do usuário logado da sessão
+            if (isset($_SESSION['usuario_id'])) {
+                $bar->fk_usuario_id = $_SESSION['usuario_id'];
+            } else {
+                $bar->fk_usuario_id = 1; // Use um ID que exista!
+            }
 
             if ($bar->save()) {
-                header('Location: /dev_pub/list-bar');
+                header('Location: /SubZero/public/list-bar');
             } else {
                 echo "Erro ao cadastrar o bar.";
             }
@@ -52,13 +59,14 @@ class BarController {
             $bar->id_bar = $_POST['id_bar'];
             $bar->nome_completo = $_POST['nome_completo'];
             $bar->email = $_POST['email'];
-            $bar->cep = $_POST['cep'];
-            $bar->numero = $_POST['numero'];
             $bar->tipo = $_POST['tipo'];
             $bar->senha = $_POST['senha'];
+            $bar->cidade = $_POST['cidade'];
+            $bar->estado = $_POST['estado'];
+            $bar->endereco_completo = $_POST['endereco_completo'];
 
             if ($bar->update()) {
-                header('Location: /dev_pub/list-bar');
+                header('Location: /SubZero/public/list-bar');
             } else {
                 echo "Erro ao atualizar o bar.";
             }
@@ -71,7 +79,7 @@ class BarController {
             $bar->nome_completo = $_POST['nome_completo']; // O campo do formulário deve se chamar 'nome_completo'
 
             if ($bar->deleteByNome()) {
-                header('Location: /dev_pub/list-bar');
+                header('Location: /SubZero/public/list-bar');
             } else {
                 echo "Erro ao excluir o bar.";
             }
@@ -82,7 +90,7 @@ class BarController {
             $bar = new Bar();
             $id_bar = $_POST['id_bar'];
             if ($bar->deleteById($id_bar)) {
-                header('Location: /dev_pub/list-bar');
+                header('Location: /SubZero/public/list-bar');
             } else {
                 echo "Erro ao excluir o bar.";
             }

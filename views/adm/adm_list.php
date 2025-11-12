@@ -21,9 +21,9 @@
             <td><?php echo $adm['nome_completo']; ?></td>
             <td><?php echo $adm['senha']; ?></td>
             <td>
-                <a href="/dev_pub/update-adm/<?php echo $adm['id_adm']; ?>">Atualizar</a>
-                <form action="/dev_pub/delete-adm" method="POST" style="display:inline;">
-                    <input type="hidden" name="nome_completo" value="<?php echo $adm['nome_completo']; ?>">
+                <a href="/SubZero/public/update-adm/<?php echo $adm['id_adm']; ?>">Atualizar</a>
+                <form action="/SubZero/public/delete-adm" method="POST" style="display:inline;">
+                    <input type="hidden" name="id_adm" value="<?php echo $adm['id_adm']; ?>">
                     <button type="submit">Excluir</button>
                 </form>
             </td>
@@ -31,7 +31,7 @@
         <?php endforeach; ?>
     </table>
 
-    <a href="/dev_pub/public/adm/">Cadastrar novo administrador</a>
+    <a href="/SubZero/public/adm/">Cadastrar novo administrador</a>
 
 
 </body>

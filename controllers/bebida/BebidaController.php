@@ -1,4 +1,5 @@
 <?php
+session_start(); // Adicione isso no topo do arquivo
 
 require_once '../models/bebida/Bebida.php';
 
@@ -15,10 +16,10 @@ class BebidaController {
             $bebida->descricao = $_POST['descricao'];
             $bebida->ingredientes = $_POST['ingredientes'];
             $bebida->instrucoes = $_POST['instrucoes'];
-            $bebida->fk_usuario_id = $_SESSION['usuario_id'];
+            $bebida->usuario_id = $_SESSION['usuario_id'];
 
             if ($bebida->save()) {
-                header('Location: /dev_pub/list-bebida');
+                header('Location: /SubZero/public/list-bebida');
             } else {
                 echo "Erro ao cadastrar a bebida.";
             }
@@ -47,7 +48,7 @@ class BebidaController {
             $bebida->instrucoes = $_POST['instrucoes'];
 
             if ($bebida->update()) {
-                header('Location: /dev_pub/list-bebida');
+                header('Location: /SubZero/public/list-bebida');
             } else {
                 echo "Erro ao atualizar a bebida.";
             }
@@ -60,7 +61,7 @@ class BebidaController {
             $bebida->nome = $_POST['nome'];
 
             if ($bebida->deleteByNome()) {
-                header('Location: /dev_pub/list-bebida');
+                header('Location: /SubZero/public/list-bebida');
             } else {
                 echo "Erro ao excluir a bebida.";
             }

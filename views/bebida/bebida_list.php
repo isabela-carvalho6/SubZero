@@ -27,9 +27,9 @@
             
 
             <td>
-                <a href="/dev_pub/update-bebida/<?php echo $bebida['id_bebida']; ?>">Atualizar</a>
+                <a href="/SubZero/public/update-bebida/<?php echo $bebida['id_bebida']; ?>">Atualizar</a>
 
-                <form action="/dev_pub/delete-bebida" method="POST" style="display:inline;">
+                <form action="/SubZero/public/delete-bebida" method="POST" style="display:inline;">
 
                     <input type="hidden" name="nome" value="<?php echo $bebida['nome']; ?>">
                     <button type="submit">Excluir</button>
@@ -39,7 +39,7 @@
         <?php endforeach; ?>
     </table>
 
-    <a href="/dev_pub/public/bebida/">Cadastrar nova bebida</a>
+    <a href="/SubZero/public/bebida/">Cadastrar nova bebida</a>
 
 
 </body>

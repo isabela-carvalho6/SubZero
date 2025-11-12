@@ -9,9 +9,8 @@ class AdmController {
     }
 
     public function saveAdm() {
-        $adm->nome_completo = $_POST['nome_completo'];
-        $adm->senha = $_POST['senha'];
-        
+        $nome_completo = $_POST['nome_completo'];
+        $senha = $_POST['senha'];
 
         $adm = new Adm();
         $adm->save($nome_completo, $senha);

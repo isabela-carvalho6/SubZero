@@ -1,0 +1,113 @@
+body {
+  font-family: 'Inknut Antiqua', serif;
+  background-color: #000;
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: #0d0d0d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 20px 0;
+  border-bottom: 1px solid #222;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+  font-family: 'Inknut Antiqua', serif;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+nav a:hover {
+  color: #ccc;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+.container {
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.patrocinador {
+  margin-bottom: 60px;
+}
+
+.patrocinador h3 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.logo {
+  width: 250px;
+  max-width: 90%;
+  margin-bottom: 20px;
+  transition: transform 0.5s ease, opacity 1s ease;
+  opacity: 0;
+}
+
+.descricao {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+footer {
+  margin-top: 80px;
+  font-size: 0.9rem;
+  font-weight: 300;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 2rem;
+  }
+
+  .patrocinador h3 {
+    font-size: 1.5rem;
+  }
+
+  .descricao {
+    font-size: 0.95rem;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+}

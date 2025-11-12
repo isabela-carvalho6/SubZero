@@ -12,7 +12,7 @@
 
         <h1>Cadastro de Usuário</h1>
         
-        <form action="/dev_pub/save-usuario" method="POST">
+        <form action="/SubZero/public/save-usuario" method="POST">
         
             <label for="nome_completo">Nome Completo:</label>
             <input type="text" name="nome_completo" required><br><br>
@@ -30,9 +30,9 @@
         </form>
 
 
-        <a href="/dev_pub/list-usuario"><h4>Ver todos os usuários</h4></a>
+        <a href="/SubZero/public/list-usuario"><h4>Ver todos os usuários</h4></a>
 
-        <a href="http://localhost/dev_pub/public/"> Cadastrar Usuário</a>
+        <a href="/SubZero/public/usuario/"> Cadastrar Usuário</a>
   
 
 </body>
