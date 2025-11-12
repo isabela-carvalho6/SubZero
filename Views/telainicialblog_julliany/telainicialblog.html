@@ -1,96 +1,159 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Selecione seu Drink | Blog de Drinks</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
+      background-color: #000; 
+      color: white; 
       font-family: Arial, sans-serif;
-      background-color: #0b0b0b;
-      color: #f5f5f5;
+      text-align: center; 
+      background-image: linear-gradient(5deg, rgba(0, 0, 0, 0.618) 0%, rgb(0, 0, 0) 100%);
       margin: 0;
       padding: 0;
     }
 
+    /* ======== NOVO CABEÇALHO ======== */
+    nav {
+      background-color: black;
+      padding: 22px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+      opacity: 0;
+      animation: fadeInDown 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .nav-left,
+    .nav-right {
+      display: flex;
+      gap: 80px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-family: 'Inknut Antiqua', serif;
+      font-weight: 400;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #e5c07b;
+    }
+
+    /* ======== CABEÇALHO COM BANNER ======== */
     header {
+      position: relative;
+      height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
       text-align: center;
-      padding: 40px 20px 20px;
-      background: linear-gradient(90deg, #0f0f0f, #111);
+      overflow: hidden;
       border-bottom: 1px solid #1f1f1f;
     }
 
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('../../Imagens/Bebidas_não_alcoólicas/banner_blog.jpg') center/cover no-repeat;
+      filter: brightness(0.45);
+      z-index: 1;
+      animation: zoomIn 1.2s ease-out forwards;
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(1.1);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 60%);
+      z-index: 2;
+    }
+
+    header h1, 
+    header p {
+      position: relative;
+      z-index: 3;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 0.3s forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     header h1 {
-      color: #ffffff;
-      font-size: 2.2em;
-      margin-bottom: 8px;
+      font-family: Arial, sans-serif;
+      font-size: 2.8em;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
     }
 
     header p {
-      color: #aaa;
-      font-size: 1em;
+      font-size: 1.1em;
+      color: #ddd;
+      text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
     }
 
-    main {
-      max-width: 1000px;
-      margin: 50px auto;
-      padding: 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-
-    .drink-card {
-      background-color: #121212;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(0, 255, 153, 0.1);
-      border: 1px solid #1f1f1f;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .drink-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 0 25px rgba(0, 255, 153, 0.2);
-    }
-
-    .drink-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .drink-info {
-      padding: 20px;
-    }
-
-    .drink-info h2 {
-      margin: 0;
-      color: #ffffff;
-      font-size: 1.4em;
-    }
-
-    .drink-info p {
-      color: #aaa;
-      font-size: 0.95em;
-      margin-top: 8px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: #666;
-      font-size: 0.9em;
-      border-top: 1px solid #1f1f1f;
-      margin-top: 50px;
-    }
-
+    /* ======== CAIXA DE PESQUISA ======== */
     .search-box {
       text-align: center;
-      margin: 20px 0;
+      margin: 30px 0;
+      opacity: 0;
+      animation: fadeIn 0.8s ease-out 0.5s forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
 
     input[type="text"] {
@@ -108,13 +171,119 @@
       outline: none;
       border-color: #00e6a8;
     }
+
+    /* ======== SEÇÃO DE DRINKS ======== */
+    main {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .drink-card {
+      background-color: #121212;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 255, 153, 0.1);
+      border: 1px solid #1f1f1f;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .drink-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .drink-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 25px rgba(0, 255, 153, 0.2);
+    }
+
+    .drink-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .drink-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .drink-info {
+      padding: 20px;
+      text-align: left;
+    }
+
+    .drink-info h2 {
+      margin: 0;
+      color: #ffffff;
+      font-size: 1.4em;
+    }
+
+    .drink-info p {
+      color: #aaa;
+      font-size: 0.95em;
+      margin-top: 8px;
+    }
+
+    /* ======== RODAPÉ ======== */
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #666;
+      font-size: 0.9em;
+      border-top: 1px solid #1f1f1f;
+      margin-top: 50px;
+      opacity: 0;
+      animation: fadeIn 0.8s ease-out 1s forwards;
+    }
+
+    /* ======== RESPONSIVIDADE ======== */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .nav-left,
+      .nav-right {
+        gap: 30px;
+      }
+
+      header h1 {
+        font-size: 2em;
+      }
+    }
   </style>
 </head>
 <body>
 
+  <!-- ======== MENU SUPERIOR ======== -->
+  <nav>
+    <div class="nav-left">
+      <a href="#">Bares</a>
+      <a href="../telainicialblog_julliany/telainicialblog.html">Blog</a>
+      <a href="../Escolha_de_bebidas_Julliany/escolhas_de_bebidas.html">Receitas</a>
+    </div>
+    <div class="nav-right">
+      <a href="../RANKING_DRINKS_VICTOR/ranking.html">Drinks Principais</a>
+      <a href="../PERFIL_ISABELA/Perfil.html">Perfil</a>
+    </div>
+  </nav>
+
+  <!-- ======== CABEÇALHO COM BANNER DE FUNDO ======== -->
   <header>
     <h1>Blog de Drinks</h1>
-    <p>Escolha uma bebida para descobrir os detalhes</p>
+    <p></p>
   </header>
 
   <div class="search-box">
@@ -122,15 +291,15 @@
   </div>
 
   <main id="drinkList">
-    <a href="mojito.html" class="drink-card">
+    <a href="../blog_bebidas/blog_mojito.html" class="drink-card">
       <img src="https://i.pinimg.com/1200x/42/34/3d/42343d196729eed4ad186f9139aad28e.jpg" alt="Mojito Refrescante">
       <div class="drink-info">
-        <h2>Mojito Refrescante</h2>
+        <h2>Mojito</h2>
         <p>Rum branco, hortelã e limão em perfeita harmonia.</p>
       </div>
     </a>
 
-    <a href="#" class="drink-card">
+    <a href="../blog_bebidas/blog_pina_colada.html" class="drink-card">
       <img src="https://i.pinimg.com/1200x/8f/a0/b7/8fa0b7f6203d961ca571c6f8a8d942d9.jpg" alt="Piña Colada">
       <div class="drink-info">
         <h2>Piña Colada</h2>
@@ -138,7 +307,7 @@
       </div>
     </a>
 
-    <a href="#" class="drink-card">
+    <a href="../blog_bebidas/blog_bluehawaain.html" class="drink-card">
       <img src="https://i.pinimg.com/1200x/ea/99/15/ea99157ab0e4877f584ac834dc348d84.jpg" alt="Blue Hawaii">
       <div class="drink-info">
         <h2>Blue Hawaii</h2>
@@ -146,111 +315,109 @@
       </div>
     </a>
 
-    <a href="#" class="drink-card">
+    <a href="../blog_bebidas/blog_pinklemonade.html" class="drink-card">
       <img src="https://i.pinimg.com/1200x/7c/69/8d/7c698deb1f5439be522af9e55897bae4.jpg" alt="Pink_lemonade">
       <div class="drink-info">
         <h2>Pink lemonade</h2>
-        <p>O clássico brasileiro com limão, cachaça e açúcar.</p>
+        <p>Drink refrescante, levemente doce e com aquele tom rosado característico.</p>
       </div>
     </a>
 
-     <a href="#" class="drink-card">
+    <a href="../blog_bebidas/blog_cucumber_fesh_mint.html" class="drink-card">
       <img src="https://i.pinimg.com/1200x/28/4a/77/284a77374a0f98c7500d7cac2cb77336.jpg" alt="cucumber_fesh_mint">
       <div class="drink-info">
         <h2>cucumber fesh mint</h2>
-        <p>O clássico brasileiro com limão, cachaça e açúcar.</p>
+        <p>Refrescante combinação de pepino, hortelã e gin ou vodka.</p>
       </div>
     </a>
 
-    <a href="#" class="drink-card">
-      <img src="https://images.unsplash.com/photo-1564758568663-d0b6d7f6d61d?auto=format&fit=crop&w=800&q=60" alt="Limonada_de_Lavanda">
+    <a href="../blog_bebidas/blog_limonada_de_lavanda.html" class="drink-card">
+      <img src="../../Imagens/Bebidas_não_alcoólicas/banner_limonada_de_lavanda.png" alt="Limonada_de_Lavanda">
       <div class="drink-info">
         <h2>Limonada de Lavanda</h2>
-        <p>O clássico brasileiro com limão, cachaça e açúcar.</p>
+        <p>Clássico e elegante, mistura gin e vermute seco com toque de azeitona ou limão.</p>
       </div>
     </a>
 
-        <a href="#" class="drink-card">
-      <img src="https://images.unsplash.com/photo-1564758568663-d0b6d7f6d61d?auto=format&fit=crop&w=800&q=60" alt="Moscow_Mule">
+    <a href="../blog_bebidas/blog_moscowmule.html" class="drink-card">
+      <img src="../../Imagens/Bebidas_não_alcoólicas/banner2_moscow_mule.png" alt="Moscow_Mule">
       <div class="drink-info">
         <h2>Moscow Mule</h2>
-        <p>O clássico brasileiro com limão, cachaça e açúcar.</p>
+        <p>Drink cítrico e picante com vodka, gengibre e limão, servido na caneca de cobre.</p>
       </div>
     </a>
 
-    <a href="#" class="drink-card">
-      <img src="https://images.unsplash.com/photo-1564758568663-d0b6d7f6d61d?auto=format&fit=crop&w=800&q=60" alt="negroni">
+    <a href="../blog_bebidas/blog_negroni.html" class="drink-card">
+      <img src="https://hips.hearstapps.com/hmg-prod/images/negroni-index-6464f78a5ae9a.jpg?crop=0.889074267176457xw:1xh;center,top&resize=1200:*" alt="negroni">
       <div class="drink-info">
         <h2>Negroni</h2>
         <p>O clássico brasileiro com limão, cachaça e açúcar.</p>
       </div>
     </a>
 
-    <a href="#" class="drink-card">
-      <img src="https://images.unsplash.com/photo-1564758568663-d0b6d7f6d61d?auto=format&fit=crop&w=800&q=60" alt="Daiquiri">
+    <a href="../blog_bebidas/blog_daiquiri.html" class="drink-card">
+      <img src="../../Imagens/Bebidas_não_alcoólicas/banner_daiquiri.png" alt="Daiquiri">
       <div class="drink-info">
         <h2>Daiquiri</h2>
         <p>O clássico brasileiro com limão, cachaça e açúcar.</p>
       </div>
     </a>
 
-    <a href="#" class="drink-card">
-      <img src="https://images.unsplash.com/photo-1564758568663-d0b6d7f6d61d?auto=format&fit=crop&w=800&q=60" alt="Dry_martini">
+    <a href="../blog_bebidas/blog_dry_martini.html" class="drink-card">
+      <img src="https://canaldareceita.com.br/wp-content/uploads/2025/02/DRY-MARTINI.jpg" alt="Dry_martini">
       <div class="drink-info">
         <h2>Dry martini</h2>
-        <p>O clássico brasileiro com limão, cachaça e açúcar.</p>
+        <p>Clássico e elegante, mistura gin e vermute seco com toque de azeitona ou limão.</p>
       </div>
     </a>
 
-<a href="#" class="drink-card">
-      <img src="https://images.unsplash.com/photo-1564758568663-d0b6d7f6d61d?auto=format&fit=crop&w=800&q=60" alt="Margarita">
+    <a href="../blog_bebidas/blog_margarita.html" class="drink-card">
+      <img src="https://filodeagave.com/wp-content/uploads/2024/05/Classic-Margarita-Recipe-with-Tequila-Filo-de-Agave-Blanco-v002.jpg" alt="Margarita">
       <div class="drink-info">
         <h2>Margarita</h2>
-        <p>O clássico brasileiro com limão, cachaça e açúcar.</p>
+        <p>Clássico e elegante, mistura gin e vermute seco com toque de azeitona ou limão.</p>
       </div>
     </a>
 
-    <a href="#" class="drink-card">
-      <img src="https://images.unsplash.com/photo-1564758568663-d0b6d7f6d61d?auto=format&fit=crop&w=800&q=60" alt="OldFashioned">
+    <a href="../blog_bebidas/blog_old_fashioned.html" class="drink-card">
+      <img src="https://t4.ftcdn.net/jpg/05/47/21/39/360_F_547213917_ZJkoLkT8xsNJ5JJFVGimR1FUJ15L1nxq.jpg" alt="OldFashioned">
       <div class="drink-info">
         <h2>Old Fashioned</h2>
-        <p>O clássico brasileiro com limão, cachaça e açúcar.</p>
+        <p>Clássico e encorpado, combina uísque, açúcar, angostura e toque de casca de laranja.</p>
       </div>
     </a>
 
-    <a href="#" class="drink-card">
-      <img src="https://images.unsplash.com/photo-1564758568663-d0b6d7f6d61d?auto=format&fit=crop&w=800&q=60" alt="Sangria">
+    <a href="../blog_bebidas/blog_sangria.html" class="drink-card">
+      <img src="../../Imagens/Bebidas_não_alcoólicas/banner_sangria.jpg" alt="Sangria">
       <div class="drink-info">
         <h2>Sangria</h2>
-        <p>O clássico brasileiro com limão, cachaça e açúcar.</p>
+        <p>Drink refrescante bebida espanhola feita com vinho, frutas e um toque de licor ou refrigerante.</p>
       </div>
     </a> 
 
-    <a href="#" class="drink-card">
-      <img src="https://images.unsplash.com/photo-1564758568663-d0b6d7f6d61d?auto=format&fit=crop&w=800&q=60" alt="Sazerac">
+    <a href="../blog_bebidas/blog_sazerac.html" class="drink-card">
+      <img src="https://www.thespruceeats.com/thmb/DI36s9B4I0VSiwg7nbXbPaFWAxs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/sazerac-cocktail-recipe-760604-hero-01-cb5dd2089d204bdd9745e46fd4eef597.jpg" alt="Sazerac">
       <div class="drink-info">
         <h2>Sazerac</h2>
-        <p>O clássico brasileiro com limão, cachaça e açúcar.</p>
+        <p>Drink refrescante bebida espanhola feita com vinho, frutas e um toque de licor ou refrigerante.</p>
       </div>
     </a>
 
-    <a href="#" class="drink-card">
-      <img src="https://images.unsplash.com/photo-1564758568663-d0b6d7f6d61d?auto=format&fit=crop&w=800&q=60" alt="Drink_Virgin_Gimlet">
+    <a href="../blog_bebidas/blog_virgin_gimlet.html" class="drink-card">
+      <img src="https://www.honest-rare.de/cdn-cgi/image/fit=pad,background=transparent,w=800,h=471/images/blog/22/gimlet-rezept-titelbild.jpg" alt="Drink_Virgin_Gimlet">
       <div class="drink-info">
         <h2>Virgin Gimlet</h2>
-        <p>O clássico brasileiro com limão, cachaça e açúcar.</p>
+        <p>Refrescante mistura de rum, hortelã, limão, açúcar e água com gás.</p>
       </div>
     </a>
 
-    <a href="#" class="drink-card">
-      <img src="https://images.unsplash.com/photo-1564758568663-d0b6d7f6d61d?auto=format&fit=crop&w=800&q=60" alt=" whiskySour">
+    <a href="../blog_bebidas/blog_whisky_sour.html" class="drink-card">
+      <img src="https://www.mashed.com/img/gallery/classic-whiskey-sour-recipe/l-intro-1658773565.jpg" alt=" whiskySour">
       <div class="drink-info">
-        <h2>whisky Sour</h2>
-        <p>O clássico brasileiro com limão, cachaça e açúcar.</p>
+        <h2>whiskey Sour</h2>
+        <p>Equilibrado entre doce e ácido, combina uísque, suco de limão e xarope de açúcar..</p>
       </div>
     </a>
-
-
   </main>
 
   <footer>
@@ -267,6 +434,29 @@
         card.style.display = nome.includes(filtro) ? 'block' : 'none';
       });
     }
+
+    // Intersection Observer para animação dos cards
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, index * 100);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observar todos os cards
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.drink-card');
+      cards.forEach(card => observer.observe(card));
+    });
   </script>
 
 </body>

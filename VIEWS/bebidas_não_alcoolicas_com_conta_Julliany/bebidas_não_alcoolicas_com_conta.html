@@ -10,13 +10,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <style>
-    body {
+body {
         background-color: #000; /* Fundo preto */
         color: white; /* Texto branco */
         font-family: Arial, sans-serif; /* Fonte padrão */
         text-align: center; /* Centraliza textos por padrão */
     }
-    
+    body {
+	background-image: linear-gradient(5deg, rgba(0, 0, 0, 0.618) 0%, rgb(0, 0, 0) 100%);
+}
     /* Estilização da navegação principal */
     nav ul {
         list-style: none; /* Remove os marcadores de lista */
@@ -85,7 +87,28 @@
         font-size: 16px;
         font-weight: bold;
     }
-    
+
+    .drinks-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 drinks por linha */
+    gap: 40px;
+    justify-items: center;
+    margin-top: 40px;
+    }
+    .drink-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+    .drink-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+
     /* Exibe o nome ao passar o mouse */
     .drink:hover .name {
         opacity: 1;
@@ -163,6 +186,12 @@
         }
         .banner img {
             width: 1024%;
+        height: 320px; /* Altura ajustada para desktop */
+        object-fit: cover; /* Preenche o espaço mantendo a proporção e cortando o excesso */
+        display: block;
+        -webkit-mask-image: linear-gradient(to top, transparent 0%, rgb(0, 0, 0) 100%);
+	    background-image: url('/Imagens/Bebidas_não_alcoólicas/banner2.jpg');
+        width: 1024%;
         height: 320px; /* Altura ajustada para desktop */
         object-fit: cover; /* Preenche o espaço mantendo a proporção e cortando o excesso */
         display: block;
@@ -251,10 +280,10 @@
         <nav class="topbar">
             <ul>
                 <li><a href="#">Bares</a></li>
-                <li><a href="../Curiosidades_Drink_julliany/Curiosidades_drinks.html">Blog</a></li>
+                <li><a href="../telainicialblog_julliany/telainicialblog.html">Blog</a></li>
                 <li><a href="../Bebidas_não_alcoólicas_Julliany/Bebidas_não_alcoólicas.html">Receitas</a></li>
-                <li class="right"><a href="#">Drinks Principais</a></li>
-                <li class="login"><a href="#">Perfil</a></li>
+                <li class="right"><a href="../RANKING_DRINKS_VICTOR/ranking.html">Drinks Principais</a></li>
+                <li class="login"><a href="../PERFIL_ISABELA/Perfil.html">Perfil</a></li>
             </ul>
         </nav>
     </header>
