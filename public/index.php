@@ -189,6 +189,16 @@ switch ($request) {
         $controller->updateUsuario();
         break;
 
+    case '/SubZero/public/Home':
+        require_once '../views/Home_Italo/home.html' ;
+        break;
+    case '/SubZero/public/Login':
+        require_once '../views/LOGIN_DEVPUB_ISABELA/LoginDevPub.html' ;
+        break;
+    case '/SubZero/public/Escolha':
+        require_once '../views/Escolha_de_bebidas_Julliany/escolhas_de_bebidas.html' ;
+        break;     
+
     default:
         http_response_code(404);
         echo $request;
