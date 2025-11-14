@@ -193,7 +193,7 @@ switch ($request) {
         require_once '../views/Home_Italo/home.html' ;
         break;
     case '/SubZero/public/Login':
-        require_once '../views/LOGIN_DEVPUB_ISABELA/LoginDevPub.html' ;
+        require_once '../views/select_login/select_login.html' ;
         break;
     case '/SubZero/public/Escolha':
         require_once '../views/Escolha_de_bebidas_Julliany/escolhas_de_bebidas.html' ;
