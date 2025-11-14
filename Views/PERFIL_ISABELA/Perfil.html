@@ -20,56 +20,53 @@
 
   <h1>Perfil Profissional</h1>
   <label for="profile-upload" class="drink" title="Clique para alterar a foto">
-    <img src="foto-usuario.jpg" alt="Foto de perfil" />
+    <img id="profile-pic" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Foto de perfil" />
     <span class="name">Alterar Foto</span>
     <input type="file" id="profile-upload" accept="image/*" style="display: none;" />
   </label>
 
-<div class="gallery-section">
-  <h2>Habilidades</h2>
-  <div class="gallery-cards">
-    <div class="skill-card">
-      <h3><strong>Habilidade 1</strong></h3>
-      <p contenteditable="true">Descreva sua habilidade aqui</p>
-    </div>
-    <div class="skill-card">
-      <h3><strong>Habilidade 2</strong></h3>
-      <p contenteditable="true">Descreva sua habilidade aqui</p>
-    </div>
-    <div class="skill-card">
-      <h3><strong>Habilidade 3</strong></h3>
-      <p contenteditable="true">Descreva sua habilidade aqui</p>
+  <div class="gallery-section">
+    <h2>Habilidades</h2>
+    <div class="gallery-cards">
+      <div class="skill-card">
+        <h3><strong>Habilidade 1</strong></h3>
+        <p contenteditable="true">Descreva sua habilidade aqui</p>
+      </div>
+      <div class="skill-card">
+        <h3><strong>Habilidade 2</strong></h3>
+        <p contenteditable="true">Descreva sua habilidade aqui</p>
+      </div>
+      <div class="skill-card">
+        <h3><strong>Habilidade 3</strong></h3>
+        <p contenteditable="true">Descreva sua habilidade aqui</p>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="gallery-section">
-  <h2>Projetos</h2>
-  <div class="gallery-cards">
-    <div class="skill-card">
-      <h3><strong>Projeto 1</strong></h3>
-      <p contenteditable="true">Descreva seu projeto aqui</p>
-    </div>
-    <div class="skill-card">
-      <h3><strong>Projeto 2</strong></h3>
-      <p contenteditable="true">Descreva seu projeto aqui</p>
+  <div class="gallery-section">
+    <h2>Projetos</h2>
+    <div class="gallery-cards">
+      <div class="skill-card">
+        <h3><strong>Projeto 1</strong></h3>
+        <p contenteditable="true">Descreva seu projeto aqui</p>
+      </div>
+      <div class="skill-card">
+        <h3><strong>Projeto 2</strong></h3>
+        <p contenteditable="true">Descreva seu projeto aqui</p>
+      </div>
     </div>
   </div>
-</div>
 
   <script>
-    const profileUpload = document.getElementById('profile-upload');
-    const profileImage = document.querySelector('.drink img');
-
-    profileUpload.addEventListener('change', (e) => {
-      const file = e.target.files[0];
-      const reader = new FileReader();
-
-      reader.onload = (e) => {
-        profileImage.src = e.target.result;
-      };
-
-      reader.readAsDataURL(file);
+    document.getElementById("profile-upload").addEventListener("change", function () {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          document.getElementById("profile-pic").src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
     });
 
     function Sair(event) {
@@ -82,7 +79,7 @@
       window.location.href = '../SUPORTE_CONTATO_ITALO/suporte_contato.html';
     }
 
-     function Inicio(event) {
+    function Inicio(event) {
       event.preventDefault();
       window.location.href = '../Home_Italo/home.html';
     }
@@ -92,5 +89,6 @@
       window.location.href = '../Colaboradores_Isabela/Colaboradores.html';
     }
   </script>
+
 </body>
 </html>
