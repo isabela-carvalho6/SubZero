@@ -9,7 +9,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
+<body>
+<div class="logo-container"><a href="/SubZero/views/Home_Italo/home.html"><img src="/SubZero/Imagens/logo.png" alt="Logo"></a></div>
 <style>
+    .logo-container {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 100;
+    }
+    .logo-container img {
+        height: 80px;
+        transition: transform 0.3s ease;
+    }
+    .logo-container a:hover img {
+        transform: scale(1.1);
+    }
 body {
         background-color: #000; /* Fundo preto */
         color: white; /* Texto branco */

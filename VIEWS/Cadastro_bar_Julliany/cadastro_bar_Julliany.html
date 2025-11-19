@@ -6,12 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        .logo-container {
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 20px;
+        }
+        .logo-container a {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        .logo-container a:hover {
+            transform: scale(1.1);
+        }
+        .logo-container img {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+        }
+        
         body {
             background: #000;
             color: #fff;
             font-family: 'Inknut Antiqua', serif;
             margin: 0;
-            padding: 0;
+            padding: 0 0 80px 0;
         }
         .container {
             max-width: 500px;
@@ -165,6 +183,9 @@
     </style>
 </head>
 <body>
+    <div class="logo-container">
+        <a href="/SubZero/views/Home_Italo/home.html"><img src="/SubZero/Imagens/logo.png" alt="Logo"></a>
+    </div>
     <div class="container">
         <div class="logo">
     <img src="../../Imagens/Bebidas_não_alcoólicas/Logo.jpg" alt="Logo do Bar">

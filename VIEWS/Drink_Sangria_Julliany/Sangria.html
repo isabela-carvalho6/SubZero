@@ -6,6 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;700&display=swap" rel="stylesheet">
     <style>
+    .logo-container {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        z-index: 100;
+    }
+    .logo-container a {
+        display: inline-block;
+        transition: transform 0.3s ease;
+    }
+    .logo-container a:hover {
+        transform: scale(1.1);
+    }
+    .logo-container img {
+        height: 80px;
+        width: auto;
+        object-fit: contain;
+    }
+
     body {
         background: #000;
         color: #fff;
@@ -136,6 +157,9 @@
     </style>
 </head>
 <body>
+   <div class="logo-container">
+        <a href="/SubZero/views/Home_Italo/home.html"><img src="/SubZero/Imagens/logo.png" alt="Logo"></a>
+    </div>
    <a href="../../VIEWS/bebidas_não_alcoolicas_com_conta_Julliany/bebidas_não_alcoolicas_com_conta.html" class="voltar">&#9664;</a>
     <div class="container">
         <h1>Sangria</h1>

@@ -8,6 +8,27 @@
     /* ======= Estilo Base ======= */
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap');
 
+    .logo-container {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 1000;
+    }
+    .logo-container a {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+    .logo-container a:hover {
+      transform: scale(1.1);
+    }
+    .logo-container img {
+      height: 80px;
+      width: auto;
+      object-fit: contain;
+    }
+
     body {
       margin: 0;
       background: radial-gradient(circle at center, #141414, #0b0b0b 70%);

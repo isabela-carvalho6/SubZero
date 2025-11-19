@@ -19,8 +19,30 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        padding: 40px 20px;
+        justify-content: flex-start;
+        padding: 40px 20px 120px 20px;
+    }
+
+    .logo-container {
+        text-align: center;
+        margin-bottom: 30px;
+        padding: 20px 0;
+        margin-top: 20px;
+    }
+
+    .logo-container a {
+        display: inline-block;
+        transition: transform 0.3s ease;
+    }
+
+    .logo-container a:hover {
+        transform: scale(1.1);
+    }
+
+    .logo-container img {
+        height: 100px;
+        width: auto;
+        object-fit: contain;
     }
 
     h1 {
@@ -175,6 +197,10 @@
     </style>
 </head>
 <body>
+
+    <div class="logo-container">
+        <a href="/SubZero/views/Home_Italo/home.html"><img src="/SubZero/Imagens/logo.png" alt="Logo"></a>
+    </div>
 
     <h1>Cadastro de Bar</h1>
     <!-- #region -->    

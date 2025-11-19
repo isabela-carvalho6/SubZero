@@ -6,8 +6,25 @@
   <title>Cadastro de Usuário</title>
   <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="Cadastrodeusuario.css" />
+  <style>
+    .logo-container {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+    }
+    .logo-container img {
+      height: 80px;
+      transition: transform 0.3s ease;
+    }
+    .logo-container a:hover img {
+      transform: scale(1.1);
+    }
+  </style>
 </head>
 <body>
+  <div class="logo-container"><a href="/SubZero/views/Home_Italo/home.html"><img src="/SubZero/Imagens/logo.png" alt="Logo"></a></div>
   <div class="container">
     <label for="profile-pic-input" class="profile-pic" title="Clique para alterar a foto">
       <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Foto de perfil padrão" />

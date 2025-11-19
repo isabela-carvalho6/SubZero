@@ -44,6 +44,27 @@
       flex-wrap: wrap;
     }
 
+    .logo-container {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 100;
+    }
+    .logo-container a {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+    .logo-container a:hover {
+      transform: scale(1.1);
+    }
+    .logo-container img {
+      height: 80px;
+      width: auto;
+      object-fit: contain;
+    }
+
     .option {
       text-align: center;
       transition: transform 0.3s, box-shadow 0.3s;

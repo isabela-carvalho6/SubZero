@@ -4,9 +4,70 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Feedbacks Postados</title> 
+    <title>Feedbacks Postados</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1920') center/cover no-repeat fixed;
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #ffffff;
+        }
+        .logo-container {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+        .logo-container a {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        .logo-container a:hover {
+            transform: scale(1.1);
+        }
+        .logo-container img {
+            height: 100px;
+            width: auto;
+            object-fit: contain;
+        }
+        h1 {
+            color: #ffffff;
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ffffff;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>tyle>
 </head>
 <body>
+
+    <div class="logo-container">
+        <a href="/SubZero/views/Home_Italo/home.html"><img src="/SubZero/Imagens/logo.png" alt="Logo"></a>
+    </div>
 
     <h1>Feedbacks Postados</h1>
 

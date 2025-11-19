@@ -44,13 +44,13 @@
     .form-wrapper {
       flex: 1;
       position: relative;
-      left: -120px; /* Mude este valor para mover a caixa para a esquerda/direita */
-      /* Você pode usar também margin-left ou right, se preferir */
+      left: -120px;
       z-index: 2;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: auto;
+      padding: 40px 0;
     }
     .form-box {
       background-color: rgba(0, 0, 0, 0.85);

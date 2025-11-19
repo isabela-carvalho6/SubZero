@@ -8,6 +8,24 @@
     /* ======= Estilo Base ======= */
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap');
 
+    /* ======= Logo Container ======= */
+    .logo-container {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+    }
+
+    .logo-container img {
+      height: 80px;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-container a:hover img {
+      transform: scale(1.1);
+    }
+
     body {
       margin: 0;
       background: radial-gradient(circle at center, #141414, #0b0b0b 70%);
@@ -229,6 +247,8 @@
   </style>
 </head>
 <body>
+
+  <div class="logo-container"><a href="/SubZero/views/Home_Italo/home.html"><img src="/SubZero/Imagens/logo.png" alt="Logo"></a></div>
 
   <header>
     <h1>Sazerac</h1>
