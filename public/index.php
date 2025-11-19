@@ -197,8 +197,12 @@ switch ($request) {
         break;
     case '/SubZero/public/Escolha':
         require_once '../views/Escolha_de_bebidas_Julliany/escolhas_de_bebidas.html' ;
-        break;     
+        break; 
+    case '/SubZero/public/DrinksPrincipais':
+         require_once '../views/RANKING_DRINKS_VICTOR/ranking.html' ;
+        break; 
 
+        
     default:
         http_response_code(404);
         echo $request;
