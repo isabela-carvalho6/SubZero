@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <title>Cadastro do Bar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         body {
             background: #000;
@@ -22,23 +23,27 @@
             align-items: center;
         }
         .logo {
-            width: 140px;
-            height: 140px;
+            width: 150px;
+            height: 150px;
             background: #ccc;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            color: #222;
+            overflow: hidden;
             margin-bottom: 30px;
         }
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
         h1 {
-            font-family: 'Inknut Antiqua', serif;
             font-size: 2.3rem;
             font-weight: 400;
-            margin-bottom: 30px;
             text-align: center;
+            margin-bottom: 30px;
         }
         .info-label {
             width: 100%;
@@ -48,7 +53,6 @@
             margin-top: 10px;
             font-family: Arial, sans-serif;
             font-weight: 400;
-            
         }
         form {
             width: 100%;
@@ -56,7 +60,7 @@
             flex-direction: column;
             gap: 20px;
         }
-        input[type="text"], input[type="email"], input[type="password"],input[type="tel"] {
+        input {
             width: 100%;
             padding: 15px 20px;
             border-radius: 25px;
@@ -65,13 +69,7 @@
             background: #fff;
             color: #222;
             font-family: Arial, sans-serif;
-            margin-bottom: 0;
             box-sizing: border-box;
-        }
-        input[type="text"]::placeholder,
-        input[type="email"]::placeholder,
-        input[type="password"]::placeholder {
-            color: #aaa;
         }
         .btn-cadastrar {
             width: 60%;
@@ -82,10 +80,8 @@
             background: #23b7d9;
             color: #fff;
             font-size: 1rem;
-            font-family: Arial, sans-serif;
             cursor: pointer;
             transition: background 0.2s;
-            display: block;
         }
         .btn-cadastrar:hover {
             background: #199ab3;
@@ -112,87 +108,87 @@
             color: #fff;
             text-decoration: underline;
             margin: 0 10px;
-            font-size: 0.95rem;
         }
         .footer-links a:hover {
             color: #23b7d9;
         }
-        .logo {
-            width: 150px;
-            height: 150px;
-            background: #ccc;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden; /* Garante que a imagem fique dentro do círculo */
-            margin-bottom: 30px;
-        }
-        .logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Preenche todo o círculo sem distorcer */
-            border-radius: 50%;
-        display: block;
-        }
-        @media (max-width: 900px) {
-        .conteudo {
-            flex-direction: column;
-            align-items: center;
-        }
-        .coluna.imagem {
-            margin-bottom: 30px;
-        }
-    }
-    
-    @media (max-width: 600px) {
-        h1 {
-            font-size: 1.3rem;
-        }
-        .coluna h2 {
-            font-size: 1rem;
-        }
-        .coluna.imagem img {
-            width: 120px;
-        }
-        .container {
-            padding: 20px 5px 0 5px;
-        }
-        .ingredientes, .preparo, .descricao {
-            font-size: 0.8rem;
-        }
-    }
     </style>
 </head>
+
 <body>
     <div class="container">
+
         <div class="logo">
-    <img src="../../Imagens/Bebidas_não_alcoólicas/Logo.jpg" alt="Logo do Bar">
-</div>
+            <img src="../../Imagens/Bebidas_não_alcoólicas/logo_semfundo.png" alt="Logo do Bar">
+        </div>
+
         <h1>Cadastro Do Bar</h1>
-        <div class="info-label">informações sobre o local</div>
-        <form>
-            <form>
-    <input type="text" placeholder="Nome do bar" required>
-    <input type="email" placeholder="E-mail" required>
-    <input type="text" placeholder="CEP" required>
-    <input type="tel" placeholder="Telefone" required>
-    <input type="text" placeholder="Tipo de bar" required>
-    <input type="password" placeholder="senha" required>
-    <button type="submit" class="btn-cadastrar">Cadastrar</button>
-</form>
+
+        <div class="info-label">Informações sobre o local</div>
+
+        <!-- FORMULÁRIO COM ID CORRETO -->
+        <form id="cadastroBarForm">
+
+            <input id="nome" type="text" placeholder="Nome do bar" required>
+            <input id="email" type="email" placeholder="E-mail" required>
+            <input id="cep" type="text" placeholder="CEP" required>
+            <input id="telefone" type="tel" placeholder="Telefone" required>
+            <input id="tipo" type="text" placeholder="Tipo de bar" required>
+            <input id="senha" type="password" placeholder="Senha" required>
+
+            <button type="submit" class="btn-cadastrar">Cadastrar</button>
+
+            <!-- MENSAGEM DE SUCESSO OU ERRO -->
+            <p id="mensagem" style="display:none; text-align:center; margin-top:10px; font-family:Arial;"></p>
         </form>
     </div>
+
     <footer>
         <div class="footer-content">
             <div style="font-size:0.85rem;">©2025 SubZero. Todos os direitos reservados<br>Beba com moderação.</div>
+
             <div class="footer-links">
-                <a href="#">Política de Privacidade</a>
-                <a href="#">Termos de Uso</a>
-                <a href="#">FAQ</a>
-                <a href="#">Contato</a>
+                <a href="../Politicas_de_Privacidade_italo/politicas.html">Política de Privacidade</a>
+                <a href="../Termos_Italo/termos.html">Termos de Uso</a>
+                <a href="../Faq_Italo/faq.html">FAQ</a>
+                <a href="../SUPORTE_CONTATO_ITALO/suporte_contato.html">Contato</a>
             </div>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('cadastroBarForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const cep = document.getElementById('cep').value.trim();
+            const tipo = document.getElementById('tipo').value.trim();
+            const senha = document.getElementById('senha').value.trim();
+            const mensagem = document.getElementById('mensagem');
+
+            if (!nome || !email || !cep || !tipo || !senha) {
+                mensagem.textContent = "Preencha todos os campos!";
+                mensagem.style.color = "#ff5555";
+                mensagem.style.display = "block";
+                return;
+            }
+
+            mensagem.textContent = "Cadastro realizado com sucesso!";
+            mensagem.style.color = "#23b7d9";
+            mensagem.style.display = "block";
+
+            setTimeout(() => {
+                mensagem.style.display = "none";
+                document.getElementById('cadastroBarForm').reset();
+
+                // 🔵 REDIRECIONAMENTO APÓS O SUCESSO
+               window.location.href = "../../VIEWS/Home_Italo/home.html";
+
+
+            }, 2000);
+        });
+    </script>
+
 </body>
 </html>
