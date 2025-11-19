@@ -10,14 +10,18 @@
   <link rel="stylesheet" href="Colaboradores.css" />
 </head>
 <body>
-  <nav>
-    <a href="#" onclick="abrirBares(event)">BARES</a>
-    <a href="#" onclick="abrirBlog(event)">BLOG</a>
-    <a href="#" onclick="abrirReceitas(event)">RECEITAS</a>
-    <a href="#" onclick="abrirDrinks(event)">DRINKS</a>
-    <a href="#" onclick="abrirPerfil(event)">PERFIL</a>
+    <header>
+        <nav class="topbar">
+            <ul id="navLinks">
+                <li><a href="../BAR_MAIS_PROXIMO_VICTOR/index.html">BARES</a></li>
+                <li><a href="../telainicialblog_julliany/telainicialblog.html">BLOG</a></li>
+                <li><a href="../Escolha_de_bebidas_Julliany/escolhas_de_bebidas.html">RECEITAS</a></li>
+                <li><a href="../RANKING_DRINKS_VICTOR/ranking.html">DRINKS PRINCIPAIS</a></li>
+                <li><a href="../Perfil_Isabela/Perfil.html">PERFIL</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  </nav>
 <div class="container">
     <h2>PATROCINADORES E COLABORADORES</h2>
 
@@ -115,31 +119,6 @@
     window.addEventListener('beforeunload', () => {
       window.scrollTo(0, 0);
     });
-
-    function abrirPerfil(event) {
-      event.preventDefault();
-      window.location.href = '../Perfil_Isabela/Perfil.html';
-    }
-
-     function abrirBlog(event) {
-      event.preventDefault();
-      window.location.href = '../telainicialblog_julliany/telainicialblog.html';
-    }
-
-    function abrirBares(event) {
-      event.preventDefault();
-      window.location.href = '../BAR_MAIS_PROXIMO_VICTOR/index.html';
-    }
-
-    function abrirDrinks(event) {
-      event.preventDefault();
-      window.location.href = '../RANKING_DRINKS_VICTOR/ranking.html';
-    }
-
-    function abrirReceitas(event) {
-      event.preventDefault();
-      window.location.href = '../Escolha_de_bebidas_Julliany/escolhas_de_bebidas.html';
-    }
   </script>
 </body>
 </html>

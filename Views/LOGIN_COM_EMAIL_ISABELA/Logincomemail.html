@@ -19,26 +19,36 @@
   </div>
 
   <script>
-    function fazerLogin() {
-      const email = document.getElementById('email').value.trim();
-      const senha = document.getElementById('senha').value.trim();
-      const mensagem = document.getElementById('mensagem');
+  function fazerLogin() {
+    const email = document.getElementById('email').value.trim();
+    const senha = document.getElementById('senha').value.trim();
+    const mensagem = document.getElementById('mensagem');
 
-      if (email === '' || senha === '') {
-        mensagem.textContent = 'Por favor, preencha todos os campos corretamente.';
-        mensagem.className = 'message error';
-        mensagem.style.display = 'block';
-        return;
-      }
+    const regexEmail = /^[a-zA-Z0-9._%+-]+@(gmail\.com|hotmail\.com|outlook\.com|yahoo\.com|icloud\.com)$/;
 
-      mensagem.textContent = 'Concluído com sucesso!';
-      mensagem.className = 'message success';
+    if (email === '' || senha === '') {
+      mensagem.textContent = 'Por favor, preencha todos os campos corretamente.';
+      mensagem.className = 'message error';
       mensagem.style.display = 'block';
-
-      setTimeout(() => {
-        window.location.href = "../Home_Italo/home.html";
-      }, 2000);
+      return;
     }
-  </script>
+
+    if (!regexEmail.test(email)) {
+      mensagem.textContent = 'E-mail inválido. Use um domínio válido';
+      mensagem.className = 'message error';
+      mensagem.style.display = 'block';
+      return;
+    }
+
+    mensagem.textContent = 'Concluído com sucesso!';
+    mensagem.className = 'message success';
+    mensagem.style.display = 'block';
+
+    setTimeout(() => {
+      window.location.href = "../telainicialblog_julliany/telainicialblog.html";
+    }, 2000);
+  }
+</script>
+
 </body>
 </html>
