@@ -42,7 +42,6 @@
     <a href="#" onclick="abrirDrinks(event)">DRINKS</a>
     <a href="#" onclick="abrirPerfil(event)">PERFIL</a>
 
-  </nav>
 <div class="container">
     <h2>PATROCINADORES E COLABORADORES</h2>
 
@@ -140,31 +139,6 @@
     window.addEventListener('beforeunload', () => {
       window.scrollTo(0, 0);
     });
-
-    function abrirPerfil(event) {
-      event.preventDefault();
-      window.location.href = '../Perfil_Isabela/Perfil.html';
-    }
-
-     function abrirBlog(event) {
-      event.preventDefault();
-      window.location.href = '../telainicialblog_julliany/telainicialblog.html';
-    }
-
-    function abrirBares(event) {
-      event.preventDefault();
-      window.location.href = '../BAR_MAIS_PROXIMO_VICTOR/index.html';
-    }
-
-    function abrirDrinks(event) {
-      event.preventDefault();
-      window.location.href = '../RANKING_DRINKS_VICTOR/ranking.html';
-    }
-
-    function abrirReceitas(event) {
-      event.preventDefault();
-      window.location.href = '../Escolha_de_bebidas_Julliany/escolhas_de_bebidas.html';
-    }
   </script>
 </body>
 </html>
