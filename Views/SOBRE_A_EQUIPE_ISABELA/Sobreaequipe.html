@@ -6,8 +6,25 @@
   <title>Sobre a Equipe DevPub</title>
   <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@100;300;400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="Sobreaequipe.css" />
+  <style>
+    .logo-container {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+    }
+    .logo-container img {
+      height: 80px;
+      transition: transform 0.3s ease;
+    }
+    .logo-container a:hover img {
+      transform: scale(1.1);
+    }
+  </style>
 </head>
 <body>
+  <div class="logo-container"><a href="/SubZero/views/Home_Italo/home.html"><img src="/SubZero/Imagens/logo.png" alt="Logo"></a></div>
   <header class="topbar">
     <ul>
       <li><a href="../BAR_MAIS_PROXIMO_VICTOR/index.html">BARES</a></li>
@@ -35,7 +52,7 @@
         <div class="descricao">Ítalo</div>
       </div>
       <div class="membro">
-        <img src="" alt="Julliany" class="foto" />
+        <img src="../../Imagens/Bebidas_não_alcoólicas/foto_julliany.webp" alt="Julliany" class="foto" />
         <div class="descricao">Julliany</div>
       </div>
       <div class="membro">

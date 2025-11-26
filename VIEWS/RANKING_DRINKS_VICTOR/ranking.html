@@ -8,10 +8,40 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .logo-container {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: transform 0.3s ease;
+        }
+        .logo-container a {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        .logo-container a:hover {
+            transform: scale(1.1);
+        }
+        .logo-container img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav class="topbar">
+            <div class="logo-container">
+                <a href="/SubZero/views/Home_Italo/home.html"><img src="/SubZero/Imagens/logo.png" alt="Logo"></a>
+            </div>
             <ul>
                 <li><a href="../BAR_MAIS_PROXIMO_VICTOR/index.html">Bares</a></li>
                 <li><a href="../telainicialblog_julliany/telainicialblog.html">Blog</a></li>

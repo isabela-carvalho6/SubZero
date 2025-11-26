@@ -13,6 +13,28 @@
             box-sizing: border-box;
         }
 
+        .logo-container {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        .logo-container a {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container a:hover {
+            transform: scale(1.1);
+        }
+
+        .logo-container img {
+            height: 100px;
+            width: auto;
+            object-fit: contain;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),

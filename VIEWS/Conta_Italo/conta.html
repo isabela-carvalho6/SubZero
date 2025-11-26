@@ -9,6 +9,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <style>
+        .logo-container {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 100;
+        }
+        .logo-container a {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        .logo-container a:hover {
+            transform: scale(1.1);
+        }
+        .logo-container img {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+        }
+    </style>
+    <div class="logo-container">
+        <a href="/SubZero/views/Home_Italo/home.html"><img src="/SubZero/Imagens/logo.png" alt="Logo"></a>
+    </div>
     <header>
         <nav class="topbar">
             <ul id="navLinks">
