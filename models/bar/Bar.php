@@ -31,8 +31,8 @@ class Bar {
 
     public function save() {
         $query = "INSERT INTO " . $this->table_name . " 
-        (nome_completo, email, cep, numero, endereco_completo, tipo, cidade, estado, senha, fk_usuario_id) 
-        VALUES (:nome_completo, :email, :cep, :numero, :endereco_completo, :tipo, :cidade, :estado, :senha, :fk_usuario_id)";
+        (nome_completo, email, cep, numero, endereco_completo, tipo, cidade, estado, latitude, longitude, senha, fk_usuario_id) 
+        VALUES (:nome_completo, :email, :cep, :numero, :endereco_completo, :tipo, :cidade, :estado, :latitude, :longitude, :senha, :fk_usuario_id)";
 
         $stmt = $this->conn->prepare($query);
 
@@ -44,6 +44,8 @@ class Bar {
         $stmt->bindParam(':tipo', $this->tipo);
         $stmt->bindParam(':cidade', $this->cidade);
         $stmt->bindParam(':estado', $this->estado);
+    $stmt->bindParam(':latitude', $this->latitude);
+    $stmt->bindParam(':longitude', $this->longitude);
         $stmt->bindParam(':senha', $this->senha);
         $stmt->bindParam(':fk_usuario_id', $this->fk_usuario_id);
 
@@ -51,7 +53,7 @@ class Bar {
     }
 
     public function getAll() {
-        $query = "SELECT id_bar, nome_completo, email, cep, numero, endereco_completo, tipo, cidade, estado, senha FROM " . $this->table_name;
+        $query = "SELECT id_bar, nome_completo, email, cep, numero, endereco_completo, tipo, cidade, estado, latitude, longitude, senha FROM " . $this->table_name;
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -74,7 +76,7 @@ class Bar {
     public function update() {
         
         $query = "UPDATE " . $this->table_name . " 
-                  SET nome_completo = :nome_completo, email = :email, cep = :cep, numero = :numero, endereco_completo = :endereco_completo, tipo = :tipo, cidade = :cidade, estado = :estado, senha = :senha
+                  SET nome_completo = :nome_completo, email = :email, cep = :cep, numero = :numero, endereco_completo = :endereco_completo, tipo = :tipo, cidade = :cidade, estado = :estado, latitude = :latitude, longitude = :longitude, senha = :senha
                   WHERE id_bar = :id_bar";
 
         $stmt = $this->conn->prepare($query);
@@ -87,6 +89,8 @@ class Bar {
         $stmt->bindParam(':tipo', $this->tipo);
         $stmt->bindParam(':cidade', $this->cidade);
         $stmt->bindParam(':estado', $this->estado);
+    $stmt->bindParam(':latitude', $this->latitude);
+    $stmt->bindParam(':longitude', $this->longitude);
         $stmt->bindParam(':senha', $this->senha);
         $stmt->bindParam(':id_bar', $this->id_bar);
 
