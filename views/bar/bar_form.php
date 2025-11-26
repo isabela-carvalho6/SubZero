@@ -168,17 +168,8 @@
         text-decoration: underline;
     }
 
-    /* Oculta campos de latitude/longitude visualmente mas mantém funcionais */
-    input#latitude,
-    input#longitude,
-    label[for="latitude"],
-    label[for="longitude"] {
-        position: absolute;
-        left: -9999px;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-    }
+    /* Latitude/Longitude visíveis para permitir inserção manual */
+    /* Removido o estilo que escondia os campos no formulário de cadastro */
 
     /* Responsivo */
     @media (max-width: 768px) {
