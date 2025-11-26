@@ -280,6 +280,8 @@
             <th>Tipo</th>
             <th>Cidade</th>
             <th>Estado</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
             <th>Senha</th>
             <th>Endereço Completo</th>
             <th>Ações</th>
@@ -294,6 +296,8 @@
             <td><?= htmlspecialchars($bar['tipo'] ?? '') ?></td>
             <td><?= htmlspecialchars($bar['cidade'] ?? '') ?></td>
             <td><?= htmlspecialchars($bar['estado'] ?? '') ?></td>
+            <td><?= htmlspecialchars($bar['latitude'] ?? '') ?></td>
+            <td><?= htmlspecialchars($bar['longitude'] ?? '') ?></td>
             <td><?= htmlspecialchars($bar['senha'] ?? '') ?></td>
             <td><?= htmlspecialchars($bar['endereco_completo'] ?? '') ?></td>
             <td>

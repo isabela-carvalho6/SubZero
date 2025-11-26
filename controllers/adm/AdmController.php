@@ -13,11 +13,15 @@ class AdmController {
             $adm = new Adm();
             $adm->nome_completo = $_POST['nome_completo'];
             $adm->senha = $_POST['senha'];
-            if ($adm->save()) {
-                header('Location: /SubZero/public/list-adm');
-                exit;
-            } else {
-                echo "Erro ao cadastrar o ADM.";
+            try {
+                if ($adm->save()) {
+                    include '../VIEWS/adm/cadastro_sucesso.php';
+                    exit;
+                } else {
+                    echo "Erro ao cadastrar o ADM.";
+                }
+            } catch (Exception $e) {
+                echo "Erro ao cadastrar o ADM: " . $e->getMessage();
             }
         }
     }

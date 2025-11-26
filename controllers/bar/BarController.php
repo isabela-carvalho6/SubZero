@@ -20,6 +20,9 @@ class BarController {
             $bar->cidade = $_POST['cidade'];
             $bar->estado = $_POST['estado'];
             $bar->endereco_completo = $_POST['endereco_completo'];
+            // latitude/longitude (opcionais)
+            $bar->latitude = isset($_POST['latitude']) ? $_POST['latitude'] : null;
+            $bar->longitude = isset($_POST['longitude']) ? $_POST['longitude'] : null;
 
             // Pega o id do usuário logado da sessão
             if (isset($_SESSION['usuario_id'])) {
@@ -28,10 +31,16 @@ class BarController {
                 $bar->fk_usuario_id = 1; // Use um ID que exista!
             }
 
-            if ($bar->save()) {
-                header('Location: /SubZero/public/list-bar');
-            } else {
-                echo "Erro ao cadastrar o bar.";
+            try {
+                if ($bar->save()) {
+                    // Em vez de redirecionar para a lista, mostrar uma página de sucesso simples
+                    include '../VIEWS/bar/cadastro_sucesso.php';
+                    exit;
+                } else {
+                    echo "Erro ao cadastrar o bar. (save retornou false)";
+                }
+            } catch (Exception $e) {
+                echo "Erro ao cadastrar o bar: " . $e->getMessage();
             }
         }
     }
@@ -64,11 +73,19 @@ class BarController {
             $bar->cidade = $_POST['cidade'];
             $bar->estado = $_POST['estado'];
             $bar->endereco_completo = $_POST['endereco_completo'];
+            // latitude/longitude (opcionais)
+            $bar->latitude = isset($_POST['latitude']) ? $_POST['latitude'] : null;
+            $bar->longitude = isset($_POST['longitude']) ? $_POST['longitude'] : null;
 
-            if ($bar->update()) {
-                header('Location: /SubZero/public/list-bar');
-            } else {
-                echo "Erro ao atualizar o bar.";
+            try {
+                if ($bar->update()) {
+                    header('Location: /SubZero/public/list-bar');
+                    exit;
+                } else {
+                    echo "Erro ao atualizar o bar. (update retornou false)";
+                }
+            } catch (Exception $e) {
+                echo "Erro ao atualizar o bar: " . $e->getMessage();
             }
         }
     }
