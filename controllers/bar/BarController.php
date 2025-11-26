@@ -33,7 +33,8 @@ class BarController {
 
             try {
                 if ($bar->save()) {
-                    header('Location: /SubZero/public/list-bar');
+                    // Em vez de redirecionar para a lista, mostrar uma página de sucesso simples
+                    include '../VIEWS/bar/cadastro_sucesso.php';
                     exit;
                 } else {
                     echo "Erro ao cadastrar o bar. (save retornou false)";
