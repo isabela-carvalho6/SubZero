@@ -7,25 +7,51 @@
   <link rel="stylesheet" href="style.css"/>
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
   <style>
-    .logo-container {
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 100;
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      gap: 12px;
     }
-    .logo-container img {
-      height: 80px;
-      transition: transform 0.3s ease;
+    .topbar h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: #111;
     }
-    .logo-container a:hover img {
-      transform: scale(1.1);
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .register-btn {
+      background: #ff9900;
+      color: #000;
+      padding: 10px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    .logo-link img {
+      height: 64px;
+      display: block;
+      object-fit: contain;
+      transition: transform 0.2s ease;
+    }
+    .logo-link:hover img {
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
-  <div class="logo-container"><a href="/SubZero/views/Home_Italo/home.html"><img src="/SubZero/Imagens/logo.png" alt="Logo"></a></div>
-  <h1>Mapa de Bares</h1>
+  <header class="topbar">
+    <h1>Mapa de Bares</h1>
+    <div class="header-actions">
+      <a class="register-btn" href="http://localhost/SubZero/views/bar/bar_form.php" target="_self">Cadastrar novo bar</a>
+      <a class="logo-link" href="/SubZero/views/Home_Italo/home.html"><img src="/SubZero/Imagens/logo.png" alt="Logo"></a>
+    </div>
+  </header>
 
   <div class="search-container">
     <input type="text" id="search" placeholder="Buscar local...">
