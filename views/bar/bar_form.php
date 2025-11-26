@@ -185,25 +185,31 @@
             padding: 20px 15px;
         }
     }
-    /* Botão fixo inferior esquerdo (mesmo esquema das outras páginas) */
-    .back-button {
-        color: #fff;
-        font-size: 18px;
-        text-decoration: none;
+    /* stealth-dot: ponto discreto como em usuario/adm (quase invisível) */
+    .stealth-dot {
         position: fixed;
-        bottom: 30px;
-        left: 20px;
-        background-color: rgba(0,0,0,0.7);
-        padding: 12px 16px;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.4);
-        transition: background-color 0.3s ease, transform 0.3s ease;
-        z-index: 999;
+        left: 12px;
+        bottom: 12px;
+        width: 14px;
+        height: 14px;
+        display: inline-block;
+        border-radius: 50%;
+        background: #000;
+        border: 1px solid rgba(255,255,255,0.03);
+        box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+        opacity: 0.06;
+        transition: opacity 180ms ease, transform 180ms ease;
+        z-index: 9999;
+        text-indent: -9999px;
     }
-
-    .back-button:hover {
-        background-color: #C0392B;
-        transform: scale(1.05);
+    .stealth-dot:hover,
+    .stealth-dot:focus {
+        opacity: 0.38;
+        transform: translateY(-2px);
+        outline: none;
+    }
+    .stealth-dot:focus {
+        box-shadow: 0 0 0 3px rgba(0,0,0,0.4);
     }
     </style>
 </head>
@@ -283,18 +289,16 @@
     <input type="submit" value="Cadastrar Bar">
     </form>
 
-    <!-- botão fixo inferior esquerdo (mesmo esquema das outras páginas) -->
-    <a class="back-button" href="/SubZero/views/Home_Italo/home.html">Voltar</a>
+    <!-- ponto discreto para 'Ver todos os bares' (stealth like usuario/adm) -->
+    <a href="/SubZero/public/list-bar" class="stealth-dot" aria-label="Ver todos os bares"></a>
+
+    <a href="/SubZero/public/bar/"> Cadastrar bar</a>
 
     <script>
-    // Envia o formulário via fetch, mostra mensagem de sucesso e redireciona (comportamento parecido com a outra página de cadastro)
-    (function() {
+    // Apenas monta o campo endereco_completo e permite submit normal (igual usuario/adm)
+    (function(){
         const form = document.querySelector('form');
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Monta o endereço completo antes de enviar
+        form.addEventListener('submit', function(e){
             const logradouro = document.getElementById('logradouro').value.trim();
             const numero = document.getElementById('numero').value.trim();
             const bairro = document.getElementById('bairro').value.trim();
@@ -304,29 +308,7 @@
 
             const enderecoCompleto = `${logradouro}, ${numero} - ${bairro}, ${cidade} - ${estado}, ${cep}`;
             document.getElementById('endereco_completo').value = enderecoCompleto;
-
-            // Envia via fetch (mesmo destino do form)
-            fetch(form.action, { method: 'POST', body: new FormData(form) })
-                .then(response => {
-                    if (response.ok) {
-                        // mostra mensagem temporária de sucesso
-                        const msg = document.createElement('div');
-                        msg.textContent = 'Cadastro realizado com sucesso!';
-                        msg.style.cssText = 'position:fixed; top:20px; left:50%; transform:translateX(-50%); background:#23b7d9; color:#000; padding:12px 18px; border-radius:8px; z-index:10000; font-weight:700;';
-                        document.body.appendChild(msg);
-
-                        setTimeout(() => {
-                            // redireciona para home (ajuste o caminho se necessário)
-                            window.location.href = '/SubZero/views/Home_Italo/home.html';
-                        }, 1800);
-                    } else {
-                        return response.text().then(text => { throw new Error(text || 'Erro ao cadastrar'); });
-                    }
-                })
-                .catch(err => {
-                    console.error('Erro no envio do formulário:', err);
-                    alert('Ocorreu um erro ao cadastrar. Confira os dados e tente novamente.');
-                });
+            // submit seguirá normalmente para o servidor, que deve redirecionar para a página de sucesso
         });
     })();
     </script>
