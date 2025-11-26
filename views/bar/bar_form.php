@@ -194,6 +194,26 @@
             padding: 20px 15px;
         }
     }
+    /* Botão fixo inferior esquerdo (mesmo esquema das outras páginas) */
+    .back-button {
+        color: #fff;
+        font-size: 18px;
+        text-decoration: none;
+        position: fixed;
+        bottom: 30px;
+        left: 20px;
+        background-color: rgba(0,0,0,0.7);
+        padding: 12px 16px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        z-index: 999;
+    }
+
+    .back-button:hover {
+        background-color: #C0392B;
+        transform: scale(1.05);
+    }
     </style>
 </head>
 <body>
@@ -272,26 +292,52 @@
     <input type="submit" value="Cadastrar Bar">
     </form>
 
-    <a href="/SubZero/public/list-bar"><h4>Ver todos os bares</h4></a>
-    <a href="/SubZero/public/bar/">Cadastrar bar</a>
+    <!-- botão fixo inferior esquerdo (mesmo esquema das outras páginas) -->
+    <a class="back-button" href="/SubZero/views/Home_Italo/home.html">Voltar</a>
 
     <script>
-    // filepath: c:\xampp\htdocs\SubZero\views\bar\bar_form.php
-    document.querySelector('form').addEventListener('submit', function(e) {
-        const logradouro = document.getElementById('logradouro').value.trim();
-        const numero = document.getElementById('numero').value.trim();
-        const bairro = document.getElementById('bairro').value.trim();
-        const cidade = document.getElementById('cidade').value.trim();
-        const estado = document.getElementById('estado').value.trim();
-        const cep = document.getElementById('cep').value.trim();
+    // Envia o formulário via fetch, mostra mensagem de sucesso e redireciona (comportamento parecido com a outra página de cadastro)
+    (function() {
+        const form = document.querySelector('form');
 
-        // Monta o endereço completo no formato desejado
-        const enderecoCompleto = `${logradouro}, ${numero} - ${bairro}, ${cidade} - ${estado}, ${cep}`;
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
 
-        // Preenche o campo oculto
-        document.getElementById('endereco_completo').value = enderecoCompleto;
-        // Agora deixa o submit seguir normalmente
-    });
+            // Monta o endereço completo antes de enviar
+            const logradouro = document.getElementById('logradouro').value.trim();
+            const numero = document.getElementById('numero').value.trim();
+            const bairro = document.getElementById('bairro').value.trim();
+            const cidade = document.getElementById('cidade').value.trim();
+            const estado = document.getElementById('estado').value.trim();
+            const cep = document.getElementById('cep').value.trim();
+
+            const enderecoCompleto = `${logradouro}, ${numero} - ${bairro}, ${cidade} - ${estado}, ${cep}`;
+            document.getElementById('endereco_completo').value = enderecoCompleto;
+
+            // Envia via fetch (mesmo destino do form)
+            fetch(form.action, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    if (response.ok) {
+                        // mostra mensagem temporária de sucesso
+                        const msg = document.createElement('div');
+                        msg.textContent = 'Cadastro realizado com sucesso!';
+                        msg.style.cssText = 'position:fixed; top:20px; left:50%; transform:translateX(-50%); background:#23b7d9; color:#000; padding:12px 18px; border-radius:8px; z-index:10000; font-weight:700;';
+                        document.body.appendChild(msg);
+
+                        setTimeout(() => {
+                            // redireciona para home (ajuste o caminho se necessário)
+                            window.location.href = '/SubZero/views/Home_Italo/home.html';
+                        }, 1800);
+                    } else {
+                        return response.text().then(text => { throw new Error(text || 'Erro ao cadastrar'); });
+                    }
+                })
+                .catch(err => {
+                    console.error('Erro no envio do formulário:', err);
+                    alert('Ocorreu um erro ao cadastrar. Confira os dados e tente novamente.');
+                });
+        });
+    })();
     </script>
 </body>
 </html>
