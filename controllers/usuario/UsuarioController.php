@@ -17,10 +17,15 @@ class UsuarioController {
             $usuario->email = $_POST['email'];
             $usuario->senha = $_POST['senha'];
 
-            if ($usuario->save()) {
-                header('Location: /SubZero/public/list-usuario');
-            } else {
-                echo "Erro ao cadastrar usuário.";
+            try {
+                if ($usuario->save()) {
+                    include '../VIEWS/usuario/cadastro_sucesso.php';
+                    exit;
+                } else {
+                    echo "Erro ao cadastrar usuário.";
+                }
+            } catch (Exception $e) {
+                echo "Erro ao cadastrar usuário: " . $e->getMessage();
             }
         }
     }
