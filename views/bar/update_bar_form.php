@@ -270,7 +270,14 @@
             <!-- ... -->
         </select><br><br>
 
-        <input type="hidden" id="endereco_completo" name="endereco_completo" value="<?= htmlspecialchars($barInfo['endereco_completo'] ?? '') ?>">
+    <!-- Campos de latitude e longitude (atualização) -->
+    <label for="latitude">Latitude:</label>
+    <input type="text" id="latitude" name="latitude" value="<?= htmlspecialchars($barInfo['latitude'] ?? '') ?>"><br><br>
+
+    <label for="longitude">Longitude:</label>
+    <input type="text" id="longitude" name="longitude" value="<?= htmlspecialchars($barInfo['longitude'] ?? '') ?>"><br><br>
+
+    <input type="hidden" id="endereco_completo" name="endereco_completo" value="<?= htmlspecialchars($barInfo['endereco_completo'] ?? '') ?>">
 
         <input type="submit" value="Atualizar Bar">
     </form>
